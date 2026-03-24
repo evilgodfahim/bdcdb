@@ -17,13 +17,13 @@
     },
     "https://evilgodfahim.github.io/ftint/combined.xml": {
       "fetched": 273,
-      "passed_age": 6,
-      "capped": 6
+      "passed_age": 5,
+      "capped": 5
     },
     "https://evilgodfahim.github.io/gd/merged.xml": {
       "fetched": 1000,
-      "passed_age": 20,
-      "capped": 20
+      "passed_age": 19,
+      "capped": 19
     },
     "https://evilgodfahim.github.io/nytint/combined.xml": {
       "fetched": 208,
@@ -76,9 +76,9 @@
     "DIRECT": 4521
   },
   "total_fetched": 4521,
-  "total_passed_age": 168,
-  "total_new": 65,
+  "total_passed_age": 166,
+  "total_new": 0,
   "total_signal": 0,
   "total_longread": 0,
-  "timestamp": "2026-03-24T18:54:59.406343"
+  "timestamp": "2026-03-24T18:58:40.853329"
 }
