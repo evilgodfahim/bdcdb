@@ -81,7 +81,7 @@ MAX_ARTICLES_PER_FEED = 50
 MAX_AGE_HOURS         = 4
 ALLOW_MISSING_DATES   = True
 ALLOW_OLDER           = False
-MAX_FEED_ITEMS        = 500
+MAX_FEED_ITEMS        = 500          # rolling cap per output file
 
 # -- PROMPT --------------------------------------------------------------------
 
@@ -110,7 +110,8 @@ Article titles:
 
 # -- CONSTANTS -----------------------------------------------------------------
 
-MEDIA_NS = "http://search.yahoo.com/mrss/"
+MEDIA_NS    = "http://search.yahoo.com/mrss/"
+MEDIA_TAG   = "{%s}" % MEDIA_NS          # shorthand: "{http://...}"
 ET.register_namespace("media", MEDIA_NS)
 
 BD_TZ = timezone(timedelta(hours=6))
@@ -481,74 +482,124 @@ def send_to_gemini(articles):
 
 # -- XML -----------------------------------------------------------------------
 
+def _fresh_channel(root, feed_title, feed_description):
+    """Add a blank <channel> to root and return it."""
+    channel = ET.SubElement(root, "channel")
+    ET.SubElement(channel, "title").text       = feed_title
+    ET.SubElement(channel, "link").text        = "https://yourusername.github.io/yourrepo/"
+    ET.SubElement(channel, "description").text = feed_description
+    return channel
+
+
+def _load_or_create(output_file, feed_title, feed_description):
+    """
+    Return (tree, root, channel).
+
+    Tries to parse an existing file.  If the file is absent, empty, or
+    corrupt a fresh tree is built from scratch.  The namespace prefix
+    'media' is always re-registered so ElementTree writes it correctly.
+    """
+    ET.register_namespace("media", MEDIA_NS)   # must happen before every write
+
+    if Path(output_file).exists():
+        try:
+            tree    = ET.parse(output_file)
+            root    = tree.getroot()
+            channel = root.find("channel")
+            if channel is not None:
+                return tree, root, channel
+            # root exists but channel is missing – repair
+            channel = _fresh_channel(root, feed_title, feed_description)
+            return tree, root, channel
+        except ET.ParseError:
+            pass   # fall through to create fresh
+
+    root    = ET.Element("rss", {"version": "2.0"})
+    tree    = ET.ElementTree(root)
+    channel = _fresh_channel(root, feed_title, feed_description)
+    return tree, root, channel
+
+
 def generate_xml_feed(articles, output_file, feed_title=None, feed_description=None):
     """
     Append new unique articles to the existing RSS <channel>.
-    Enforce MAX_FEED_ITEMS rolling cap by removing oldest items first.
+    Enforces a MAX_FEED_ITEMS rolling cap — oldest items (top of list) are
+    dropped first once the cap is exceeded.
     Creates the file from scratch if it does not exist.
     """
-    if Path(output_file).exists():
-        try:
-            tree = ET.parse(output_file)
-            root = tree.getroot()
-        except Exception:
-            root = ET.Element("rss", {"version": "2.0", "xmlns:media": MEDIA_NS})
-            tree = ET.ElementTree(root)
-    else:
-        root = ET.Element("rss", {"version": "2.0", "xmlns:media": MEDIA_NS})
-        tree = ET.ElementTree(root)
+    feed_title       = feed_title       or "Curated News"
+    feed_description = feed_description or "AI-curated news feed"
 
-    channel = root.find("channel")
-    if channel is None:
-        channel = ET.SubElement(root, "channel")
-        ET.SubElement(channel, "title").text       = feed_title or "Curated News"
-        ET.SubElement(channel, "link").text        = "https://yourusername.github.io/yourrepo/"
-        ET.SubElement(channel, "description").text = feed_description or "AI-curated news feed"
+    tree, root, channel = _load_or_create(output_file, feed_title, feed_description)
 
-    existing_links = set()
+    # ---- collect links that are already in the file -------------------------
+    existing_links: set[str] = set()
     for item in channel.findall("item"):
         link_el = item.find("link")
         if link_el is not None and link_el.text:
             existing_links.add(link_el.text.strip())
 
+    # ---- append new items ---------------------------------------------------
+    added = 0
     for a in articles:
-        link = a.get("link", "").strip()
+        link = (a.get("link") or "").strip()
         if not link or link in existing_links:
             continue
-        item         = ET.SubElement(channel, "item")
+
+        item = ET.SubElement(channel, "item")
         ET.SubElement(item, "title").text       = a.get("title", "") or ""
         ET.SubElement(item, "link").text        = link
-        guid_val     = a.get("id", link)
-        is_permalink = "true" if isinstance(guid_val, str) and guid_val.startswith("http") else "false"
+        guid_val     = a.get("id") or link
+        is_permalink = "true" if guid_val.startswith("http") else "false"
         ET.SubElement(item, "guid", {"isPermaLink": is_permalink}).text = guid_val
         ET.SubElement(item, "description").text = a.get("description", "") or ""
         if a.get("published"):
             ET.SubElement(item, "pubDate").text = a["published"]
+
         thumb = a.get("thumbnail")
         if thumb:
-            ET.SubElement(item, "{%s}thumbnail" % MEDIA_NS, {"url": thumb})
-            mime = a.get("thumbnail_type", get_mime_for_url(thumb))
+            ET.SubElement(
+                item,
+                MEDIA_TAG + "thumbnail",
+                {"url": thumb},
+            )
+            mime = a.get("thumbnail_type") or get_mime_for_url(thumb)
             ET.SubElement(item, "enclosure", {"url": thumb, "type": mime, "length": "0"})
+
         existing_links.add(link)
+        added += 1
 
+    # ---- rolling cap: drop oldest items (they sit at the top) ---------------
     all_items = channel.findall("item")
-    total     = len(all_items)
-    if total > MAX_FEED_ITEMS:
-        for itm in all_items[:total - MAX_FEED_ITEMS]:
-            channel.remove(itm)
+    overflow  = len(all_items) - MAX_FEED_ITEMS
+    if overflow > 0:
+        for old_item in all_items[:overflow]:   # oldest first
+            channel.remove(old_item)
 
-    last_build = channel.find("lastBuildDate")
+    # ---- update lastBuildDate -----------------------------------------------
     now_text   = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
+    last_build = channel.find("lastBuildDate")
     if last_build is None:
         ET.SubElement(channel, "lastBuildDate").text = now_text
     else:
         last_build.text = now_text
 
+    # ---- write --------------------------------------------------------------
     try:
-        ET.indent(tree, "  ")
-    except Exception:
-        pass
-    tree.write(output_file, encoding="utf-8", xml_declaration=True)
+        ET.indent(tree, space="  ")
+    except AttributeError:
+        pass   # Python < 3.9 — skip pretty-printing
+
+    tree.write(output_file, encoding="unicode", xml_declaration=False)
+
+    # Prepend a clean UTF-8 declaration manually so readers are happy
+    with open(output_file, "r+", encoding="utf-8") as fh:
+        body = fh.read()
+        fh.seek(0)
+        fh.write('<?xml version="1.0" encoding="UTF-8"?>\n' + body)
+        fh.truncate()
+
+    return added
 
 # -- STATS ---------------------------------------------------------------------
 
