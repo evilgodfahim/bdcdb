@@ -73,7 +73,7 @@ KL_API_FEEDS = set()
 # -- CONFIG --------------------------------------------------------------------
 
 GEMINI_MODEL          = "gemini-3-flash-preview"
-DEDUP_MODEL           = "gemini-2.5-flash"
+DEDUP_MODEL           = "gemini-2.5-flash-preview-04-17"
 PROCESSED_FILE        = "processed_articles.json"
 SELECTED_FILE         = "selected_articles.json"
 OUTPUT_XML            = "curated_feed.xml"
@@ -747,15 +747,12 @@ def main():
     STATS["total_signal"]   = len(signal_articles)
     STATS["total_longread"] = len(longread_articles)
 
-    # --- Step 2: deduplicate each bucket with Gemini 2.5 Flash ---------------
+    # --- Step 2: deduplicate signal only with Gemini 2.5 Flash ---------------
     print(f"Deduplicating {len(signal_articles)} signal article(s)...")
-    signal_articles   = deduplicate_articles(signal_articles)
-
-    print(f"Deduplicating {len(longread_articles)} longread article(s)...")
-    longread_articles = deduplicate_articles(longread_articles)
+    signal_articles = deduplicate_articles(signal_articles)
 
     STATS["total_signal_deduped"]   = len(signal_articles)
-    STATS["total_longread_deduped"] = len(longread_articles)
+    STATS["total_longread_deduped"] = len(longread_articles)  # no dedup, same as classified
 
     # --- Step 3: write XML feeds ---------------------------------------------
     generate_xml_feed(
