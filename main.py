@@ -90,7 +90,7 @@ MAX_FEED_ITEMS        = 500          # rolling cap per output file
 # -- PROMPT --------------------------------------------------------------------
 
 PROMPT = """You are a news classification engine. Classify each headline into exactly one bucket.
-SIGNAL — news that matters globally or within Bangladesh: major international events, geopolitical developments involving multiple countries, or Bangladesh developments that meaningfully affect a large portion of the population (major policy shifts, economic crises, political upheaval, governance changes). Isolated incidents, local events, or routine Bangladesh news do not qualify.
+SIGNAL — news that matters globally or within Bangladesh: major international events, geopolitical developments involving multiple countries, or Bangladesh developments that meaningfully affect a large portion of the population (major policy shifts, economic crises, political upheaval, governance changes). Isolated incidents, local events, or routine Bangladesh news do not qualify. The bar is SUPER HIGH; (LOWEST < LOWER < LOW < AVERAGE < HIGH < SUPER HIGH < ULTRA HIGH < EXTREME).
 LONGREAD — worth reading but not urgent: high-quality in-depth reporting, investigations, features, or thoughtful essays on culture, science, history, or society that reward careful reading. Excludes celebrity profiles, trend pieces, and routine human-interest stories.
 NOISE — everything else: any non-Bangladesh country's internal politics, elections, policy disputes, business news, or market moves — plus isolated Bangladesh incidents, sports, entertainment, celebrity gossip, lifestyle, routine official statements, and clickbait.
 Rules:
