@@ -2,13 +2,18 @@
   "per_feed": {
     "https://www.newyorker.com/feed/rss": {
       "fetched": 30,
-      "passed_age": 1,
-      "capped": 1
+      "passed_age": 2,
+      "capped": 2
+    },
+    "https://feeds2.feedburner.com/businessinsider": {
+      "fetched": 50,
+      "passed_age": 10,
+      "capped": 10
     },
     "https://feeds.feedburner.com/TheAtlantic": {
       "fetched": 25,
-      "passed_age": 1,
-      "capped": 1
+      "passed_age": 2,
+      "capped": 2
     },
     "https://evilgodfahim.github.io/tm/feeds/feed.xml": {
       "fetched": 55,
@@ -22,13 +27,13 @@
     },
     "https://evilgodfahim.github.io/gd/merged.xml": {
       "fetched": 1000,
-      "passed_age": 3,
-      "capped": 3
+      "passed_age": 8,
+      "capped": 8
     },
     "https://evilgodfahim.github.io/nytint/combined.xml": {
-      "fetched": 296,
-      "passed_age": 3,
-      "capped": 3
+      "fetched": 298,
+      "passed_age": 5,
+      "capped": 5
     },
     "https://evilgodfahim.github.io/wpint/combined.xml": {
       "fetched": 47,
@@ -41,9 +46,9 @@
       "capped": 5
     },
     "https://en.prothomalo.com/feed/": {
-      "fetched": 0,
-      "passed_age": 0,
-      "capped": 0
+      "fetched": 3,
+      "passed_age": 3,
+      "capped": 3
     },
     "https://evilgodfahim.github.io/fen/feeds/feed.xml": {
       "fetched": 98,
@@ -52,25 +57,25 @@
     },
     "https://evilgodfahim.github.io/tbs/articles.xml": {
       "fetched": 1000,
-      "passed_age": 0,
-      "capped": 0
+      "passed_age": 8,
+      "capped": 8
     },
     "https://evilgodfahim.github.io/dstar/feeds/feed.xml": {
-      "fetched": 381,
-      "passed_age": 33,
-      "capped": 33
+      "fetched": 383,
+      "passed_age": 35,
+      "capped": 35
     }
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 3603
+    "DIRECT": 3660
   },
-  "total_fetched": 3603,
-  "total_passed_age": 57,
-  "total_new": 24,
-  "total_signal": 8,
+  "total_fetched": 3660,
+  "total_passed_age": 89,
+  "total_new": 32,
+  "total_signal": 10,
   "total_longread": 2,
-  "timestamp": "2026-03-27T02:55:04.867125",
-  "total_signal_deduped": 4,
+  "timestamp": "2026-03-27T04:41:44.437771",
+  "total_signal_deduped": 8,
   "total_longread_deduped": 2
 }
