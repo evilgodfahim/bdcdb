@@ -7,28 +7,28 @@
     },
     "https://feeds.feedburner.com/TheAtlantic": {
       "fetched": 25,
-      "passed_age": 5,
-      "capped": 5
+      "passed_age": 1,
+      "capped": 1
     },
     "https://evilgodfahim.github.io/tm/feeds/feed.xml": {
-      "fetched": 54,
+      "fetched": 55,
       "passed_age": 3,
       "capped": 3
     },
     "https://evilgodfahim.github.io/ftint/combined.xml": {
-      "fetched": 439,
-      "passed_age": 10,
-      "capped": 10
+      "fetched": 447,
+      "passed_age": 8,
+      "capped": 8
     },
     "https://evilgodfahim.github.io/gd/merged.xml": {
       "fetched": 1000,
-      "passed_age": 13,
-      "capped": 13
+      "passed_age": 3,
+      "capped": 3
     },
     "https://evilgodfahim.github.io/nytint/combined.xml": {
-      "fetched": 293,
-      "passed_age": 8,
-      "capped": 8
+      "fetched": 296,
+      "passed_age": 3,
+      "capped": 3
     },
     "https://evilgodfahim.github.io/wpint/combined.xml": {
       "fetched": 47,
@@ -36,9 +36,9 @@
       "capped": 0
     },
     "https://evilgodfahim.github.io/wsjint/combined.xml": {
-      "fetched": 219,
-      "passed_age": 3,
-      "capped": 3
+      "fetched": 224,
+      "passed_age": 5,
+      "capped": 5
     },
     "https://en.prothomalo.com/feed/": {
       "fetched": 0,
@@ -52,25 +52,25 @@
     },
     "https://evilgodfahim.github.io/tbs/articles.xml": {
       "fetched": 1000,
-      "passed_age": 8,
-      "capped": 8
+      "passed_age": 0,
+      "capped": 0
     },
     "https://evilgodfahim.github.io/dstar/feeds/feed.xml": {
-      "fetched": 378,
+      "fetched": 381,
       "passed_age": 33,
       "capped": 33
     }
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 3583
+    "DIRECT": 3603
   },
-  "total_fetched": 3583,
-  "total_passed_age": 84,
-  "total_new": 30,
-  "total_signal": 17,
-  "total_longread": 4,
-  "timestamp": "2026-03-26T22:38:18.950585",
-  "total_signal_deduped": 13,
-  "total_longread_deduped": 4
+  "total_fetched": 3603,
+  "total_passed_age": 57,
+  "total_new": 24,
+  "total_signal": 8,
+  "total_longread": 2,
+  "timestamp": "2026-03-27T02:55:04.867125",
+  "total_signal_deduped": 4,
+  "total_longread_deduped": 2
 }
