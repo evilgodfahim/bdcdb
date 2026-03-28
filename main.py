@@ -50,6 +50,8 @@ FEED_URLS = [
     "https://evilgodfahim.github.io/fen/feeds/feed.xml",
     "https://evilgodfahim.github.io/tbs/articles.xml",
     "https://evilgodfahim.github.io/dstar/feeds/feed.xml",
+
+"https://scour.ing/@evilgod/rss.xml?all_feeds=true&show_seen=true"
 ]
 
 EXISTING_API_FEEDS = {
@@ -68,6 +70,8 @@ EXISTING_API_FEEDS = {
     "https://evilgodfahim.github.io/fen/feeds/feed.xml",
     "https://evilgodfahim.github.io/tbs/articles.xml",
     "https://evilgodfahim.github.io/dstar/feeds/feed.xml",
+
+"https://scour.ing/@evilgod/rss.xml?all_feeds=true&show_seen=true"
 }
 
 KL_API_FEEDS = set()
