@@ -3855,5 +3855,65 @@
     "description": "",
     "published": "Mon, 30 Mar 2026 12:20:00 +0600",
     "source": "https://politepaul.com/fd/21OlmKwnfsTw.xml"
+  },
+  {
+    "id": "https://www.tbsnews.net/bangladesh/rain-thunderstorms-likely-across-country-1397336",
+    "title": "Rain, thunderstorms likely across country",
+    "link": "https://www.tbsnews.net/bangladesh/rain-thunderstorms-likely-across-country-1397336",
+    "description": "",
+    "published": "Mon, 30 Mar 2026 12:49:40 +0600",
+    "source": "https://evilgodfahim.github.io/tbs/articles.xml",
+    "thumbnail": "https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2025/05/20/rain_dhaka_20-may.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.tbsnews.net/economy/adb-provide-1b-bangladesh-seeks-cushion-mideast-war-shocks-1397276",
+    "title": "ADB to provide $1b as Bangladesh seeks to cushion Mideast war shocks",
+    "link": "https://www.tbsnews.net/economy/adb-provide-1b-bangladesh-seeks-cushion-mideast-war-shocks-1397276",
+    "description": "",
+    "published": "Mon, 30 Mar 2026 12:49:40 +0600",
+    "source": "https://evilgodfahim.github.io/tbs/articles.xml",
+    "thumbnail": "https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2025/06/20/adb_manilla.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.tbsnews.net/world/pakistan-prepares-host-peace-talks-iran-accuses-us-ground-assault-plans-1397311",
+    "title": "Pakistan prepares to host peace talks as Iran accuses US of ground assault plans",
+    "link": "https://www.tbsnews.net/world/pakistan-prepares-host-peace-talks-iran-accuses-us-ground-assault-plans-1397311",
+    "description": "",
+    "published": "Mon, 30 Mar 2026 12:49:40 +0600",
+    "source": "https://evilgodfahim.github.io/tbs/articles.xml",
+    "thumbnail": "https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2026/03/30/untitled_design_18.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.dhakatribune.com/bangladesh/406497/pm-opens-sports-allowance-sports-card-program",
+    "title": "PM opens sports allowance, sports card program",
+    "link": "https://www.dhakatribune.com/bangladesh/406497/pm-opens-sports-allowance-sports-card-program",
+    "description": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"https://ecdn.dhakatribune.net/contents/cache/images/300x300x1/uploads/media/2026/03/30/bcefcd00c7293b5e921556889000ec42-69ca1b54cc3b5.jpg?jadewits_media_id=62882\" style=\"float: left; margin: 0 10px 10px 0;\" width=\"150\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\tPrime Minister Tarique Rahman on Monday inaugurated the sports allowance and sports card programs for national athletes at the Shapla Hall of the Prime Minister's Office (PMO) in the city's Tejgaon area.&nbsp;\nThe premier inaugurated the monthly allowance program around 10:30am by pressing a button on a laptop when an amount of Tk100,000 was instantly transferred to each athlete's accounts...\t\t\t\t\t\t<a class=\"more_link\" href=\"https://www.dhakatribune.com/bangladesh/406497/pm-opens-sports-allowance-sports-card-program\">Details</a>\n\t\t\t\t\t</p>",
+    "published": "Mon, 30 Mar 2026 12:49:40 +0600",
+    "source": "https://www.dhakatribune.com/feed/",
+    "thumbnail": "https://ecdn.dhakatribune.net/contents/cache/images/300x300x1/uploads/media/2026/03/30/bcefcd00c7293b5e921556889000ec42-69ca1b54cc3b5.jpg?jadewits_media_id=62882",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.tbsnews.net/world/south-asia/pakistan-afghanistan-trade-fire-islamabad-prepares-host-us-iran-talks-1397501",
+    "title": "Pakistan, Afghanistan trade fire as Islamabad prepares to host US-Iran talks",
+    "link": "https://www.tbsnews.net/world/south-asia/pakistan-afghanistan-trade-fire-islamabad-prepares-host-us-iran-talks-1397501",
+    "description": "The border clashes came on Sunday, the day Pakistan hosted regional powers to discuss de-escalation in the war in the Middle East, with an announcement that Islamabad could host the talks in coming days",
+    "published": "Mon, 30 Mar 2026 12:49:40 +0600",
+    "source": "https://tbsnews.net/top-news/rss.xml",
+    "thumbnail": "https://www.tbsnews.net/sites/default/files/styles/medium/public/images/2026/03/30/pakistan_security_checkpoint.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.tbsnews.net/worldbiz/middle-east/trump-weighs-military-operation-seize-iranian-uranium-stockpile-1397491",
+    "title": "Trump weighs military operation to seize Iranian uranium stockpile",
+    "link": "https://www.tbsnews.net/worldbiz/middle-east/trump-weighs-military-operation-seize-iranian-uranium-stockpile-1397491",
+    "description": "Trump remains generally open to the idea because it could support his goal of preventing Iran from developing a nuclear weapon, the officials said",
+    "published": "Mon, 30 Mar 2026 12:49:40 +0600",
+    "source": "https://tbsnews.net/top-news/rss.xml",
+    "thumbnail": "https://www.tbsnews.net/sites/default/files/styles/medium/public/images/2025/10/15/usa_donald_trump_0.jpg",
+    "thumbnail_type": "image/jpeg"
   }
 ]
