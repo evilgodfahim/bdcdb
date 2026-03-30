@@ -127,7 +127,7 @@ International track — confirmed, cross-border consequence only:
 - Major economy trade policy enacted with verified cascade (US, China, EU tariffs directly affecting Bangladesh's export sectors)
 - Binding UNSC, IMF, or World Bank decision imposing conditions on member states
 
-NEVER signal: domestic politics of any single country, economic statistics and data releases, diplomatic meetings without a binding signed outcome, company/market news, protests without confirmed structural outcome, anything speculative.
+NEVER signal: domestic politics of any single country except Bangladesh, economic statistics and data releases except bangladesh with high impact, diplomatic meetings without a binding signed outcome, company/market news, protests without confirmed structural outcome, anything speculative.
 
 ─── LONGREAD (both gates cleared + exceptional depth) ───
 
