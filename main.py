@@ -35,79 +35,63 @@ except Exception:
 # -- FEEDS ---------------------------------------------------------------------
 
 FEED_URLS = [
-    "https://www.newyorker.com/feed/rss",
-
-"https://feeds2.feedburner.com/businessinsider",
-    "https://feeds.feedburner.com/TheAtlantic",
-    "https://evilgodfahim.github.io/tm/feeds/feed.xml",
-    "https://evilgodfahim.github.io/ftint/combined.xml",
-    "https://evilgodfahim.github.io/gd/merged.xml",
-    "https://evilgodfahim.github.io/nytint/combined.xml",
-    "https://evilgodfahim.github.io/wpint/combined.xml",
-    "https://evilgodfahim.github.io/wsjint/combined.xml",
-
-"https://theweek.com/rss.xml",
-
-"https://www.wired.com/feed/rss",
-
-"https://www.newstatesman.com/feed",
-
-"https://www.thenation.com/rss/articles",
-
-"https://evilgodfahim.github.io/sp/feeds/spectator_en.xml",
-
-"https://evilgodfahim.github.io/sp/feeds/spectator_us.xml",
-
-"https://evilgodfahim.github.io/fto/combined.xml",
-    "https://evilgodfahim.github.io/nytop/combined.xml",
-    "https://evilgodfahim.github.io/wpo/combined.xml",
-    "https://evilgodfahim.github.io/wsjop/combined.xml", 
-
-"https://evilgodfahim.github.io/lemonde/combined.xml",
-
-"https://www.thewirechina.com/feed/"
+    "https://politepaul.com/fd/XeBbNkFKkjmd.xml",
+    "https://evilgodfahim.github.io/ds/todays_news.xml",
+    "https://scour.ing/@evilgod/rss.xml?all_feeds=true&show_seen=true",
+    "https://politepaul.com/fd/0TStH0zYYM8c.xml",
+    "https://politepaul.com/fd/3m9q0iF1EzJ2.xml",
+    "https://politepaul.com/fd/yeNoVuPeGNWs.xml",
+    "https://evilgodfahim.github.io/fen/feeds/feed.xml",
+    "https://evilgodfahim.github.io/dt/home.xml",
+    "https://evilgodfahim.github.io/bd24ar/feeds/feed.xml",
+    "https://evilgodfahim.github.io/dstar/feeds/feed.xml",
+    "https://politepaul.com/fd/BNnVF6SFDNH6.xml",
+    "https://evilgodfahim.github.io/ds/printversion.xml",
+    "https://evilgodfahim.github.io/ep/articles.xml",
+    "https://evilgodfahim.github.io/tbs/articles.xml",
+    "https://en.prothomalo.com/feed/",
+    "https://politepaul.com/fd/Pn9wugG4g42C.xml",
+    "https://politepaul.com/fd/21OlmKwnfsTw.xml",
+    "https://politepaul.com/fd/VIlzpA0MbbHm.xml",
+    "https://politepaul.com/fd/f00yRr7PLSMu.xml",
+    "https://politepaul.com/fd/xc2pTQHeZUOC.xml",
+    "https://www.dhakatribune.com/feed/",
+    "https://politepaul.com/fd/iKMgfQUipZA9.xml",
+    "https://politepaul.com/fd/f7rFbVTC58eK.xml",
+    "https://tbsnews.net/top-news/rss.xml",
+    "https://politepaul.com/fd/svZEZwEXeeYC.xml",
+    "https://politepaul.com/fd/pL68k3eA2SrA.xml",
+    "https://politepaul.com/fd/qmEwvjQrNyvg.xml",
+    "https://politepaul.com/fd/lHWPAUKpkaqz.xml",
+    "https://politepaul.com/fd/jvYL3YgY1MBF.xml",
+    "https://politepaul.com/fd/V9Hk3fW83a2N.xml",
+    "https://politepaul.com/fd/252sONZTOIDX.xml",
+    "https://politepaul.com/fd/hYxyD0YIwERV.xml",
+    "https://politepaul.com/fd/vkBVLkhLdU6Y.xml",
+    "https://politepaul.com/fd/42bU3PeKaKjf.xml",
+    "https://politepaul.com/fd/LVSKNhzXbhYo.xml",
+    "https://politepaul.com/fd/OjCZkOYZbLN7.xml",
+    "https://politepaul.com/fd/v9TSVivdwFVs.xml",
+    "https://politepaul.com/fd/p5BVufmsBqUz.xml",
+    "https://politepaul.com/fd/kou0r2KPN9at.xml",
+    "https://politepaul.com/fd/6zKiQKWFbWFd.xml",
+    "https://evilgodfahim.github.io/ds/business.xml",
+    "https://politepaul.com/fd/BaUjoEn6s1Rx.xml",
+    "https://politepaul.com/fd/cjcFELwr80sj.xml",
+    "https://evilgodfahim.github.io/bl/result.xml",
 ]
 
-EXISTING_API_FEEDS = {
-    "https://www.newyorker.com/feed/rss",
-
-"https://feeds2.feedburner.com/businessinsider",
-    "https://feeds.feedburner.com/TheAtlantic",
-    "https://evilgodfahim.github.io/tm/feeds/feed.xml",
-    "https://evilgodfahim.github.io/ftint/combined.xml",
-    "https://evilgodfahim.github.io/gd/merged.xml",
-    "https://evilgodfahim.github.io/nytint/combined.xml",
-    "https://evilgodfahim.github.io/wpint/combined.xml",
-    "https://evilgodfahim.github.io/wsjint/combined.xml",
-
-"https://theweek.com/rss.xml",
-
-"https://www.wired.com/feed/rss",
-
-"https://www.newstatesman.com/feed",
-
-"https://www.thenation.com/rss/articles",
-
-"https://evilgodfahim.github.io/sp/feeds/spectator_en.xml",
-
-"https://evilgodfahim.github.io/sp/feeds/spectator_us.xml",
-
-"https://evilgodfahim.github.io/fto/combined.xml",
-    "https://evilgodfahim.github.io/nytop/combined.xml",
-    "https://evilgodfahim.github.io/wpo/combined.xml",
-    "https://evilgodfahim.github.io/wsjop/combined.xml",
-
-"https://evilgodfahim.github.io/lemonde/combined.xml",
-
-"https://www.thewirechina.com/feed/"
-}
+EXISTING_API_FEEDS = set(FEED_URLS)  # all fetched directly
 
 KL_API_FEEDS = set()
 
 # -- CONFIG --------------------------------------------------------------------
 
-GEMINI_MODEL          = "gemini-3-flash-preview"
-DEDUP_MODEL           = "gemini-2.5-flash"
+# NOTE: verify the exact model string against your Gemini API docs.
+# Common variants: "gemini-2.5-flash-lite", "gemini-2.5-flash-lite-preview-06-17"
+GEMINI_MODEL          = "gemini-2.5-flash-lite"
+DEDUP_MODEL           = "gemini-2.5-flash-lite"
+
 PROCESSED_FILE        = "processed_articles.json"
 SELECTED_FILE         = "selected_articles.json"
 OUTPUT_XML            = "curated_feed.xml"
@@ -121,38 +105,79 @@ MAX_FEED_ITEMS        = 500          # rolling cap per output file
 
 # -- PROMPT --------------------------------------------------------------------
 
-PROMPT = """You are a news classification engine. Classify each headline into exactly one bucket.
-SIGNAL — news that matters globally or within Bangladesh: major international events, geopolitical developments involving multiple countries, or Bangladesh developments that meaningfully affect a large portion of the population (major policy shifts, economic crises, political upheaval, governance changes). Isolated incidents, local events, or routine Bangladesh news do not qualify. The bar is ULTRA HIGH; (LOWEST < LOWER < LOW < AVERAGE < HIGH < SUPER HIGH < ULTRA HIGH < EXTREME).
-LONGREAD — worth reading but not urgent: high-quality in-depth reporting, investigations, features, or thoughtful essays on culture, science, history, or society that reward careful reading. Excludes celebrity profiles, trend pieces, and routine human-interest stories. Single person reladed titles are strictly prohibited, unless the person holds or held a position that can/could affect the concurrent situation of the world. 
-In the case of longreads, the bar is between ULTRA HIGH and EXTREME 
-NOISE — everything else: any non-Bangladesh country's internal politics, elections, policy disputes, business news, or market moves — plus isolated Bangladesh incidents, sports, entertainment, celebrity gossip, lifestyle, routine official statements, and clickbait.
+PROMPT = """You are a news classification engine. Your reader is Bangladesh-focused with a strong interest in international geopolitics. Classify each headline into exactly one bucket.
+
+SIGNAL — Two tracks, both requiring an ULTRA HIGH bar. Routine news, expected developments, and anything merely continuing an existing trend do not qualify regardless of topic.
+
+  TRACK A · Bangladesh: A development that structurally alters conditions for a large portion of the population. Qualifying categories:
+    - Major policy enacted, reversed, or blocked (fuel prices, import/export rules, monetary policy, tax regime)
+    - Economic shocks: currency crisis, banking system failure, IMF/World Bank negotiations or conditions, balance-of-payments stress, sovereign debt developments
+    - Political upheaval: government collapse, constitutional crisis, contested elections, mass arrests of political figures, large-scale crackdown
+    - Governance breakdown at scale: institutional failure, emergency declarations, judicial decisions with broad structural effect
+    - Security and geopolitical dimension: India-Bangladesh relations, Rohingya crisis developments, border conflict, regional power dynamics involving Bangladesh
+    - Large-scale environmental or public health emergency: floods displacing millions, cyclone landfall and response, epidemic affecting the national health system
+    The test: does this change how Bangladesh functions structurally — not just report on activity within it?
+
+  TRACK B · International geopolitics: Events directly involving multiple countries or major international bodies where the outcome shifts regional or global order.
+    - Active wars, ceasefires, major offensives, occupation changes
+    - Treaties, sanctions regimes, binding international agreements
+    - Nuclear or WMD developments
+    - Cross-border mass displacement, refugee crises with diplomatic dimensions
+    - Major power confrontations (US-China, US-Russia, India-Pakistan, Middle East power dynamics)
+    - Decisions by UN Security Council, IMF, World Bank, or WTO that bind multiple nations
+    - Global trade and economic developments with verified multi-country cascade effect: major tariff regimes imposed by large economies (US, China, EU), commodity price shocks affecting import-dependent economies, supply chain ruptures with global reach, trade agreement changes that directly alter market access for Bangladesh's key export sectors (garments, textiles), or G7/G20 coordinated economic decisions
+    One country's domestic politics — however dramatic — is NOISE unless it triggers verified cross-border consequences.
+
+LONGREAD — Writing that rewards slow, careful reading. Bar: between ULTRA HIGH and EXTREME. Qualifying:
+    - Original investigations with new reporting (corruption, institutional failure, hidden systems)
+    - Data-driven features that expose structural patterns
+    - Long-form essays on history, science, economics, society, or culture that advance understanding
+    - Deeply reported narratives about places, systems, or phenomena (not people) with consequences beyond the individual
+    Strictly excluded: op-eds without original reporting, trend pieces, celebrity or politician profiles, human-interest padding, anything that rephrases a wire story at length, advice columns, "10 things" formats.
+    Exception: A profile of a person who currently holds or recently held a position with direct and proven consequence on an ongoing global or Bangladesh situation may qualify.
+
+NOISE — everything else, including:
+    - Any country's domestic politics, elections, or policy disputes with no cross-border impact
+    - Isolated Bangladesh incidents: crime, accidents, arrests, fires, local disputes
+    - Sports, entertainment, lifestyle, food, travel, health tips, fashion
+    - Routine government statements, press conferences, ministerial visits, appointments, inaugurations
+    - Business earnings, stock/market moves, product launches, company news (unless signaling a systemic crisis)
+    - Speculation: headlines using "may," "could," "might," "expected to," without a confirmed development
+    - Opinion pieces without original reporting or analysis
+    - Clickbait, listicles, feel-good stories, awards, records broken
+
 Rules:
-- If a headline could fit both SIGNAL and LONGREAD, always choose SIGNAL.
-- Use only the headline text. Indices are 0-based.
-- Omit all noise indices from the output entirely.
+- If a headline fits both SIGNAL and LONGREAD, always choose SIGNAL.
+- Classify using headline text only. Indices are 0-based.
+- Omit all noise indices entirely from the output.
 - Return only valid JSON. No markdown, no backticks, no preamble.
-Tricky cases to guide you:
-- Bangladesh policy or economic decision with broad national impact → SIGNAL.
-- An isolated Bangladesh incident or local event → NOISE, not SIGNAL.
-- A routine Bangladesh government statement with no new development → NOISE.
-- Any other country's domestic politics or policy with no cross-border impact → NOISE.
-- A geopolitical event involving multiple countries or international bodies → SIGNAL.
-- National business or market news from any non-Bangladesh country → NOISE unless it signals a global crisis.
-- A think-piece on an international subject with genuine global scope → SIGNAL, not LONGREAD.
-- A detailed profile or feature on a person with no global or broad Bangladesh consequence → LONGREAD, not SIGNAL.
+
+Tricky cases to guide calibration:
+- Bangladesh Bank raises key interest rate amid inflation crisis → SIGNAL (monetary policy with structural consequence)
+- BNP holds rally in Dhaka → NOISE (routine political activity, no confirmed structural development)
+- Bangladesh garment workers strike shuts 300 factories → SIGNAL (large-scale economic disruption)
+- Man held in Ctg drug bust → NOISE (isolated incident)
+- IMF approves $4.7bn bailout for Bangladesh with structural conditions → SIGNAL (Track A, economic)
+- India-Bangladesh water-sharing talks collapse → SIGNAL (Track B, cross-border geopolitics)
+- Dhaka air quality ranks worst globally for third month → NOISE (ongoing situation, no new structural trigger)
+- Gaza ceasefire collapses as fighting resumes → SIGNAL (Track B, active conflict shift)
+- France elects new president → NOISE (domestic politics, no confirmed cross-border consequence)
+- The secret architecture of global dollar dominance → LONGREAD (structural feature, global consequence)
+- How Dhaka's informal economy absorbed the inflation shock → LONGREAD (structural, BD-specific, analytical)
+- Celebrity couple announces divorce → NOISE
 
 Examples:
-Input: ["US and China sign landmark trade agreement", "Premier League club sacks manager", "How the Ottoman Empire collapsed", "Bangladesh central bank raises interest rates amid inflation crisis", "UK Conservative Party elects new leader", "UN warns of imminent famine across the Horn of Africa"]
-Output: {{"signal": [0, 3, 5], "longread": [2]}}
+Input: ["Bangladesh Bank raises key rate amid stubborn inflation", "Awami League rally held in Dhaka", "Man arrested in Chittagong for fraud", "Russia and Ukraine agree to ceasefire", "France elects new president", "The secret architecture of global dollar dominance", "US imposes fresh sanctions on Iran over nuclear program", "Bangladesh garment exports hit record high"]
+Output: {"signal": [0, 3, 6], "longread": [5]}
 
-Input: ["India and Pakistan exchange fire across Line of Control", "Dhaka garment workers strike shuts down hundreds of factories", "The secret history of Antarctic exploration", "Australia holds federal election", "Celebrity couple announces divorce", "IMF approves emergency loan for Bangladesh"]
-Output: {{"signal": [0, 1, 5], "longread": [2]}}
+Input: ["IMF approves $4.7bn loan for Bangladesh with conditions", "BNP demands caretaker government", "How microplastics infiltrated the global food supply", "India-Bangladesh water-sharing talks collapse", "England wins cricket series", "Dhaka air quality hazardous for third week running"]
+Output: {"signal": [0, 3], "longread": [2]}
 
-Input: ["Gaza ceasefire collapses as fighting resumes", "Bangladesh government slashes fuel subsidies nationwide", "A deep dive into the life of a Sundarbans honey collector", "France passes new immigration law", "How microplastics are entering the human bloodstream", "Local man wins national baking competition"]
-Output: {{"signal": [0, 1], "longread": [2, 4]}}
+Input: ["Bangladesh scraps coal power deals under climate pressure", "Dhaka restaurant review: best biryani spots", "The long unraveling of Lebanon's banking system", "US House passes spending bill", "China and Philippines clash over disputed South China Sea reef", "Nobel peace prize announced"]
+Output: {"signal": [0, 4], "longread": [2]}
 
-Article titles:
-{titles}
+Input: ["US imposes sweeping tariffs on all imports, garment sector braces for impact", "Oil prices collapse to three-year low on demand fears", "Bangladesh textile exporters warn of order cancellations after EU GSP review", "Global shipping costs surge after Red Sea attacks disrupt trade routes", "Prime Minister attends World Economic Forum in Davos", "UK autumn budget: tax rises and spending cuts"]
+Output: {"signal": [0, 1, 2, 3], "longread": []}
 """
 
 DEDUP_PROMPT = """You are a news deduplication engine. You will receive a numbered list of article titles.
@@ -172,7 +197,7 @@ Article titles:
 # -- CONSTANTS -----------------------------------------------------------------
 
 MEDIA_NS    = "http://search.yahoo.com/mrss/"
-MEDIA_TAG   = "{%s}" % MEDIA_NS          # shorthand: "{http://...}"
+MEDIA_TAG   = "{%s}" % MEDIA_NS
 ET.register_namespace("media", MEDIA_NS)
 
 BD_TZ = timezone(timedelta(hours=6))
@@ -521,7 +546,7 @@ def extract_json_object(text):
 
 
 def send_to_gemini(articles):
-    """Single Gemini 3 Flash call. Returns {"signal": [...], "longread": [...]}."""
+    """Single Gemini call. Returns {"signal": [...], "longread": [...]}."""
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key or not articles:
         return {"signal": [], "longread": []}
@@ -555,7 +580,7 @@ def send_to_gemini(articles):
 
 def deduplicate_articles(articles):
     """
-    Send article titles to Gemini 2.5 Flash.
+    Send article titles to Gemini.
     Returns a deduplicated subset of `articles`, preserving order.
     Near-identical or same-story titles are collapsed to the first occurrence.
     Falls back to returning all articles unchanged on any error.
@@ -580,11 +605,9 @@ def deduplicate_articles(articles):
             config={"response_mime_type": "application/json"},
         )
 
-        # Parse response — expect a plain JSON array of ints, e.g. [0, 1, 3, 5]
         raw = response.text if hasattr(response, "text") else ""
         raw = raw.replace("```json", "").replace("```", "").strip()
 
-        # Try direct array parse first
         keep_indices = None
         try:
             parsed = json.loads(raw)
@@ -593,7 +616,6 @@ def deduplicate_articles(articles):
         except Exception:
             pass
 
-        # Fallback: extract array from inside any surrounding object
         if keep_indices is None:
             m = re.search(r"\[[\d,\s]+\]", raw)
             if m:
@@ -609,8 +631,6 @@ def deduplicate_articles(articles):
             print("Dedup: could not parse response, keeping all articles.")
             return articles
 
-        # Preserve original ordering; indices returned by model are already ordered,
-        # but sort just in case.
         keep_indices = sorted(set(keep_indices))
         deduped = [articles[i] for i in keep_indices]
         dropped = len(articles) - len(deduped)
@@ -636,10 +656,7 @@ def _fresh_channel(root, feed_title, feed_description):
 def _load_or_create(output_file, feed_title, feed_description):
     """
     Return (tree, root, channel).
-
-    Tries to parse an existing file.  If the file is absent, empty, or
-    corrupt a fresh tree is built from scratch.  The namespace prefix
-    'media' is always re-registered so ElementTree writes it correctly.
+    Tries to parse an existing file. If absent, empty, or corrupt, builds fresh.
     """
     ET.register_namespace("media", MEDIA_NS)
 
@@ -664,8 +681,7 @@ def _load_or_create(output_file, feed_title, feed_description):
 def generate_xml_feed(articles, output_file, feed_title=None, feed_description=None):
     """
     Append new unique articles to the existing RSS <channel>.
-    Enforces a MAX_FEED_ITEMS rolling cap — oldest items (top of list) are
-    dropped first once the cap is exceeded.
+    Enforces a MAX_FEED_ITEMS rolling cap — oldest items (top of list) dropped first.
     Creates the file from scratch if it does not exist.
     """
     feed_title       = feed_title       or "Curated News"
@@ -740,13 +756,13 @@ def generate_xml_feed(articles, output_file, feed_title=None, feed_description=N
 
 def print_stats():
     print("\nFetch statistics:")
-    print(f"  Timestamp:           {STATS.get('timestamp')}")
-    print(f"  Total fetched:       {STATS['total_fetched']}  (raw entries from all feeds)")
-    print(f"  Passed age cut:      {STATS['total_passed_age']}  (within {MAX_AGE_HOURS}h window)")
-    print(f"  New (unseen):        {STATS['total_new']}")
-    print(f"  Signal (classified): {STATS['total_signal']}")
-    print(f"  Signal (after dedup):{STATS['total_signal_deduped']}  -> {OUTPUT_XML}")
-    print(f"  Longread (classified):{STATS['total_longread']}")
+    print(f"  Timestamp:             {STATS.get('timestamp')}")
+    print(f"  Total fetched:         {STATS['total_fetched']}  (raw entries from all feeds)")
+    print(f"  Passed age cut:        {STATS['total_passed_age']}  (within {MAX_AGE_HOURS}h window)")
+    print(f"  New (unseen):          {STATS['total_new']}")
+    print(f"  Signal (classified):   {STATS['total_signal']}")
+    print(f"  Signal (after dedup):  {STATS['total_signal_deduped']}  -> {OUTPUT_XML}")
+    print(f"  Longread (classified): {STATS['total_longread']}")
     print(f"  Longread (after dedup):{STATS['total_longread_deduped']}  -> {LONGREAD_XML}")
     print("  Per-method (raw fetch):")
     for method, cnt in STATS["per_method"].items():
@@ -766,7 +782,7 @@ def main():
 
     STATS["total_new"] = len(new_articles)
 
-    # --- Step 1: classify with Gemini 3 Flash --------------------------------
+    # --- Step 1: classify with Gemini ----------------------------------------
     result = send_to_gemini(new_articles)
 
     signal_indices   = [i for i in result.get("signal",   []) if isinstance(i, int) and 0 <= i < len(new_articles)]
@@ -788,7 +804,7 @@ def main():
         print_stats()
         return
 
-    # --- Step 2: deduplicate signal only with Gemini 2.5 Flash ---------------
+    # --- Step 2: deduplicate signal with Gemini ------------------------------
     print(f"Deduplicating {len(signal_articles)} signal article(s)...")
     signal_articles = deduplicate_articles(signal_articles)
 
@@ -800,13 +816,13 @@ def main():
         signal_articles,
         output_file=OUTPUT_XML,
         feed_title="Curated News",
-        feed_description="AI-curated signal: international affairs and Bangladesh news",
+        feed_description="AI-curated signal: Bangladesh affairs and international geopolitics",
     )
     generate_xml_feed(
         longread_articles,
         output_file=LONGREAD_XML,
         feed_title="Longread",
-        feed_description="Quality in-depth reading: features, analysis, investigations",
+        feed_description="Quality in-depth reading: features, investigations, essays",
     )
 
     save_selected_articles(signal_articles + longread_articles)
