@@ -32,6 +32,8 @@ except Exception:
 
 FEED_URLS = [
     "https://politepaul.com/fd/XeBbNkFKkjmd.xml",
+
+"https://evilgodfahim.github.io/bben/feed.xml",
     "https://evilgodfahim.github.io/ds/todays_news.xml",
     "https://scour.ing/@evilgod/rss.xml?all_feeds=true&show_seen=true",
     "https://politepaul.com/fd/0TStH0zYYM8c.xml",
