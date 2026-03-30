@@ -107,7 +107,7 @@ MAX_FEED_ITEMS        = 500          # rolling cap per output file
 
 PROMPT = """You are a news classification engine. Your reader is Bangladesh-focused with a strong interest in international geopolitics. Classify each headline into exactly one bucket.
 
-SIGNAL — Two tracks, both requiring an ULTRA HIGH bar. Routine news, expected developments, and anything merely continuing an existing trend do not qualify regardless of topic.
+SIGNAL — Two tracks, both requiring an ULTRA HIGH bar. Routine news, expected developments, and anything merely continuing an existing trend do not qualify regardless of topic. The bar is between ULTRA HIGH; (LOWEST < LOWER < LOW < AVERAGE < HIGH < SUPER HIGH < ULTRA HIGH < EXTREME). 
 
   TRACK A · Bangladesh: A development that structurally alters conditions for a large portion of the population. Qualifying categories:
     - Major policy enacted, reversed, or blocked (fuel prices, import/export rules, monetary policy, tax regime)
