@@ -39,6 +39,10 @@ FEED_URLS = [
     "https://scour.ing/@evilgod/rss.xml?all_feeds=true&show_seen=true",
     "https://politepaul.com/fd/0TStH0zYYM8c.xml",
     "https://politepaul.com/fd/3m9q0iF1EzJ2.xml",
+
+"https://evilgodfahim.github.io/wl/pau.xml",
+
+"https://evilgodfahim.github.io/ru/feed.xml",
     "https://politepaul.com/fd/yeNoVuPeGNWs.xml",
     "https://evilgodfahim.github.io/fen/feeds/feed.xml",
     "https://evilgodfahim.github.io/dt/home.xml",
