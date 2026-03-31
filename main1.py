@@ -96,6 +96,7 @@ MISTRAL_MODEL         = "mistral-large-latest"
 PROCESSED_FILE        = "processed_articles.json"
 SELECTED_FILE         = "selected_articles.json"
 OUTPUT_XML            = "curated_feed.xml"
+EXCLUDED_XML          = "ex.xml"
 STATS_FILE            = "fetch_stats.json"
 MAX_ARTICLES_PER_FEED = 100
 MAX_AGE_HOURS         = 10
@@ -763,8 +764,9 @@ def main():
         return
 
     # Ensemble: only articles both models agree are SIGNAL
-    signal_indices  = sorted(set(gemini_indices) & set(mistral_indices))
-    signal_articles = [new_articles[i] for i in signal_indices]
+    signal_indices   = sorted(set(gemini_indices) & set(mistral_indices))
+    signal_articles   = [new_articles[i] for i in signal_indices]
+    excluded_articles = [new_articles[i] for i in range(len(new_articles)) if i not in set(signal_indices)]
 
     STATS["total_signal"] = len(signal_articles)
 
@@ -783,6 +785,13 @@ def main():
         output_file=OUTPUT_XML,
         feed_title="Curated News",
         feed_description="AI-curated signal: Bangladesh affairs and international hard news",
+    )
+
+    generate_xml_feed(
+        excluded_articles,
+        output_file=EXCLUDED_XML,
+        feed_title="Excluded News",
+        feed_description="AI-curated excluded articles after model intersection",
     )
 
     save_selected_articles(signal_articles)
