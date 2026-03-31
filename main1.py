@@ -15,6 +15,7 @@ import json
 import os
 import time
 import re
+import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -504,6 +505,31 @@ def get_new_articles(all_articles, processed_data):
 
 # -- GEMINI --------------------------------------------------------------------
 
+def _gemini_generate_with_503_retry(client, *, model, contents, config=None):
+    try:
+        return client.models.generate_content(
+            model=model,
+            contents=contents,
+            config=config or {},
+        )
+    except Exception as e:
+        if "503" not in str(e):
+            raise
+        print("Gemini returned 503. Waiting 1 minute and retrying once...")
+        time.sleep(60)
+        try:
+            return client.models.generate_content(
+                model=model,
+                contents=contents,
+                config=config or {},
+            )
+        except Exception as e2:
+            if "503" in str(e2):
+                print("Gemini returned 503 again. Quitting.")
+                sys.exit(0)
+            raise
+
+
 def extract_signal_indices(text):
     text = text.replace("```json", "").replace("```", "").strip()
     match = re.search(r"\{.*\}", text, flags=re.DOTALL)
@@ -532,7 +558,8 @@ def send_to_gemini(articles):
         client      = genai.Client(api_key=api_key)
         titles_text = "\n".join([f"{i}. {a.get('title', '')}" for i, a in enumerate(articles)])
 
-        response = client.models.generate_content(
+        response = _gemini_generate_with_503_retry(
+            client,
             model=GEMINI_MODEL,
             contents=PROMPT.format(titles=titles_text),
             config={"response_mime_type": "application/json"},
@@ -543,6 +570,8 @@ def send_to_gemini(articles):
 
         return extract_signal_indices(response.text)
 
+    except SystemExit:
+        raise
     except Exception as e:
         print(f"Gemini classification error: {e}")
         return []
@@ -583,7 +612,8 @@ def deduplicate_articles(articles):
         client      = genai.Client(api_key=api_key)
         titles_text = "\n".join([f"{i}. {a.get('title', '')}" for i, a in enumerate(articles)])
 
-        response = client.models.generate_content(
+        response = _gemini_generate_with_503_retry(
+            client,
             model=DEDUP_MODEL,
             contents=DEDUP_PROMPT.format(titles=titles_text),
             config={"response_mime_type": "application/json"},
@@ -622,6 +652,8 @@ def deduplicate_articles(articles):
             print(f"Dedup: removed {dropped} near-duplicate title(s).")
         return deduped
 
+    except SystemExit:
+        raise
     except Exception as e:
         print(f"Gemini dedup error: {e}")
         return articles
@@ -752,14 +784,19 @@ def main():
     gemini_indices  = send_to_gemini(new_articles)
     gemini_indices  = [i for i in gemini_indices if 0 <= i < len(new_articles)]
 
+    if not gemini_indices:
+        print("Gemini returned no signal indices. Skipping Mistral and all file writes.")
+        print_stats()
+        return
+
     mistral_indices = send_to_mistral(new_articles)
     mistral_indices = [i for i in mistral_indices if 0 <= i < len(new_articles)]
 
     STATS["total_signal_gemini"]  = len(gemini_indices)
     STATS["total_signal_mistral"] = len(mistral_indices)
 
-    if not gemini_indices or not mistral_indices:
-        print("One or both models returned 0 signal. Skipping all file writes.")
+    if not mistral_indices:
+        print("Mistral returned no signal indices. Skipping all file writes.")
         print_stats()
         return
 
