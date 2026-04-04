@@ -31,52 +31,14 @@ except Exception:
 # -- FEEDS ---------------------------------------------------------------------
 
 FEED_URLS = [
-    "https://politepaul.com/fd/XeBbNkFKkjmd.xml",
-
-"https://evilgodfahim.github.io/bben/feed.xml",
-    "https://evilgodfahim.github.io/ds/todays_news.xml",
-    "https://scour.ing/@evilgod/rss.xml?all_feeds=true&show_seen=true",
-    "https://politepaul.com/fd/0TStH0zYYM8c.xml",
-    "https://politepaul.com/fd/3m9q0iF1EzJ2.xml",
-    "https://politepaul.com/fd/yeNoVuPeGNWs.xml",
-    "https://evilgodfahim.github.io/fen/feeds/feed.xml",
-    "https://evilgodfahim.github.io/dt/home.xml",
-    "https://evilgodfahim.github.io/bd24ar/feeds/feed.xml",
-    "https://evilgodfahim.github.io/dstar/feeds/feed.xml",
-    "https://politepaul.com/fd/BNnVF6SFDNH6.xml",
-    "https://evilgodfahim.github.io/ds/printversion.xml",
-    "https://evilgodfahim.github.io/ep/articles.xml",
-    "https://evilgodfahim.github.io/tbs/articles.xml",
-    "https://en.prothomalo.com/feed/",
-    "https://politepaul.com/fd/Pn9wugG4g42C.xml",
-    "https://politepaul.com/fd/21OlmKwnfsTw.xml",
-    "https://politepaul.com/fd/VIlzpA0MbbHm.xml",
-    "https://politepaul.com/fd/f00yRr7PLSMu.xml",
-    "https://politepaul.com/fd/xc2pTQHeZUOC.xml",
-    "https://www.dhakatribune.com/feed/",
-    "https://politepaul.com/fd/iKMgfQUipZA9.xml",
-    "https://politepaul.com/fd/f7rFbVTC58eK.xml",
-    "https://tbsnews.net/top-news/rss.xml",
-    "https://politepaul.com/fd/svZEZwEXeeYC.xml",
-    "https://politepaul.com/fd/pL68k3eA2SrA.xml",
-    "https://politepaul.com/fd/qmEwvjQrNyvg.xml",
-    "https://politepaul.com/fd/lHWPAUKpkaqz.xml",
-    "https://politepaul.com/fd/jvYL3YgY1MBF.xml",
-    "https://politepaul.com/fd/V9Hk3fW83a2N.xml",
-    "https://politepaul.com/fd/252sONZTOIDX.xml",
-    "https://politepaul.com/fd/hYxyD0YIwERV.xml",
-    "https://politepaul.com/fd/vkBVLkhLdU6Y.xml",
-    "https://politepaul.com/fd/42bU3PeKaKjf.xml",
-    "https://politepaul.com/fd/LVSKNhzXbhYo.xml",
-    "https://politepaul.com/fd/OjCZkOYZbLN7.xml",
-    "https://politepaul.com/fd/v9TSVivdwFVs.xml",
-    "https://politepaul.com/fd/p5BVufmsBqUz.xml",
-    "https://politepaul.com/fd/kou0r2KPN9at.xml",
-    "https://politepaul.com/fd/6zKiQKWFbWFd.xml",
-    "https://evilgodfahim.github.io/ds/business.xml",
-    "https://politepaul.com/fd/BaUjoEn6s1Rx.xml",
-    "https://politepaul.com/fd/cjcFELwr80sj.xml",
-    "https://evilgodfahim.github.io/bl/result.xml",
+    "https://evilgodfahim.github.io/ju/rss.xml",
+    "https://www.prothomalo.com/feed/",
+    "https://evilgodfahim.github.io/bb-rss/feed.xml",
+    "https://evilgodfahim.github.io/tbs/bangla.xml",
+    "https://evilgodfahim.github.io/dt/bangla.xml",
+    "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml",
+    "https://evilgodfahim.github.io/skaln/feeds/feed.xml",
+    "https://www.banglatribune.com/feed/",
 ]
 
 EXISTING_API_FEEDS = set(FEED_URLS)
@@ -99,7 +61,7 @@ MAX_FEED_ITEMS        = 500
 
 # -- PROMPT --------------------------------------------------------------------
 
-PROMPT = """You are a strict news classification engine. Input: numbered article titles from news outlets and Bangladeshi newspapers. Classify each as SIGNAL or NOISE. Return only SIGNAL indices. The bar is EXTREME.
+PROMPT = """You are a strict news classification engine. Input: numbered article titles from Bangladeshi Bangla-language news outlets. Titles are written in Bengali (Bangla script). Classify each as SIGNAL or NOISE. Return only SIGNAL indices. The bar is EXTREME.
 
 STEP 1 — INSTANT NOISE. Mark as NOISE immediately if the title is any of:
   - Sports, entertainment, celebrity, lifestyle, human interest
@@ -129,7 +91,7 @@ WHEN IN DOUBT → NOISE.
 
 Output only: {{"signal": [0-based indices]}}. Valid JSON, no markdown, no explanation.
 
-EXAMPLES:
+EXAMPLES (logic shown in English; apply identically to Bangla titles):
 
 Input:
 0. US and China sign landmark trade agreement
