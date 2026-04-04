@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-RSS Feed Processor with Gemini API Integration
+RSS Feed Processor
 
-All articles from all feeds go to one Gemini call.
-Gemini classifies each headline into signal or noise.
-A second Gemini call deduplicates near-identical signal titles.
+All articles from all feeds go to one Mistral call.
+Mistral classifies each headline into signal or noise.
+A Gemini call deduplicates near-identical signal titles.
 
 Output:  curated_feed.xml
 Stats:   fetch_stats.json
@@ -15,10 +15,12 @@ import json
 import os
 import time
 import re
+import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from google import genai
+from mistralai.client import Mistral
 from email.utils import parsedate_to_datetime
 from urllib.parse import urljoin, urlparse
 import requests
@@ -46,12 +48,13 @@ KL_API_FEEDS       = set()
 
 # -- CONFIG --------------------------------------------------------------------
 
-GEMINI_MODEL          = "gemini-3-flash-preview"
-DEDUP_MODEL           = "gemini-2.5-flash"
+DEDUP_MODEL           = "gemini-3-flash-preview"
+MISTRAL_MODEL         = "mistral-large-latest"
 
 PROCESSED_FILE        = "processed_articles.json"
 SELECTED_FILE         = "selected_articles.json"
 OUTPUT_XML            = "curated_feed.xml"
+EXCLUDED_XML          = "ex.xml"
 STATS_FILE            = "fetch_stats.json"
 MAX_ARTICLES_PER_FEED = 100
 MAX_AGE_HOURS         = 10
@@ -61,7 +64,7 @@ MAX_FEED_ITEMS        = 500
 
 # -- PROMPT --------------------------------------------------------------------
 
-PROMPT = """You are a strict news classification engine. Input: numbered article titles from Bangladeshi Bangla-language news outlets. Titles are written in Bengali (Bangla script). Classify each as SIGNAL or NOISE. Return only SIGNAL indices. The bar is EXTREME.
+PROMPT = """You are a strict news classification engine. Input: numbered article titles from Bangladeshi Bangla-language news outlets. Titles are written in Bengali (Bangla script). Classify each as SIGNAL or NOISE. Return only SIGNAL indices. The bar is SUPER HIGH; (LOWEST < LOWER < LOW < AVERAGE < HIGH < SUPER HIGH < ULTRA HIGH < EXTREME).
 
 STEP 1 — INSTANT NOISE. Mark as NOISE immediately if the title is any of:
   - Sports, entertainment, celebrity, lifestyle, human interest
@@ -153,6 +156,7 @@ STATS = {
     "total_fetched":        0,
     "total_passed_age":     0,
     "total_new":            0,
+    "total_signal_mistral": 0,
     "total_signal":         0,
     "total_signal_deduped": 0,
     "timestamp":            None,
@@ -455,7 +459,7 @@ def get_new_articles(all_articles, processed_data):
             new.append(a)
     return new
 
-# -- GEMINI --------------------------------------------------------------------
+# -- CLASSIFICATION ------------------------------------------------------------
 
 def extract_signal_indices(text):
     text = text.replace("```json", "").replace("```", "").strip()
@@ -476,28 +480,26 @@ def extract_signal_indices(text):
     return []
 
 
-def send_to_gemini(articles):
-    api_key = os.environ.get("GEMINI_API_KEY")
+def send_to_mistral(articles):
+    api_key = os.environ.get("MS")
     if not api_key or not articles:
         return []
 
     try:
-        client      = genai.Client(api_key=api_key)
+        client      = Mistral(api_key=api_key)
         titles_text = "\n".join([f"{i}. {a.get('title', '')}" for i, a in enumerate(articles)])
 
-        response = client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=PROMPT.format(titles=titles_text),
-            config={"response_mime_type": "application/json"},
+        response = client.chat.complete(
+            model=MISTRAL_MODEL,
+            messages=[{"role": "user", "content": PROMPT.format(titles=titles_text)}],
+            response_format={"type": "json_object"},
         )
 
-        if hasattr(response, "parsed") and response.parsed:
-            return [i for i in response.parsed.get("signal", []) if isinstance(i, int)]
-
-        return extract_signal_indices(response.text)
+        text = response.choices[0].message.content or ""
+        return extract_signal_indices(text)
 
     except Exception as e:
-        print(f"Gemini classification error: {e}")
+        print(f"Mistral classification error: {e}")
         return []
 
 
@@ -657,7 +659,7 @@ def print_stats():
     print(f"  Total fetched:        {STATS['total_fetched']}")
     print(f"  Passed age cut:       {STATS['total_passed_age']}  (within {MAX_AGE_HOURS}h)")
     print(f"  New (unseen):         {STATS['total_new']}")
-    print(f"  Signal (classified):  {STATS['total_signal']}")
+    print(f"  Signal (Mistral):     {STATS['total_signal_mistral']}")
     print(f"  Signal (after dedup): {STATS['total_signal_deduped']}  -> {OUTPUT_XML}")
     print("  Per-method:")
     for method, cnt in STATS["per_method"].items():
@@ -677,16 +679,19 @@ def main():
 
     STATS["total_new"] = len(new_articles)
 
-    signal_indices  = send_to_gemini(new_articles)
-    signal_indices  = [i for i in signal_indices if 0 <= i < len(new_articles)]
-    signal_articles = [new_articles[i] for i in signal_indices]
+    mistral_indices = send_to_mistral(new_articles)
+    mistral_indices = [i for i in mistral_indices if 0 <= i < len(new_articles)]
 
-    STATS["total_signal"] = len(signal_articles)
+    STATS["total_signal_mistral"] = len(mistral_indices)
+    STATS["total_signal"]         = len(mistral_indices)
 
-    if not signal_articles:
-        print("No signal articles this run. Skipping all file writes.")
+    if not mistral_indices:
+        print("Mistral returned no signal indices. Skipping all file writes.")
         print_stats()
         return
+
+    signal_articles   = [new_articles[i] for i in mistral_indices]
+    excluded_articles = [new_articles[i] for i in range(len(new_articles)) if i not in set(mistral_indices)]
 
     print(f"Deduplicating {len(signal_articles)} signal article(s)...")
     signal_articles = deduplicate_articles(signal_articles)
@@ -698,6 +703,13 @@ def main():
         output_file=OUTPUT_XML,
         feed_title="Curated News",
         feed_description="AI-curated signal: Bangladesh affairs and international hard news",
+    )
+
+    generate_xml_feed(
+        excluded_articles,
+        output_file=EXCLUDED_XML,
+        feed_title="Excluded News",
+        feed_description="Articles excluded after Mistral classification",
     )
 
     save_selected_articles(signal_articles)
