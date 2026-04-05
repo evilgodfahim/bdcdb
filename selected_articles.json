@@ -15168,5 +15168,83 @@
     "source": "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml",
     "thumbnail": "https://cdn.bdnews24.com/bdnews24/media/bdnews24/2024-02/930f42e4-440d-4017-8709-97048c1d97dd/kawran_bazar_050224_1.jpg",
     "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.jugantor.com/economics/1085366",
+    "title": "মার্চে কমল মূল্যস্ফীতি",
+    "link": "https://www.jugantor.com/economics/1085366",
+    "description": "ফেব্রুয়ারির তুলনায় মার্চে দেশের সামগ্রিক মূল্যস্ফীতি হ্রাস পেয়েছে। প্রধানত খাদ্যপণ্যের দামে পতনের ফলেই এ কমতি লক্ষ্য করা গেছে।",
+    "published": "Sun, 05 Apr 2026 22:39:50 +0600",
+    "source": "https://evilgodfahim.github.io/ju/rss.xml",
+    "thumbnail": "https://cdn.jugantor.com/assets/news_photos/2026/04/05/inflation-67ed64e36a662-68bd6caf969aa-69d278be545bf.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.jugantor.com/bank/1085355",
+    "title": "দৈনিক হাজার কোটি টাকা রেমিট্যান্স আসছে দেশে",
+    "link": "https://www.jugantor.com/bank/1085355",
+    "description": "চলতি বছরের এপ্রিলের প্রথম ৪ দিনে দেশে প্রবাসী আয় বা রেমিট্যান্স এসেছে ৩৩ কোটি ৯০ লাখ মার্কিন ডলার, যা বাংলাদেশি মুদ্রায় দাঁড়ায় ৪ হাজার ১৩৫ কোটি ৮০ লাখ টাকা",
+    "published": "Sun, 05 Apr 2026 22:39:50 +0600",
+    "source": "https://evilgodfahim.github.io/ju/rss.xml",
+    "thumbnail": "https://cdn.jugantor.com/assets/news_photos/2026/04/05/remitence-jug-69cd2b4d9778f-69d271ee973db.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "ce7d42e6-72e2-44ab-a4df-a8d78e0acae6",
+    "title": "সংসদে দুই অধ্যাদেশ আইন, চাকরির বয়স ৩২",
+    "link": "https://www.prothomalo.com/bangladesh/snsde-dui-adhyaadesh-aain-caakrir-byys-32",
+    "description": "সংসদে দুই অধ্যাদেশ আইন, চাকরির বয়স ৩২",
+    "published": "Sun, 05 Apr 2026 22:39:50 +0600",
+    "source": "https://www.prothomalo.com/feed/",
+    "thumbnail": "https://media.prothomalo.com/prothomalo-bangla/2026-04-05/tbdpet9i/Image.jpeg?w=280",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.tbsnews.net/bangla/international/news-details-474576",
+    "title": "যুদ্ধের ক্ষতিপূরণ না পেলে হরমুজ প্রণালি খুলে দেওয়া হবে না: ইরান",
+    "link": "https://www.tbsnews.net/bangla/international/news-details-474576",
+    "description": "",
+    "published": "Sun, 05 Apr 2026 22:39:50 +0600",
+    "source": "https://evilgodfahim.github.io/tbs/bangla.xml",
+    "thumbnail": "https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/04/02/strait_of_hormuz.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.tbsnews.net/bangla/Economy/news-details-474541",
+    "title": "সরকারের চাহিদা বাড়ায় আবার ৫ হাজার কোটি টাকার বিশেষ নিলাম করবে কেন্দ্রীয় ব্যাংক",
+    "link": "https://www.tbsnews.net/bangla/Economy/news-details-474541",
+    "description": "",
+    "published": "Sun, 05 Apr 2026 22:39:50 +0600",
+    "source": "https://evilgodfahim.github.io/tbs/bangla.xml",
+    "thumbnail": "https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/04/04/bangladesh_bank.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.tbsnews.net/bangla/bangladesh/news-details-474536",
+    "title": "বাজার নিয়ন্ত্রণে ৪১৮ উপজেলায় ৩০ টাকা দরে চাল বিক্রি করছে সরকার: খাদ্য প্রতিমন্ত্রী",
+    "link": "https://www.tbsnews.net/bangla/bangladesh/news-details-474536",
+    "description": "",
+    "published": "Sun, 05 Apr 2026 22:39:50 +0600",
+    "source": "https://evilgodfahim.github.io/tbs/bangla.xml",
+    "thumbnail": "https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/04/05/image-296225-1775388862.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://samakal.com/economics/article/345865/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0-%E0%A6%8F%E0%A6%B2%E0%A6%A1%E0%A6%BF%E0%A6%B8%E0%A6%BF-%E0%A6%89%E0%A6%A4%E0%A7%8D%E0%A6%A4%E0%A6%B0%E0%A6%A3-%E0%A6%AA%E0%A7%87%E0%A6%9B%E0%A6%BE%E0%A6%A4%E0%A7%87-%E0%A6%B8%E0%A6%B9%E0%A6%AF%E0%A7%8B%E0%A6%97%E0%A6%BF%E0%A6%A4%E0%A6%BE-%E0%A6%85%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B9%E0%A6%A4-%E0%A6%B0%E0%A6%BE%E0%A6%96%E0%A6%AC%E0%A7%87-%E0%A6%9C%E0%A6%BE%E0%A6%A4%E0%A6%BF%E0%A6%B8%E0%A6%82%E0%A6%98:-%E0%A6%B0%E0%A6%BE%E0%A6%AC%E0%A6%BE%E0%A6%AC-%E0%A6%AB%E0%A6%BE%E0%A6%A4%E0%A6%BF%E0%A6%AE%E0%A6%BE",
+    "title": "বাংলাদেশের এলডিসি উত্তরণ পেছাতে সহযোগিতা অব্যাহত রাখবে জাতিসংঘ: রাবাব ফাতিমা",
+    "link": "https://samakal.com/economics/article/345865/%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0-%E0%A6%8F%E0%A6%B2%E0%A6%A1%E0%A6%BF%E0%A6%B8%E0%A6%BF-%E0%A6%89%E0%A6%A4%E0%A7%8D%E0%A6%A4%E0%A6%B0%E0%A6%A3-%E0%A6%AA%E0%A7%87%E0%A6%9B%E0%A6%BE%E0%A6%A4%E0%A7%87-%E0%A6%B8%E0%A6%B9%E0%A6%AF%E0%A7%8B%E0%A6%97%E0%A6%BF%E0%A6%A4%E0%A6%BE-%E0%A6%85%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B9%E0%A6%A4-%E0%A6%B0%E0%A6%BE%E0%A6%96%E0%A6%AC%E0%A7%87-%E0%A6%9C%E0%A6%BE%E0%A6%A4%E0%A6%BF%E0%A6%B8%E0%A6%82%E0%A6%98:-%E0%A6%B0%E0%A6%BE%E0%A6%AC%E0%A6%BE%E0%A6%AC-%E0%A6%AB%E0%A6%BE%E0%A6%A4%E0%A6%BF%E0%A6%AE%E0%A6%BE",
+    "description": "বাংলাদেশের এলডিসি উত্তরণ পেছানো এবং টেকসই ও অন্তর্ভুক্তিমূলক উন্নয়ন নিশ্চিত করতে জাতিসংঘ প্রয়োজনীয় সহযোগিতা অব্যাহত রাখবে বলে জানিয়েছেন সংস্থাটির আন্ডার সেক্রেটারি জেনারেল রাবাব ফাতিমা। বাংলাদেশের উন্নয়ন অগ্রগতির প্রশংসাও করেছেন তিনি। বাণিজ্য মন্ত্রণালয়ের এক প্রেস বিজ্ঞপ্তিতে এ তথ্য জানানো হয়েছে।",
+    "published": "Sun, 05 Apr 2026 22:39:50 +0600",
+    "source": "https://evilgodfahim.github.io/skaln/feeds/feed.xml"
+  },
+  {
+    "id": "https://www.banglatribune.com/business/news/940601/%E0%A6%AF%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%B0%E0%A6%BE%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87-%E0%A6%AA%E0%A7%8B%E0%A6%B6%E0%A6%BE%E0%A6%95-%E0%A6%B0%E0%A6%AB%E0%A6%A4%E0%A6%BE%E0%A6%A8%E0%A6%BF%E0%A6%A4%E0%A7%87-%E0%A6%9A%E0%A7%80%E0%A6%A8%E0%A6%95%E0%A7%87-%E0%A6%9B%E0%A6%BE%E0%A7%9C%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%BE",
+    "title": "যুক্তরাষ্ট্রে পোশাক রফতানিতে চীনকে ছাড়ালো বাংলাদেশ",
+    "link": "https://www.banglatribune.com/business/news/940601/%E0%A6%AF%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%B0%E0%A6%BE%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87-%E0%A6%AA%E0%A7%8B%E0%A6%B6%E0%A6%BE%E0%A6%95-%E0%A6%B0%E0%A6%AB%E0%A6%A4%E0%A6%BE%E0%A6%A8%E0%A6%BF%E0%A6%A4%E0%A7%87-%E0%A6%9A%E0%A7%80%E0%A6%A8%E0%A6%95%E0%A7%87-%E0%A6%9B%E0%A6%BE%E0%A7%9C%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%BE",
+    "description": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"https://cdn.banglatribune.net/contents/cache/images/300x300x1/uploads/media/2024/03/08/430915720_753272093187212_6612661192597462715_n-c2cd753631b2abfad4127f55a9135e83.jpg?jadewits_media_id=906506\" style=\"float: left; margin: 0 10px 10px 0;\" width=\"150\" />\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\tযুক্তরাষ্ট্রের বাজারে তৈরি পোশাক রফতানিতে চীনকে পেছনে ফেলেছে বাংলাদেশ। দীর্ঘদিন ধরে শীর্ষ অবস্থানে থাকা চীন সাম্প্রতিক সময়ে বড় ধাক্কা খেয়ে তৃতীয় স্থানে নেমে এসেছে।\nযুক্তরাষ্ট্রের অফিস অব টেক্সটাইল অ্যান্ড অ্যাপারেল (অটেক্সা) প্রকাশিত সর্বশেষ পরিসংখ্যান অনুযায়ী, ২০২৬ সালের প্রথম দুই মাসে (জানুয়ারি-ফেব্রুয়ারি) যুক্তরাষ্ট্রে তৈরি পোশাক রফতানিতে শীর্ষে রয়েছে ভিয়েতনাম। দ্বিতীয় অবস্থানে উঠে এসেছে...\t\t\t\t\t\t<a class=\"more_link\" href=\"https://www.banglatribune.com/business/news/940601/%E0%A6%AF%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%B0%E0%A6%BE%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87-%E0%A6%AA%E0%A7%8B%E0%A6%B6%E0%A6%BE%E0%A6%95-%E0%A6%B0%E0%A6%AB%E0%A6%A4%E0%A6%BE%E0%A6%A8%E0%A6%BF%E0%A6%A4%E0%A7%87-%E0%A6%9A%E0%A7%80%E0%A6%A8%E0%A6%95%E0%A7%87-%E0%A6%9B%E0%A6%BE%E0%A7%9C%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%BE\">বিস্তারিত</a>\n\t\t\t\t\t</p>",
+    "published": "Sun, 05 Apr 2026 22:39:50 +0600",
+    "source": "https://www.banglatribune.com/feed/",
+    "thumbnail": "https://cdn.banglatribune.net/contents/cache/images/300x300x1/uploads/media/2024/03/08/430915720_753272093187212_6612661192597462715_n-c2cd753631b2abfad4127f55a9135e83.jpg?jadewits_media_id=906506",
+    "thumbnail_type": "image/jpeg"
   }
 ]
