@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 79,
-      "passed_age": 74,
-      "capped": 74
+      "fetched": 92,
+      "passed_age": 86,
+      "capped": 86
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 11,
-      "capped": 11
+      "passed_age": 22,
+      "capped": 22
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
-      "fetched": 215,
-      "passed_age": 21,
-      "capped": 21
+      "fetched": 220,
+      "passed_age": 26,
+      "capped": 26
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 52,
-      "passed_age": 52,
-      "capped": 52
+      "fetched": 48,
+      "passed_age": 48,
+      "capped": 48
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
-      "fetched": 267,
-      "passed_age": 93,
-      "capped": 93
+      "fetched": 275,
+      "passed_age": 101,
+      "capped": 100
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
-      "fetched": 423,
-      "passed_age": 59,
-      "capped": 59
+      "fetched": 438,
+      "passed_age": 72,
+      "capped": 72
     },
     "https://www.banglatribune.com/feed/": {
       "fetched": 100,
-      "passed_age": 46,
-      "capped": 46
+      "passed_age": 64,
+      "capped": 64
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,16 +48,16 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 1686
+    "DIRECT": 1723
   },
-  "total_fetched": 1686,
-  "total_passed_age": 406,
-  "total_new": 123,
-  "total_signal": 15,
+  "total_fetched": 1723,
+  "total_passed_age": 469,
+  "total_new": 155,
+  "total_signal": 31,
   "total_longread": 0,
-  "total_signal_deduped": 13,
+  "total_signal_deduped": 24,
   "total_longread_deduped": 0,
-  "timestamp": "2026-04-07T09:07:36.722483",
+  "timestamp": "2026-04-07T11:00:43.171903",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 15
+  "total_signal_mistral": 31
 }
