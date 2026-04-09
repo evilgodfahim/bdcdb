@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 60,
-      "passed_age": 59,
-      "capped": 59
+      "fetched": 72,
+      "passed_age": 70,
+      "capped": 70
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 77,
-      "capped": 77
+      "passed_age": 10,
+      "capped": 10
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
-      "fetched": 305,
-      "passed_age": 8,
-      "capped": 8
+      "fetched": 310,
+      "passed_age": 13,
+      "capped": 13
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 51,
-      "passed_age": 49,
-      "capped": 49
+      "fetched": 50,
+      "passed_age": 50,
+      "capped": 50
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
-      "fetched": 368,
-      "passed_age": 74,
-      "capped": 74
+      "fetched": 377,
+      "passed_age": 85,
+      "capped": 85
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 74,
-      "capped": 74
+      "passed_age": 60,
+      "capped": 60
     },
     "https://www.banglatribune.com/feed/": {
       "fetched": 100,
-      "passed_age": 27,
-      "capped": 27
+      "passed_age": 43,
+      "capped": 43
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,16 +48,16 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 1934
+    "DIRECT": 1959
   },
-  "total_fetched": 1934,
-  "total_passed_age": 418,
-  "total_new": 140,
-  "total_signal": 21,
+  "total_fetched": 1959,
+  "total_passed_age": 381,
+  "total_new": 83,
+  "total_signal": 14,
   "total_longread": 0,
-  "total_signal_deduped": 17,
+  "total_signal_deduped": 14,
   "total_longread_deduped": 0,
-  "timestamp": "2026-04-09T05:51:56.000302",
+  "timestamp": "2026-04-09T07:27:48.394022",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 21
+  "total_signal_mistral": 14
 }
