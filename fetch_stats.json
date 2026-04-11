@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 80,
-      "passed_age": 68,
-      "capped": 68
+      "fetched": 85,
+      "passed_age": 75,
+      "capped": 75
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 12,
-      "capped": 12
+      "passed_age": 17,
+      "capped": 17
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
-      "fetched": 409,
-      "passed_age": 19,
-      "capped": 19
+      "fetched": 413,
+      "passed_age": 23,
+      "capped": 23
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 46,
-      "passed_age": 46,
-      "capped": 46
+      "fetched": 47,
+      "passed_age": 47,
+      "capped": 47
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
-      "fetched": 480,
-      "passed_age": 85,
-      "capped": 85
+      "fetched": 484,
+      "passed_age": 89,
+      "capped": 89
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 65,
-      "capped": 65
+      "passed_age": 72,
+      "capped": 72
     },
     "https://www.banglatribune.com/feed/": {
       "fetched": 100,
-      "passed_age": 42,
-      "capped": 42
+      "passed_age": 58,
+      "capped": 58
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,16 +48,16 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2165
+    "DIRECT": 2179
   },
-  "total_fetched": 2165,
-  "total_passed_age": 387,
-  "total_new": 84,
-  "total_signal": 4,
+  "total_fetched": 2179,
+  "total_passed_age": 431,
+  "total_new": 123,
+  "total_signal": 12,
   "total_longread": 0,
-  "total_signal_deduped": 3,
+  "total_signal_deduped": 12,
   "total_longread_deduped": 0,
-  "timestamp": "2026-04-11T08:50:37.593512",
+  "timestamp": "2026-04-11T10:37:32.546034",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 4
+  "total_signal_mistral": 12
 }
