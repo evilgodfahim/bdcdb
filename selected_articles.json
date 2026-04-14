@@ -24936,5 +24936,83 @@
     "source": "https://www.banglatribune.com/feed/",
     "thumbnail": "https://cdn.banglatribune.net/contents/cache/images/300x300x1/uploads/media/2016/02/27/622e4f0faa8dde7b8bebc9515e403f4e-.jpg?jadewits_media_id=68893",
     "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.jugantor.com/country-news/1089124",
+    "title": "মধ্যরাত থেকে ৫৮ দিন সমুদ্রে মাছ ধরায় নিষেধাজ্ঞা",
+    "link": "https://www.jugantor.com/country-news/1089124",
+    "description": "ইলিশসহ সামুদ্রিক মৎস্য সম্পদের নির্বিঘ্ন প্রজনন ও সংরক্ষণের লক্ষ্যে বঙ্গোপসাগরের বাংলাদেশ জলসীমায় শুরু হচ্ছে ৫৮ দিনের মাছ ধরার দীর্ঘ নিষেধাজ্ঞা।",
+    "published": "Wed, 15 Apr 2026 01:21:01 +0600",
+    "source": "https://evilgodfahim.github.io/ju/rss.xml",
+    "thumbnail": "https://cdn.jugantor.com/assets/news_photos/2026/04/14/Patharghata-Photo-(3)-58-din-2-69de6c62b0b86.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.jugantor.com/national/1089121",
+    "title": "ইউনেস্কো সভায় শিক্ষা বাজেট বৃদ্ধি নিয়ে বাংলাদেশের জোরালো অবস্থান",
+    "link": "https://www.jugantor.com/national/1089121",
+    "description": "সচিব তার বক্তব্যে বাংলাদেশের শিক্ষার মানোন্নয়নে শিক্ষা বাজেট পর্যায়ক্রমে মোট জিডিপির ৫ শতাংশে উন্নীত করার কৌশলগত পরিকল্পনার কথা ঘোষণা করেন।",
+    "published": "Wed, 15 Apr 2026 01:21:01 +0600",
+    "source": "https://evilgodfahim.github.io/ju/rss.xml",
+    "thumbnail": "https://cdn.jugantor.com/assets/news_photos/2026/04/14/UNESCO-69de6429ea3b4.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.jugantor.com/international/1089115",
+    "title": "হিজবুল্লাহর হামলায় ১১ ইসরাইলি সেনা আহত",
+    "link": "https://www.jugantor.com/international/1089115",
+    "description": "দক্ষিণ লেবাননের বিনত জেবেইল এলাকায় সোমবার (১৩ এপ্রিল) রাতে হিজবুল্লাহর অতর্কিত হামলায় ১১ ইসরাইলি সেনা আহত হয়েছেন। ইসরাইলি সংবাদমাধ্যমের বরাতে আল-জাজিরা",
+    "published": "Wed, 15 Apr 2026 01:21:01 +0600",
+    "source": "https://evilgodfahim.github.io/ju/rss.xml",
+    "thumbnail": "https://cdn.jugantor.com/assets/news_photos/2026/04/14/Israeli-69de593eaef3d.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://bangla.thedailystar.net/news/bangladesh/accident-fire/news-3916361",
+    "title": "আন্দামান সাগরে নৌকাডুবি, অন্তত ২৫০ বাংলাদেশি-রোহিঙ্গা নিখোঁজ",
+    "link": "https://bangla.thedailystar.net/news/bangladesh/accident-fire/news-3916361",
+    "description": "আন্দামান সাগরে নৌকাডুবিতে অন্তত ২৫০ নারী, পুরুষ ও শিশু নিখোঁজ রয়েছেন। নিখোঁজদের মধ্যে রোহিঙ্গা ও বাংলাদেশি নাগরিক নাগরিকরা আছেন।",
+    "published": "Wed, 15 Apr 2026 01:21:01 +0600",
+    "source": "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml"
+  },
+  {
+    "id": "https://bangla.bdnews24.com/world/76ec70b68afa",
+    "title": "ইরান যুদ্ধে বড় খেসারতের মুখে এশিয়ার অর্থনীতি",
+    "link": "https://bangla.bdnews24.com/world/76ec70b68afa",
+    "description": "[বিশ্ব] ইরান যুদ্ধে বড় খেসারতের মুখে এশিয়ার অর্থনীতি",
+    "published": "Wed, 15 Apr 2026 01:21:01 +0600",
+    "source": "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml",
+    "thumbnail": "https://cdn.bdnews24.com/bdnews24/media/bangla/imgAll/2026April/SM/oil-crisis-asadgat-130426-009-1776088271.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://bangla.bdnews24.com/world/1dc61d4f92e7",
+    "title": "ইসরায়েল-লেবানন বৈঠকে শান্তি কাঠামোতে মতৈক্য হওয়ার আশা রুবিওর",
+    "link": "https://bangla.bdnews24.com/world/1dc61d4f92e7",
+    "description": "[বিশ্ব] ইসরায়েল-লেবানন বৈঠকে শান্তি কাঠামোতে মতৈক্য হওয়ার আশা রুবিওর",
+    "published": "Wed, 15 Apr 2026 01:21:01 +0600",
+    "source": "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml",
+    "thumbnail": "https://cdn.bdnews24.com/bdnews24/media/bangla/imgAll/2026April/SM/rubio-and-others-lebanon-talks-140426-01-1776189269.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://bangla.bdnews24.com/tube/3a8b4a249147",
+    "title": "গাজায় পুলিশের গাড়িতে হামলা, শিশুসহ নিহত ৪",
+    "link": "https://bangla.bdnews24.com/tube/3a8b4a249147",
+    "description": "[টিউব] গাজায় পুলিশের গাড়িতে হামলা, শিশুসহ নিহত ৪",
+    "published": "Wed, 15 Apr 2026 01:21:01 +0600",
+    "source": "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml",
+    "thumbnail": "https://cdn.bdnews24.com/bdnews24/media/bangla/imgAll/2026April/SM/gaza-strike-videotext-thumb-14042026-1776188135.jpg",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://bangla.bdnews24.com/world/4dd5a7f5abac",
+    "title": "যুক্তরাষ্ট্র-ইরান ‘আগামী দুই দিনের মধ্যে’ বৈঠকে বসতে পারে: ট্রাম্প",
+    "link": "https://bangla.bdnews24.com/world/4dd5a7f5abac",
+    "description": "[বিশ্ব] যুক্তরাষ্ট্র-ইরান ‘আগামী দুই দিনের মধ্যে’ বৈঠকে বসতে পারে: ট্রাম্প",
+    "published": "Wed, 15 Apr 2026 01:21:01 +0600",
+    "source": "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml",
+    "thumbnail": "https://cdn.bdnews24.com/bdnews24/media/bangla/imgAll/2026April/SM/trump-140426-01-1776186621.jpg",
+    "thumbnail_type": "image/jpeg"
   }
 ]
