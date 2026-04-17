@@ -4,16 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Thu, 16 Apr 2026 20:53:13 +0000</lastBuildDate>
-    <item>
-      <title>ইরানকে ‘গোলপোস্ট’ ঠিক করে দিল যুক্তরাষ্ট্র</title>
-      <link>https://www.prothomalo.com/world/middle-east/p8gh7lp4n2</link>
-      <guid isPermaLink="false">31178d51-89bc-4e71-ab1d-98c4a6899b45</guid>
-      <description>ডেস রোচেস বলেন, ‘আমার মনে হয়, প্রেসিডেন্ট ট্রাম্পের অবস্থান অত্যন্ত পরিষ্কার—যুক্তরাষ্ট্রের যুদ্ধের অন্যতম প্রধান লক্ষ্য হলো ইরানকে কোনোভাবেই পারমাণবিক অস্ত্র তৈরি করতে না দেওয়া।’</description>
-      <pubDate>Sun, 12 Apr 2026 14:54:14 +0600</pubDate>
-      <media:thumbnail url="https://media.prothomalo.com/prothomalo-bangla/2026-04-12/6c0lbkns/Untitled-8.jpg?w=280" />
-      <enclosure url="https://media.prothomalo.com/prothomalo-bangla/2026-04-12/6c0lbkns/Untitled-8.jpg?w=280" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Fri, 17 Apr 2026 02:48:40 +0000</lastBuildDate>
     <item>
       <title>‘ধার শোধ হওয়ার আগে আরেকটি নিষেধাজ্ঞা’</title>
       <link>https://www.prothomalo.com/bangladesh/district/oi2ege5mgf</link>
@@ -4648,6 +4639,15 @@
       <pubDate>Fri, 17 Apr 2026 02:53:02 +0600</pubDate>
       <media:thumbnail url="https://cdn.banglatribune.net/contents/cache/images/300x300x1/uploads/media/2026/04/17/1d37ec065df1b1c0ac00b34a6b2e2743-69e13ff3b6da7.jpg?jadewits_media_id=1019747" />
       <enclosure url="https://cdn.banglatribune.net/contents/cache/images/300x300x1/uploads/media/2026/04/17/1d37ec065df1b1c0ac00b34a6b2e2743-69e13ff3b6da7.jpg?jadewits_media_id=1019747" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>হামলা–পাল্টা হামলার পর লেবাননে যুদ্ধবিরতি কার্যকর</title>
+      <link>https://www.jugantor.com/international/1090019</link>
+      <guid isPermaLink="true">https://www.jugantor.com/international/1090019</guid>
+      <description>যুদ্ধবিরতি আনুষ্ঠানিকভাবে কার্যকর হওয়ার এক ঘণ্টারও কম সময়ের মধ্যে তা লঙ্ঘনের অভিযোগ উঠে।</description>
+      <pubDate>Fri, 17 Apr 2026 08:48:28 +0600</pubDate>
+      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/04/17/2-69e168c52e941.jpg" />
+      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/04/17/2-69e168c52e941.jpg" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
