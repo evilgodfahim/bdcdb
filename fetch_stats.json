@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 75,
-      "passed_age": 68,
-      "capped": 68
+      "fetched": 68,
+      "passed_age": 66,
+      "capped": 66
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 28,
-      "capped": 28
+      "passed_age": 9,
+      "capped": 9
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 12,
-      "capped": 12
+      "passed_age": 20,
+      "capped": 20
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 46,
-      "passed_age": 45,
-      "capped": 45
-    },
-    "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
-      "fetched": 500,
-      "passed_age": 78,
-      "capped": 78
-    },
-    "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
-      "fetched": 500,
+      "fetched": 51,
       "passed_age": 51,
       "capped": 51
     },
+    "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
+      "fetched": 500,
+      "passed_age": 91,
+      "capped": 91
+    },
+    "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
+      "fetched": 500,
+      "passed_age": 27,
+      "capped": 27
+    },
     "https://www.banglatribune.com/feed/": {
       "fetched": 100,
-      "passed_age": 28,
-      "capped": 28
+      "passed_age": 65,
+      "capped": 65
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,16 +48,16 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2271
+    "DIRECT": 2269
   },
-  "total_fetched": 2271,
-  "total_passed_age": 360,
-  "total_new": 141,
-  "total_signal": 6,
+  "total_fetched": 2269,
+  "total_passed_age": 379,
+  "total_new": 168,
+  "total_signal": 14,
   "total_longread": 0,
-  "total_signal_deduped": 4,
+  "total_signal_deduped": 12,
   "total_longread_deduped": 0,
-  "timestamp": "2026-04-28T06:32:01.805514",
+  "timestamp": "2026-04-28T10:18:05.416670",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 6
+  "total_signal_mistral": 14
 }
