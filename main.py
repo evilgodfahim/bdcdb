@@ -40,7 +40,7 @@ FEED_URLS = [
     "https://evilgodfahim.github.io/dt/bangla.xml",
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml",
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml",
-    "https://www.banglatribune.com/feed/",
+    "https://evilgodfahim.github.io/bt/banglatribune.xml",
 
 "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml"
 ]
