@@ -4,16 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Sat, 16 May 2026 19:08:32 +0000</lastBuildDate>
-    <item>
-      <title>প্রবাসী আয় দিনে ১৪০০ কোটি টাকা</title>
-      <link>https://www.jugantor.com/economics/1100005</link>
-      <guid isPermaLink="true">https://www.jugantor.com/economics/1100005</guid>
-      <description>প্রবাসী বাংলাদেশিরা দেশে থাকা পরিবারের কাছে অর্থ পাঠাতে শুরু করেছেন। চলতি মে মাসে রেমিট্যান্স প্রবাহে ইতিবাচক ধারা লক্ষ্য করা যাচ্ছে।</description>
-      <pubDate>Mon, 11 May 2026 02:52:16 +0600</pubDate>
-      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/05/10/Taka-6a00b36d17d01.jpg" />
-      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/05/10/Taka-6a00b36d17d01.jpg" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Sat, 16 May 2026 20:52:32 +0000</lastBuildDate>
     <item>
       <title>রোহিঙ্গা সংকট নিরসনে বৈশ্বিক পদক্ষেপ প্রয়োজন</title>
       <link>https://samakal.com/bangladesh/article/351394/%E0%A6%B0%E0%A7%8B%E0%A6%B9%E0%A6%BF%E0%A6%99%E0%A7%8D%E0%A6%97%E0%A6%BE-%E0%A6%B8%E0%A6%82%E0%A6%95%E0%A6%9F-%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%B8%E0%A6%A8%E0%A7%87-%E0%A6%AC%E0%A7%88%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%BF%E0%A6%95-%E0%A6%AA%E0%A6%A6%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A7%87%E0%A6%AA-%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A7%9F%E0%A7%8B%E0%A6%9C%E0%A6%A8</link>
@@ -5305,6 +5296,15 @@
       <pubDate>Sun, 17 May 2026 01:08:26 +0600</pubDate>
       <media:thumbnail url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026May/SM/strait-of-hormuz-160426-01-1778956179.jpg" />
       <enclosure url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026May/SM/strait-of-hormuz-160426-01-1778956179.jpg" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>গঙ্গার পানি পেতে জাতিসংঘ ও বিশ্ব ব্যাংকের তত্ত্বাবধানে নদী কমিশন গঠনের দাবি</title>
+      <link>https://www.jugantor.com/country-news/1102755</link>
+      <guid isPermaLink="true">https://www.jugantor.com/country-news/1102755</guid>
+      <description>ফারাক্কা লংমার্চ দিবস উপলক্ষে রাজশাহীতে আয়োজিত এক গণজমায়েতে বক্তারা গঙ্গার পানির ন্যায্যতা নিশ্চিত করতে জাতিসংঘ ও বিশ্ব ব্যাংকের তত্ত্বাবধানে চীন, নেপাল, ভুটান,</description>
+      <pubDate>Sun, 17 May 2026 02:52:28 +0600</pubDate>
+      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/05/16/Rajshahi-1-6a08a4447d010.jpg" />
+      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/05/16/Rajshahi-1-6a08a4447d010.jpg" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
