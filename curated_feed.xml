@@ -4,25 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Sat, 23 May 2026 22:55:36 +0000</lastBuildDate>
-    <item>
-      <title>সার সংকটের তীব্র ধাক্কা: বড় ধরনের খাদ্য সংকটের আশঙ্কা বিশ্বজুড়ে</title>
-      <link>https://www.tbsnews.net/bangla/international/news-details-491821</link>
-      <guid isPermaLink="true">https://www.tbsnews.net/bangla/international/news-details-491821</guid>
-      <description />
-      <pubDate>Sun, 17 May 2026 22:59:20 +0600</pubDate>
-      <media:thumbnail url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2023/08/30/food-crisis.jpg" />
-      <enclosure url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2023/08/30/food-crisis.jpg" type="image/jpeg" length="0" />
-    </item>
-    <item>
-      <title>কঙ্গোর ইবোলা প্রাদুর্ভাবকে বৈশ্বিক জরুরি অবস্থা ঘোষণা ডব্লিউএইচও’র</title>
-      <link>https://www.tbsnews.net/bangla/international/news-details-491816</link>
-      <guid isPermaLink="true">https://www.tbsnews.net/bangla/international/news-details-491816</guid>
-      <description />
-      <pubDate>Sun, 17 May 2026 22:59:20 +0600</pubDate>
-      <media:thumbnail url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/17/capture.jpg" />
-      <enclosure url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/17/capture.jpg" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Sun, 24 May 2026 03:52:55 +0000</lastBuildDate>
     <item>
       <title>প্রায় ৬০০ ড্রোন দিয়ে মস্কো ও আশপাশে ইউক্রেনের বিশাল হামলা; ভারতীয়সহ নিহত ৪</title>
       <link>https://www.tbsnews.net/bangla/international/news-details-491796</link>
@@ -5305,6 +5287,24 @@
       <guid isPermaLink="false">58e12cc6a7f171b6ba9b4bb226c943f2</guid>
       <description>দৃশ্যমান পরিবর্তন ১০০ দিনে সম্ভব না হলেও সরকার একটি নতুন পরিবর্তনের ধারণা নিয়ে কাজ করছে। মূল লক্ষ্য হলো এমন একটি বিনিয়োগ পরিবেশ তৈরি করা, যেখানে দেশী-বিদেশী বিনিয়োগকারীরা নিজেদের নিরাপদ মনে করবেন এবং বাংলাদেশে বিনিয়োগে আগ্রহী হবেন।</description>
       <pubDate>Sun, 24 May 2026 04:55:25 +0600</pubDate>
+    </item>
+    <item>
+      <title>গ্যাস সংযোগের অভাবে আটকা ৩৫,০০০ কোটি টাকা, অলস পড়ে আছে কারখানা, থমকে কর্মসংস্থান</title>
+      <link>https://www.tbsnews.net/bangla/Economy/news-details-493981</link>
+      <guid isPermaLink="true">https://www.tbsnews.net/bangla/Economy/news-details-493981</guid>
+      <description />
+      <pubDate>Sun, 24 May 2026 09:52:44 +0600</pubDate>
+      <media:thumbnail url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/23/bangladesh_garment_factory.jpg" />
+      <enclosure url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/23/bangladesh_garment_factory.jpg" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>ইরান যুদ্ধ যেভাবে বিশ্বের অন্যতম ধনী দেশের অর্থনীতিকে পঙ্গু করে দিচ্ছে</title>
+      <link>https://www.tbsnews.net/bangla/international/news-details-492016</link>
+      <guid isPermaLink="true">https://www.tbsnews.net/bangla/international/news-details-492016</guid>
+      <description />
+      <pubDate>Sun, 24 May 2026 09:52:44 +0600</pubDate>
+      <media:thumbnail url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/18/image_-_2026-05-18t130725.392.jpg" />
+      <enclosure url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/18/image_-_2026-05-18t130725.392.jpg" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
