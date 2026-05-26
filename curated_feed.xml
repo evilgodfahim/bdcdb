@@ -4,21 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Mon, 25 May 2026 23:06:56 +0000</lastBuildDate>
-    <item>
-      <title>ধারণার চেয়েও অনেক দ্রুত ছড়িয়ে পড়ছে ইবোলা: বিশ্ব স্বাস্থ্য সংস্থা</title>
-      <link>https://bonikbarta.com/international/LDHD58FOQrGH0QXe/</link>
-      <guid isPermaLink="false">dc706629cd6adca37dded210ea17961c</guid>
-      <description>বর্তমান প্রাদুর্ভাবের জন্য দায়ী বান্ডিবুগিও স্ট্রেইনের ইবোলা তুলনামূলকভাবে বিরল। এর আগে মাত্র দুইবার এ ধরনের সংক্রমণ দেখা গিয়েছিল এবং তখন আক্রান্তদের প্রায় এক-তৃতীয়াংশের মৃত্যু হয়েছিল</description>
-      <pubDate>Tue, 19 May 2026 17:21:50 +0600</pubDate>
-    </item>
-    <item>
-      <title>দায়িত্বশীল আচরণ আন্তর্জাতিক বাণিজ্যে প্রতিযোগিতা সক্ষমতার গুরুত্বপূর্ণ উপাদান হয়ে উঠেছে: বাণিজ্যমন্ত্রী</title>
-      <link>https://bonikbarta.com/bangladesh/5illROoYYv4r6wsi/</link>
-      <guid isPermaLink="false">1d550d4fc53f6133e46aaa3873ba9b35</guid>
-      <description>No description available</description>
-      <pubDate>Tue, 19 May 2026 17:21:50 +0600</pubDate>
-    </item>
+    <lastBuildDate>Tue, 26 May 2026 03:50:07 +0000</lastBuildDate>
     <item>
       <title>র‍্যাবের নামও পরিবর্তন হতে পারে: প্রধানমন্ত্রীর তথ্য উপদেষ্টা</title>
       <link>https://bonikbarta.com/bangladesh/rBcqDNqr3cQYeSHN/</link>
@@ -5274,6 +5260,24 @@
       <pubDate>Tue, 26 May 2026 05:06:51 +0600</pubDate>
       <media:thumbnail url="https://media.prothomalo.com/prothomalo-bangla/2026-05-25/uk2lm357/%E0%A7%A9.avif?w=280" />
       <enclosure url="https://media.prothomalo.com/prothomalo-bangla/2026-05-25/uk2lm357/%E0%A7%A9.avif?w=280" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>যুদ্ধবিরতির মধ্যেই ইরানের দক্ষিণাঞ্চলে যুক্তরাষ্ট্রের নতুন হামলা</title>
+      <link>https://www.prothomalo.com/world/middle-east/k17xku4d0r</link>
+      <guid isPermaLink="false">5658a013-94d7-4df5-864d-63d175b193f9</guid>
+      <description>দ্য নিউ ইয়র্ক টাইমসের প্রতিবেদন অনুযায়ী, ক্যাপ্টেন হকিন্স নিশ্চিত করেছেন যে, হরমুজ প্রণালির কৌশলগত বন্দর নগরী বন্দর আব্বাসের কাছে এই হামলা চালানো হয়।</description>
+      <pubDate>Tue, 26 May 2026 09:50:01 +0600</pubDate>
+      <media:thumbnail url="https://media.prothomalo.com/prothomalo-bangla/2026-05-26/0kkjfn8j/3.avif?w=280" />
+      <enclosure url="https://media.prothomalo.com/prothomalo-bangla/2026-05-26/0kkjfn8j/3.avif?w=280" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>অফশোর ঋণের সুদে আবারও ২০ শতাংশ কর আরোপের চিন্তা সরকারের</title>
+      <link>https://www.tbsnews.net/bangla/Economy/news-details-495146</link>
+      <guid isPermaLink="true">https://www.tbsnews.net/bangla/Economy/news-details-495146</guid>
+      <description />
+      <pubDate>Tue, 26 May 2026 09:50:01 +0600</pubDate>
+      <media:thumbnail url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/26/exporters.jpeg" />
+      <enclosure url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/26/exporters.jpeg" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
