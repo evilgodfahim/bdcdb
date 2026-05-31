@@ -123,48 +123,41 @@ Distinct topics must all be kept.
 Return ONLY the final 0-based indices to keep (SIGNAL, after deduplication) as a JSON object.
 No markdown, no explanation, no preamble.
 
-Format: {{"keep": [0-based indices]}}
+Format: {{"signal": [0-based indices]}}
 
-━━━ EXAMPLES (logic shown in English; apply identically to Bangla titles) ━━━
-
-Input:
-0. US and China sign landmark trade agreement
-1. Premier League club sacks manager
-2. Bangladesh central bank raises interest rates amid inflation crisis
-3. UK Conservative Party elects new leader
-4. UN Security Council votes to deploy peacekeepers to Sudan
-5. The Promise of a New Bangladesh
-6. We Must Fix Bangladesh's Broken Irrigation System
-7. Bangladesh slashes fuel subsidies nationwide
-8. India arrests opposition leader
-9. Bangladesh foreign minister holds talks with India over Teesta water sharing
-10. US warns Bangladesh over labour rights ahead of GSP review
-11. China pledges $3bn infrastructure loan to Bangladesh, deal signed
-12. NATO formally approves expansion of eastern flank forces
-13. Student clash reported in Dhaka university campus
-14. Why Bangladesh's Economy Is at a Crossroads
-15. Bangladesh central bank raises repo rate as inflation hits 9-year high
-Output: {{"keep": [0, 2, 4, 7, 9, 10, 11, 12]}}
-(indices 3, 5, 6, 8, 13, 14 → NOISE; index 15 → duplicate of 2, dropped)
+━━━ EXAMPLES ━━━
 
 Input:
-0. Pakistan and India exchange fire across Line of Control, casualties confirmed
-1. Dhaka garment workers strike shuts down hundreds of factories nationwide
-2. Australia holds federal election
-3. IMF formally approves $4.7bn loan for Bangladesh
-4. BNP's Path Forward After the Election
-5. How Microfinance Is Changing Lives in Sylhet
-6. The Geopolitics of the Indo-Pacific and What It Means for the World
-7. IAEA confirms Iran has enriched uranium to 84 percent purity
-8. Man arrested in Chattogram over murder
-9. Bangladesh foreign reserves fall below $20bn, taka hits record low
-10. Garment exports decline 12% in Q1, Bangladesh Bank reports
-11. ICC issues arrest warrant for sitting head of state
-12. Fire breaks out at Tejgaon factory, 3 killed
-13. Bangladesh parliament passes new cybersecurity law
-14. IMF approves emergency credit line for Bangladesh amid reserve crisis
-Output: {{"keep": [0, 1, 3, 7, 9, 10, 11, 13]}}
-(index 14 → duplicate of 3, dropped; 2, 4, 5, 6, 8, 12 → NOISE)
+0. যুক্তরাষ্ট্র ও চীন ঐতিহাসিক বাণিজ্য চুক্তি স্বাক্ষর করেছে
+1. বাংলাদেশ ব্যাংক মূল্যস্ফীতি নিয়ন্ত্রণে সুদের হার বাড়াল
+2. ঢাকা বিশ্ববিদ্যালয়ে ছাত্র সংঘর্ষ
+3. জাতিসংঘ নিরাপত্তা পরিষদ সুদানে শান্তিরক্ষী মোতায়েনের পক্ষে ভোট দিয়েছে
+4. নতুন বাংলাদেশের প্রতিশ্রুতি
+5. বাংলাদেশ সারাদেশে জ্বালানি ভর্তুকি হ্রাস করল
+6. তিস্তা পানি বণ্টন নিয়ে বাংলাদেশের পররাষ্ট্রমন্ত্রীর ভারতের সঙ্গে আলোচনা
+7. কোনো একটি ক্লাবের কোচ বরখাস্ত
+8. যুক্তরাষ্ট্র জিএসপি পর্যালোচনার আগে শ্রম অধিকার নিয়ে বাংলাদেশকে সতর্ক করল
+9. চীন বাংলাদেশে ৩০০ কোটি ডলারের অবকাঠামো ঋণ দেওয়ার চুক্তি করল
+10. টেজগাঁওয়ের কারখানায় আগুন, ৩ নিহত
+11. বাংলাদেশ সংসদে নতুন সাইবার নিরাপত্তা আইন পাস
+Output: {{"signal": [0, 1, 3, 5, 6, 8, 9, 11]}}
+(index 2 → isolated single-location incident → NOISE; index 4 → opinion/editorial → NOISE; index 7 → sports/entertainment → NOISE; index 10 → isolated single-factory incident → NOISE)
+
+Input:
+0. পাকিস্তান ও ভারত নিয়ন্ত্রণ রেখায় গোলাগুলি, হতাহতের খবর নিশ্চিত
+1. ঢাকার পোশাকশ্রমিকদের ধর্মঘটে শত শত কারখানা বন্ধ
+2. আইএমএফ বাংলাদেশে ৪৭০ কোটি ডলার ঋণ আনুষ্ঠানিকভাবে অনুমোদন করেছে
+3. বিএনপির ভবিষ্যৎ পথচলা
+4. সিলেটে ক্ষুদ্রঋণ কীভাবে জীবন বদলাচ্ছে
+5. আন্তর্জাতিক পরমাণু শক্তি সংস্থা নিশ্চিত করেছে ইরান ৮৪ শতাংশ বিশুদ্ধতায় ইউরেনিয়াম সমৃদ্ধ করেছে
+6. চট্টগ্রামে হত্যা মামলায় এক ব্যক্তি গ্রেপ্তার
+7. বাংলাদেশের বৈদেশিক মুদ্রার রিজার্ভ ২০০ কোটি ডলারের নিচে, টাকার রেকর্ড পতন
+8. প্রথম প্রান্তিকে পোশাক রপ্তানি ১২ শতাংশ কমেছে, বাংলাদেশ ব্যাংকের প্রতিবেদন
+9. আইএমএফ জরুরি ঋণ সুবিধা অনুমোদন করেছে, বাংলাদেশ পাচ্ছে ৪৭০ কোটি ডলার
+10. আন্তর্জাতিক অপরাধ আদালত কোনো দেশের বর্তমান রাষ্ট্রপ্রধানের বিরুদ্ধে গ্রেপ্তারি পরোয়ানা জারি করেছে
+11. বাংলাদেশ সংসদে নতুন তথ্যপ্রযুক্তি আইন পাস
+Output: {{"signal": [0, 1, 2, 5, 7, 8, 10, 11]}}
+(index 3 → opinion/editorial → NOISE; index 4 → sub-national human interest → NOISE; index 6 → isolated single arrest → NOISE; index 9 → duplicate of 2, dropped)
 
 Article titles:
 {titles}
@@ -489,7 +482,7 @@ def get_new_articles(all_articles, processed_data):
 # -- CLASSIFICATION + DEDUP (single Gemini call) -------------------------------
 
 def extract_keep_indices(text, max_index):
-    """Parse the {\"keep\": [...]} response from Gemini."""
+    """Parse the {\"signal\": [...]} response from Gemini."""
     text = text.replace("```json", "").replace("```", "").strip()
 
     # Primary: full JSON object
@@ -498,7 +491,7 @@ def extract_keep_indices(text, max_index):
         try:
             obj = json.loads(match.group(0))
             if isinstance(obj, dict):
-                indices = obj.get("keep", obj.get("signal", []))
+                indices = obj.get("signal", obj.get("keep", []))
                 return sorted({i for i in indices if isinstance(i, int) and 0 <= i < max_index})
         except Exception:
             pass
