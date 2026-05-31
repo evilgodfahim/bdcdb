@@ -4,16 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Sun, 31 May 2026 08:50:04 +0000</lastBuildDate>
-    <item>
-      <title>ইরান যুদ্ধের অজুহাতে তাইওয়ানের কাছে ১৪শ কোটি ডলারের অস্ত্র বিক্রি স্থগিত করল যুক্তরাষ্ট্র</title>
-      <link>https://www.jugantor.com/international/1105281</link>
-      <guid isPermaLink="true">https://www.jugantor.com/international/1105281</guid>
-      <description>ইরানের বিরুদ্ধে সম্ভাব্য যুদ্ধ বা সামরিক প্রস্তুতির জন্য নিজেদের গোলাবারুদ ও সমরাস্ত্রের মজুত ধরে রাখতে তাইওয়ানের কাছে এক হাজার ৪০০ কোটি (১৪ বিলিয়ন) ডলারের অস্</description>
-      <pubDate>Fri, 22 May 2026 16:53:19 +0600</pubDate>
-      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/05/22/taiwan-6a102d53ae005.jpg" />
-      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/05/22/taiwan-6a102d53ae005.jpg" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Sun, 31 May 2026 09:45:43 +0000</lastBuildDate>
     <item>
       <title>অভিজ্ঞতা ছাড়াই পাবেন স্কয়ার গ্রুপে চাকরি</title>
       <link>https://www.jugantor.com/job-seek/1105263</link>
@@ -6062,6 +6053,15 @@
       <pubDate>Sun, 31 May 2026 14:49:43 +0600</pubDate>
       <media:thumbnail url="https://cdn.banglatribune.net/contents/cache/images/1200x630x1xxxxx1/uploads/media/2026/05/31/6b1031e202c884e1bbb5d6e7abcf111a-6a1ba45063bc7.jpg" />
       <enclosure url="https://cdn.banglatribune.net/contents/cache/images/1200x630x1xxxxx1/uploads/media/2026/05/31/6b1031e202c884e1bbb5d6e7abcf111a-6a1ba45063bc7.jpg" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>দক্ষিণ লেবাননে ‘বড় অভিযানের’ ঘোষণা ইসরায়েলের; ক্রুসেডারদের ঐতিহাসিক বোফোর্ট দুর্গ দখলের দাবি</title>
+      <link>https://www.tbsnews.net/bangla/international/news-details-496666</link>
+      <guid isPermaLink="true">https://www.tbsnews.net/bangla/international/news-details-496666</guid>
+      <description />
+      <pubDate>Sun, 31 May 2026 15:45:20 +0600</pubDate>
+      <media:thumbnail url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/31/lebaann.jpg" />
+      <enclosure url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/05/31/lebaann.jpg" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
