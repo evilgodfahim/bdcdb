@@ -2,9 +2,9 @@
 """
 RSS Feed Processor
 
-All articles from all feeds go to one Gemini call.
-Gemini classifies each headline as signal or noise AND deduplicates
-near-identical signal titles in a single pass.
+All articles from all feeds go to one Mistral call.
+Mistral classifies each headline into signal or noise.
+A Gemini call deduplicates near-identical signal titles.
 
 Output:  curated_feed.xml
 Stats:   fetch_stats.json
@@ -20,6 +20,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from google import genai
+from mistralai.client import Mistral
 from email.utils import parsedate_to_datetime
 from urllib.parse import urljoin, urlparse
 import requests
@@ -40,7 +41,8 @@ FEED_URLS = [
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml",
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml",
     "https://evilgodfahim.github.io/bt/banglatribune.xml",
-    "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml",
+
+"https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml"
 ]
 
 EXISTING_API_FEEDS = set(FEED_URLS)
@@ -48,7 +50,8 @@ KL_API_FEEDS       = set()
 
 # -- CONFIG --------------------------------------------------------------------
 
-GEMINI_MODEL          = "gemini-3.5-flash"
+DEDUP_MODEL           = "gemini-3-flash-preview"
+MISTRAL_MODEL         = "mistral-large-latest"
 
 PROCESSED_FILE        = "processed_articles.json"
 SELECTED_FILE         = "selected_articles.json"
@@ -63,105 +66,83 @@ MAX_FEED_ITEMS        = 500
 
 # -- PROMPT --------------------------------------------------------------------
 
-# Single-pass: classify as SIGNAL/NOISE then deduplicate signal in one shot.
-# Returns the final list of 0-based indices to keep.
-CLASSIFY_AND_DEDUP_PROMPT = """You are a strict news classification and deduplication engine.
-Input: numbered article titles from Bangladeshi Bangla-language news outlets (Bengali/Bangla script).
+PROMPT = """You are a strict news classification engine. Input: numbered article titles from Bangladeshi Bangla-language news outlets. Titles are written in Bengali (Bangla script). Classify each as SIGNAL or NOISE. Return only SIGNAL indices. The bar is SUPER HIGH; (LOWEST < LOWER < LOW < AVERAGE < HIGH < SUPER HIGH < ULTRA HIGH < EXTREME).
 
-Your task has TWO steps. Execute both and return a single final result.
-
-━━━ STEP 1 — CLASSIFY ━━━
-
-Classify each title as SIGNAL or NOISE. The bar is SUPER HIGH.
-(LOWEST < LOWER < LOW < AVERAGE < HIGH < SUPER HIGH < ULTRA HIGH < EXTREME)
-
-INSTANT NOISE — mark immediately if the title is any of:
+STEP 1 — INSTANT NOISE. Mark as NOISE immediately if the title is any of:
   - Sports, entertainment, celebrity, lifestyle, human interest
   - Tribute, commemorative, or anniversary pieces
   - Praise or criticism of a person, party, or institution
-  - Any isolated or discrete incident: one arrest, one clash, one crime, one accident,
-    one fire, one death, one protest at one location — no matter how dramatic
+  - Any isolated or discrete incident: one arrest, one clash, one crime, one accident, one fire, one death, one protest at one location — no matter how dramatic the title sounds
   - Anything affecting only one district, one institution, one community, or one individual
 
-SCOPE CHECK — SIGNAL only if the scope qualifies:
+STEP 2 — SCOPE CHECK.
 
-  BANGLADESH:
-  - Economic data or official decisions: central bank actions, national budget, trade figures,
-    remittance data, fuel/utility price changes, foreign reserve status, currency moves,
-    stock market circuit breakers, IMF/World Bank actions on BD
-  - Government or institutional actions at national level: cabinet decisions, parliament acts,
-    nationwide policy rollouts, supreme court rulings, election commission decisions
-  - Infrastructure or public systems at national scale: nationwide power outages, countrywide
-    internet disruption, collapse of a national system (not one hospital, one road, one factory)
+  BANGLADESH: SIGNAL only if the event or decision affects the entire country or a nationally significant portion of it:
+  - Economic data or official decisions: central bank actions, national budget, trade figures, remittance data, fuel/utility price changes, foreign reserve status, currency moves, stock market circuit breakers, IMF/World Bank actions on BD
+  - Government or institutional actions at the national level: cabinet decisions, parliament acts, nationwide policy rollouts, supreme court rulings, election commission decisions
+  - Infrastructure or public systems at national scale: nationwide power outages, countrywide internet disruption, collapse of a national system (not one hospital, one road, one factory)
   - Natural disasters or health emergencies declared at national or divisional scale (not one district)
-  - Foreign affairs: official bilateral talks, international sanctions or pressure on BD,
-    cross-border agreements or disputes (Teesta, Rohingya, trade), BD at UN/IMF/WTO,
-    foreign loans or aid formally approved
+  - Foreign affairs: official bilateral talks, international sanctions or pressure on BD, cross-border agreements or disputes (Teesta, Rohingya, trade), BD at UN/IMF/WTO, foreign loans or aid formally approved
   - Anything sub-national, sub-institutional, or about a single individual → NOISE
 
   INTERNATIONAL: SIGNAL only for concrete events with verified cross-border consequences:
   - Active armed conflicts between states, or formal declarations of war or ceasefire
-  - Multinational body decisions: UN Security Council resolutions, IMF/World Bank program approvals,
-    WTO rulings, NATO formal decisions, IAEA findings, ICC/ICJ verdicts
+  - Multinational body decisions: UN Security Council resolutions, IMF/World Bank program approvals, WTO rulings, NATO formal decisions, IAEA findings, ICC/ICJ verdicts
   - Formal multilateral treaties signed or collapsed
-  - A single country's decision only if it moves something the world depends on immediately:
-    global energy supply disruption, collapse of a major financial system, verified nuclear
-    weapons development milestone, formal treaty withdrawal with immediate effect
-  - Internal politics, elections, leadership changes, and domestic policy of any single foreign
-    country → NOISE unless the direct cross-border consequence is stated in the title itself
+  - A single country's decision only if it moves something the world depends on immediately: global energy supply disruption, collapse of a major financial system, verified nuclear weapons development milestone, formal treaty withdrawal with immediate effect
+  - Internal politics, elections, leadership changes, and domestic policy of any single foreign country → NOISE unless the direct cross-border consequence is stated in the title itself
 
 WHEN IN DOUBT → NOISE.
 
-━━━ STEP 2 — DEDUPLICATE ━━━
+Output only: {{"signal": [0-based indices]}}. Valid JSON, no markdown, no explanation.
 
-From the SIGNAL set only: identify groups of titles covering the same story.
-For each group, keep only the lowest index. Discard the rest.
-Distinct topics must all be kept.
-
-━━━ OUTPUT ━━━
-
-Return ONLY the final 0-based indices to keep (SIGNAL, after deduplication) as a JSON object.
-No markdown, no explanation, no preamble.
-
-Format: {{"signal": [0-based indices]}}
-
-━━━ EXAMPLES ━━━
+EXAMPLES (logic shown in English; apply identically to Bangla titles):
 
 Input:
-0. যুক্তরাষ্ট্র ও চীন ঐতিহাসিক বাণিজ্য চুক্তি স্বাক্ষর করেছে
-1. বাংলাদেশ ব্যাংক মূল্যস্ফীতি নিয়ন্ত্রণে সুদের হার বাড়াল
-2. ঢাকা বিশ্ববিদ্যালয়ে ছাত্র সংঘর্ষ
-3. জাতিসংঘ নিরাপত্তা পরিষদ সুদানে শান্তিরক্ষী মোতায়েনের পক্ষে ভোট দিয়েছে
-4. নতুন বাংলাদেশের প্রতিশ্রুতি
-5. বাংলাদেশ সারাদেশে জ্বালানি ভর্তুকি হ্রাস করল
-6. তিস্তা পানি বণ্টন নিয়ে বাংলাদেশের পররাষ্ট্রমন্ত্রীর ভারতের সঙ্গে আলোচনা
-7. কোনো একটি ক্লাবের কোচ বরখাস্ত
-8. যুক্তরাষ্ট্র জিএসপি পর্যালোচনার আগে শ্রম অধিকার নিয়ে বাংলাদেশকে সতর্ক করল
-9. চীন বাংলাদেশে ৩০০ কোটি ডলারের অবকাঠামো ঋণ দেওয়ার চুক্তি করল
-10. টেজগাঁওয়ের কারখানায় আগুন, ৩ নিহত
-11. বাংলাদেশ সংসদে নতুন সাইবার নিরাপত্তা আইন পাস
-Output: {{"signal": [0, 1, 3, 5, 6, 8, 9, 11]}}
-(index 2 → isolated single-location incident → NOISE; index 4 → opinion/editorial → NOISE; index 7 → sports/entertainment → NOISE; index 10 → isolated single-factory incident → NOISE)
+0. US and China sign landmark trade agreement
+1. Premier League club sacks manager
+2. Bangladesh central bank raises interest rates amid inflation crisis
+3. UK Conservative Party elects new leader
+4. UN Security Council votes to deploy peacekeepers to Sudan
+5. The Promise of a New Bangladesh
+6. We Must Fix Bangladesh's Broken Irrigation System
+7. Bangladesh slashes fuel subsidies nationwide
+8. India arrests opposition leader
+9. Bangladesh foreign minister holds talks with India over Teesta water sharing
+10. US warns Bangladesh over labour rights ahead of GSP review
+11. China pledges $3bn infrastructure loan to Bangladesh, deal signed
+12. NATO formally approves expansion of eastern flank forces
+13. Student clash reported in Dhaka university campus
+14. Why Bangladesh's Economy Is at a Crossroads
+Output: {{"signal": [0, 2, 4, 7, 9, 10, 11, 12]}}
 
 Input:
-0. পাকিস্তান ও ভারত নিয়ন্ত্রণ রেখায় গোলাগুলি, হতাহতের খবর নিশ্চিত
-1. ঢাকার পোশাকশ্রমিকদের ধর্মঘটে শত শত কারখানা বন্ধ
-2. আইএমএফ বাংলাদেশে ৪৭০ কোটি ডলার ঋণ আনুষ্ঠানিকভাবে অনুমোদন করেছে
-3. বিএনপির ভবিষ্যৎ পথচলা
-4. সিলেটে ক্ষুদ্রঋণ কীভাবে জীবন বদলাচ্ছে
-5. আন্তর্জাতিক পরমাণু শক্তি সংস্থা নিশ্চিত করেছে ইরান ৮৪ শতাংশ বিশুদ্ধতায় ইউরেনিয়াম সমৃদ্ধ করেছে
-6. চট্টগ্রামে হত্যা মামলায় এক ব্যক্তি গ্রেপ্তার
-7. বাংলাদেশের বৈদেশিক মুদ্রার রিজার্ভ ২০০ কোটি ডলারের নিচে, টাকার রেকর্ড পতন
-8. প্রথম প্রান্তিকে পোশাক রপ্তানি ১২ শতাংশ কমেছে, বাংলাদেশ ব্যাংকের প্রতিবেদন
-9. আইএমএফ জরুরি ঋণ সুবিধা অনুমোদন করেছে, বাংলাদেশ পাচ্ছে ৪৭০ কোটি ডলার
-10. আন্তর্জাতিক অপরাধ আদালত কোনো দেশের বর্তমান রাষ্ট্রপ্রধানের বিরুদ্ধে গ্রেপ্তারি পরোয়ানা জারি করেছে
-11. বাংলাদেশ সংসদে নতুন তথ্যপ্রযুক্তি আইন পাস
-Output: {{"signal": [0, 1, 2, 5, 7, 8, 10, 11]}}
-(index 3 → opinion/editorial → NOISE; index 4 → sub-national human interest → NOISE; index 6 → isolated single arrest → NOISE; index 9 → duplicate of 2, dropped)
+0. Pakistan and India exchange fire across Line of Control, casualties confirmed
+1. Dhaka garment workers strike shuts down hundreds of factories nationwide
+2. Australia holds federal election
+3. IMF formally approves $4.7bn loan for Bangladesh
+4. BNP's Path Forward After the Election
+5. How Microfinance Is Changing Lives in Sylhet
+6. The Geopolitics of the Indo-Pacific and What It Means for the World
+7. IAEA confirms Iran has enriched uranium to 84 percent purity
+8. Man arrested in Chattogram over murder
+9. Bangladesh foreign reserves fall below $20bn, taka hits record low
+10. Garment exports decline 12% in Q1, Bangladesh Bank reports
+11. ICC issues arrest warrant for sitting head of state
+12. Fire breaks out at Tejgaon factory, 3 killed
+13. Bangladesh parliament passes new cybersecurity law
+Output: {{"signal": [0, 1, 3, 7, 9, 10, 11, 13]}}
 
 Article titles:
 {titles}
 """
+
+DEDUP_PROMPT = """You are a news deduplication engine. Identify groups of titles covering the same story. For each group keep only the lowest index, discard the rest. Distinct topics must all be kept.
+
+Return only the 0-based indices to KEEP as a JSON array of integers. No markdown, no preamble.
+
+Article titles:
+{titles}"""
 
 # -- CONSTANTS -----------------------------------------------------------------
 
@@ -172,14 +153,15 @@ ET.register_namespace("media", MEDIA_NS)
 BD_TZ = timezone(timedelta(hours=6))
 
 STATS = {
-    "per_feed":           {},
-    "per_method":         {"KL": 0, "DIRECT": 0},
-    "total_fetched":      0,
-    "total_passed_age":   0,
-    "total_new":          0,
-    "total_signal":       0,
-    "total_after_dedup":  0,
-    "timestamp":          None,
+    "per_feed":             {},
+    "per_method":           {"KL": 0, "DIRECT": 0},
+    "total_fetched":        0,
+    "total_passed_age":     0,
+    "total_new":            0,
+    "total_signal_mistral": 0,
+    "total_signal":         0,
+    "total_signal_deduped": 0,
+    "timestamp":            None,
 }
 
 # -- I/O -----------------------------------------------------------------------
@@ -479,71 +461,104 @@ def get_new_articles(all_articles, processed_data):
             new.append(a)
     return new
 
-# -- CLASSIFICATION + DEDUP (single Gemini call) -------------------------------
+# -- CLASSIFICATION ------------------------------------------------------------
 
-def extract_keep_indices(text, max_index):
-    """Parse the {\"signal\": [...]} response from Gemini."""
+def extract_signal_indices(text):
     text = text.replace("```json", "").replace("```", "").strip()
-
-    # Primary: full JSON object
     match = re.search(r"\{.*\}", text, flags=re.DOTALL)
     if match:
         try:
             obj = json.loads(match.group(0))
             if isinstance(obj, dict):
-                indices = obj.get("signal", obj.get("keep", []))
-                return sorted({i for i in indices if isinstance(i, int) and 0 <= i < max_index})
+                return [i for i in obj.get("signal", []) if isinstance(i, int)]
         except Exception:
             pass
-
-    # Fallback: bare array
-    m = re.search(r"\[[\d,\s]+\]", text)
+    m = re.search(r'"signal"\s*:\s*(\[.*?\])', text, flags=re.DOTALL)
     if m:
         try:
-            return sorted({i for i in json.loads(m.group(0)) if isinstance(i, int) and 0 <= i < max_index})
+            return [i for i in json.loads(m.group(1)) if isinstance(i, int)]
         except Exception:
             pass
-
     return []
 
 
-def classify_and_dedup(articles):
-    """Single Gemini call: classify as signal/noise AND deduplicate.
-    Returns (signal_articles, excluded_articles).
-    """
-    api_key = os.environ.get("GEMINI_API_KEY")
+def send_to_mistral(articles):
+    api_key = os.environ.get("MS")
     if not api_key or not articles:
-        return [], articles
+        return []
+
+    try:
+        client      = Mistral(api_key=api_key)
+        titles_text = "\n".join([f"{i}. {a.get('title', '')}" for i, a in enumerate(articles)])
+
+        response = client.chat.complete(
+            model=MISTRAL_MODEL,
+            messages=[{"role": "user", "content": PROMPT.format(titles=titles_text)}],
+            response_format={"type": "json_object"},
+        )
+
+        text = response.choices[0].message.content or ""
+        return extract_signal_indices(text)
+
+    except Exception as e:
+        print(f"Mistral classification error: {e}")
+        return []
+
+
+def deduplicate_articles(articles):
+    if not articles:
+        return articles
+
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        return articles
 
     try:
         client      = genai.Client(api_key=api_key)
         titles_text = "\n".join([f"{i}. {a.get('title', '')}" for i, a in enumerate(articles)])
 
         response = client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=CLASSIFY_AND_DEDUP_PROMPT.format(titles=titles_text),
+            model=DEDUP_MODEL,
+            contents=DEDUP_PROMPT.format(titles=titles_text),
             config={"response_mime_type": "application/json"},
         )
 
         raw = response.text if hasattr(response, "text") else ""
-        keep_indices = extract_keep_indices(raw, len(articles))
+        raw = raw.replace("```json", "").replace("```", "").strip()
 
-        if not keep_indices and raw.strip():
-            print(f"Gemini response could not be parsed. Raw:\n{raw[:500]}")
-            return [], articles
+        keep_indices = None
+        try:
+            parsed = json.loads(raw)
+            if isinstance(parsed, list):
+                keep_indices = [i for i in parsed if isinstance(i, int) and 0 <= i < len(articles)]
+        except Exception:
+            pass
 
-        keep_set         = set(keep_indices)
-        signal_articles  = [articles[i] for i in keep_indices]
-        excluded_articles = [articles[i] for i in range(len(articles)) if i not in keep_set]
+        if keep_indices is None:
+            m = re.search(r"\[[\d,\s]+\]", raw)
+            if m:
+                try:
+                    keep_indices = [
+                        i for i in json.loads(m.group(0))
+                        if isinstance(i, int) and 0 <= i < len(articles)
+                    ]
+                except Exception:
+                    pass
 
-        dropped_by_dedup = 0  # not tracked separately since it's one pass — logged below
-        print(f"Gemini: {len(articles)} new → {len(signal_articles)} kept "
-              f"({len(excluded_articles)} excluded as noise/duplicate).")
-        return signal_articles, excluded_articles
+        if keep_indices is None:
+            print("Dedup: could not parse response, keeping all articles.")
+            return articles
+
+        keep_indices = sorted(set(keep_indices))
+        deduped      = [articles[i] for i in keep_indices]
+        dropped      = len(articles) - len(deduped)
+        if dropped:
+            print(f"Dedup: removed {dropped} near-duplicate title(s).")
+        return deduped
 
     except Exception as e:
-        print(f"Gemini classify+dedup error: {e}")
-        return [], articles
+        print(f"Gemini dedup error: {e}")
+        return articles
 
 # -- XML -----------------------------------------------------------------------
 
@@ -642,12 +657,12 @@ def generate_xml_feed(articles, output_file, feed_title=None, feed_description=N
 
 def print_stats():
     print("\nFetch statistics:")
-    print(f"  Timestamp:          {STATS.get('timestamp')}")
-    print(f"  Total fetched:      {STATS['total_fetched']}")
-    print(f"  Passed age cut:     {STATS['total_passed_age']}  (within {MAX_AGE_HOURS}h)")
-    print(f"  New (unseen):       {STATS['total_new']}")
-    print(f"  Signal (Gemini):    {STATS['total_signal']}")
-    print(f"  After dedup:        {STATS['total_after_dedup']}  -> {OUTPUT_XML}")
+    print(f"  Timestamp:            {STATS.get('timestamp')}")
+    print(f"  Total fetched:        {STATS['total_fetched']}")
+    print(f"  Passed age cut:       {STATS['total_passed_age']}  (within {MAX_AGE_HOURS}h)")
+    print(f"  New (unseen):         {STATS['total_new']}")
+    print(f"  Signal (Mistral):     {STATS['total_signal_mistral']}")
+    print(f"  Signal (after dedup): {STATS['total_signal_deduped']}  -> {OUTPUT_XML}")
     print("  Per-method:")
     for method, cnt in STATS["per_method"].items():
         print(f"    {method}: {cnt}")
@@ -666,35 +681,24 @@ def main():
 
     STATS["total_new"] = len(new_articles)
 
-    if not new_articles:
-        print("No new articles. Skipping all file writes.")
+    mistral_indices = send_to_mistral(new_articles)
+    mistral_indices = [i for i in mistral_indices if 0 <= i < len(new_articles)]
+
+    STATS["total_signal_mistral"] = len(mistral_indices)
+    STATS["total_signal"]         = len(mistral_indices)
+
+    if not mistral_indices:
+        print("Mistral returned no signal indices. Skipping all file writes.")
         print_stats()
         return
 
-    print(f"Classifying and deduplicating {len(new_articles)} new article(s) via Gemini...")
-    signal_articles, excluded_articles = classify_and_dedup(new_articles)
+    signal_articles   = [new_articles[i] for i in mistral_indices]
+    excluded_articles = [new_articles[i] for i in range(len(new_articles)) if i not in set(mistral_indices)]
 
-    # Since classify_and_dedup does both in one pass, both stats are the same number
-    STATS["total_signal"]      = len(signal_articles)
-    STATS["total_after_dedup"] = len(signal_articles)
+    print(f"Deduplicating {len(signal_articles)} signal article(s)...")
+    signal_articles = deduplicate_articles(signal_articles)
 
-    if not signal_articles:
-        print("Gemini returned no signal articles. Skipping signal file writes.")
-        # Still write excluded feed and mark articles as processed
-        if excluded_articles:
-            generate_xml_feed(
-                excluded_articles,
-                output_file=EXCLUDED_XML,
-                feed_title="Excluded News",
-                feed_description="Articles excluded after Gemini classification",
-            )
-        processed_data.setdefault("article_ids",   []).extend([a["id"]   for a in new_articles if a.get("id")])
-        processed_data.setdefault("article_links", []).extend([a["link"] for a in new_articles if a.get("link")])
-        save_processed_articles(processed_data)
-        STATS["timestamp"] = datetime.utcnow().isoformat()
-        save_stats()
-        print_stats()
-        return
+    STATS["total_signal_deduped"] = len(signal_articles)
 
     generate_xml_feed(
         signal_articles,
@@ -707,7 +711,7 @@ def main():
         excluded_articles,
         output_file=EXCLUDED_XML,
         feed_title="Excluded News",
-        feed_description="Articles excluded after Gemini classification",
+        feed_description="Articles excluded after Mistral classification",
     )
 
     save_selected_articles(signal_articles)
