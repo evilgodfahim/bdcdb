@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 44,
-      "passed_age": 42,
-      "capped": 42
+      "fetched": 75,
+      "passed_age": 75,
+      "capped": 75
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 62,
-      "capped": 62
+      "passed_age": 25,
+      "capped": 25
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 1,
-      "capped": 1
+      "passed_age": 15,
+      "capped": 15
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 51,
-      "passed_age": 43,
-      "capped": 43
+      "fetched": 52,
+      "passed_age": 52,
+      "capped": 52
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
       "fetched": 500,
-      "passed_age": 74,
-      "capped": 74
+      "passed_age": 82,
+      "capped": 82
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 44,
-      "capped": 44
+      "passed_age": 30,
+      "capped": 30
     },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 19,
-      "capped": 19
+      "passed_age": 54,
+      "capped": 54
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,17 +48,17 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2645
+    "DIRECT": 2677
   },
-  "total_fetched": 2645,
-  "total_passed_age": 335,
-  "total_new": 71,
-  "total_signal": 6,
+  "total_fetched": 2677,
+  "total_passed_age": 383,
+  "total_new": 234,
+  "total_signal": 22,
   "total_longread": 0,
-  "total_signal_deduped": 5,
+  "total_signal_deduped": 8,
   "total_longread_deduped": 0,
-  "timestamp": "2026-06-03T04:23:03.371358",
+  "timestamp": "2026-06-03T11:04:32.989451",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 6,
+  "total_signal_mistral": 22,
   "total_after_dedup": 0
 }
