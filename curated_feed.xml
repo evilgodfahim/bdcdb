@@ -4,16 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Sun, 14 Jun 2026 23:11:31 +0000</lastBuildDate>
-    <item>
-      <title>বঙ্গোপসাগরে তেল-গ্যাস অনুসন্ধান: বিনিয়োগ আকর্ষণ ও জাতীয় স্বার্থের টানাপোড়েন</title>
-      <link>https://bangla.bdnews24.com/opinion/f9fff7dc728f</link>
-      <guid isPermaLink="true">https://bangla.bdnews24.com/opinion/f9fff7dc728f</guid>
-      <description>[মতামত] বঙ্গোপসাগরে তেল-গ্যাস অনুসন্ধান: বিনিয়োগ আকর্ষণ ও জাতীয় স্বার্থের টানাপোড়েন</description>
-      <pubDate>Wed, 10 Jun 2026 14:13:40 +0600</pubDate>
-      <media:thumbnail url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026May/SM/oil-boom-1000-1779629983.jpg" />
-      <enclosure url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026May/SM/oil-boom-1000-1779629983.jpg" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Mon, 15 Jun 2026 04:42:58 +0000</lastBuildDate>
     <item>
       <title>ইরানি বাহিনীর গুলিতে হেলিকপ্টার হারানোর পর পাল্টা হামলা যুক্তরাষ্ট্রের</title>
       <link>https://bangla.bdnews24.com/world/560356f467d9</link>
@@ -5181,6 +5172,15 @@
       <guid isPermaLink="false">c1fed9865087413f7b2c0702d98be257</guid>
       <description>আন্তর্জাতিক নিষেধাজ্ঞা ও সংঘাতের আশঙ্কায় কৌশলগত গুরুত্বপূর্ণ নৌপথ হরমুজ প্রণালি এড়িয়ে চলছে বাণিজ্যিক জাহাজ বা ট্যাংকারগুলো।</description>
       <pubDate>Mon, 15 Jun 2026 05:11:21 +0600</pubDate>
+    </item>
+    <item>
+      <title>ইরান–যুক্তরাষ্ট্র চুক্তিকে স্বাগত বিশ্বনেতাদের, নিষেধাজ্ঞা প্রত্যাহারের ঘোষণা ৪ দেশের</title>
+      <link>https://www.prothomalo.com/world/middle-east/h8zds7ckjf</link>
+      <guid isPermaLink="false">e45aa3ff-db80-4bdb-a5c6-83399ae33aca</guid>
+      <description>গতকাল রোববার যুক্তরাজ্য, ফ্রান্স, জার্মানি ও ইতালি এক যৌথ বিবৃতিতে জানায়, তারা ইরানের ওপর আরোপিত আন্তর্জাতিক নিষেধাজ্ঞাগুলো প্রত্যাহার করতে প্রস্তুত।</description>
+      <pubDate>Mon, 15 Jun 2026 10:42:35 +0600</pubDate>
+      <media:thumbnail url="https://media.prothomalo.com/prothomalo-bangla/2026-06-15/ungckb3f/US_iranh.jpg?w=280" />
+      <enclosure url="https://media.prothomalo.com/prothomalo-bangla/2026-06-15/ungckb3f/US_iranh.jpg?w=280" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
