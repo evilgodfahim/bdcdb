@@ -4,25 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Mon, 15 Jun 2026 22:21:45 +0000</lastBuildDate>
-    <item>
-      <title>ইসলামী ব্যাংকে পর্যবেক্ষক বসাল কেন্দ্রীয় ব্যাংক</title>
-      <link>https://bangla.bdnews24.com/business/0a5e450e4e32</link>
-      <guid isPermaLink="true">https://bangla.bdnews24.com/business/0a5e450e4e32</guid>
-      <description>[বাণিজ্য] ইসলামী ব্যাংকে পর্যবেক্ষক বসাল কেন্দ্রীয় ব্যাংক</description>
-      <pubDate>Wed, 10 Jun 2026 23:22:50 +0600</pubDate>
-      <media:thumbnail url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026June/SM/ashraful-alam-10062026-1781099148.jpg" />
-      <enclosure url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026June/SM/ashraful-alam-10062026-1781099148.jpg" type="image/jpeg" length="0" />
-    </item>
-    <item>
-      <title>সব ধরনের সিগারেটের দাম বাড়তে পারে</title>
-      <link>https://www.jugantor.com/economics/1111953</link>
-      <guid isPermaLink="true">https://www.jugantor.com/economics/1111953</guid>
-      <description>আসন্ন ২০২৬-২৭ অর্থবছরের প্রস্তাবিত বাজেটে দেশের সব ধরনের সিগারেটের দাম বাড়ানোর উদ্যোগ নেওয়া হতে পারে। পাশাপাশি নিকোটিন পাউচ আমদানির ওপর ৩৫০ শতাংশ সম্পূরক শুল্ক</description>
-      <pubDate>Thu, 11 Jun 2026 02:33:45 +0600</pubDate>
-      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/06/10/Untitled-1-6a2991db58a95.jpg" />
-      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/06/10/Untitled-1-6a2991db58a95.jpg" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Tue, 16 Jun 2026 04:27:00 +0000</lastBuildDate>
     <item>
       <title>বাংলাদেশ থেকে দক্ষ কর্মী নিতে আগ্রহী ইইউ, শিক্ষায় সহযোগিতা বাড়াবে এসিইউ</title>
       <link>https://www.prothomalo.com/bangladesh/capital/72vsv7uhob</link>
@@ -5106,6 +5088,24 @@
       <pubDate>Tue, 16 Jun 2026 04:21:24 +0600</pubDate>
       <media:thumbnail url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026June/SM/trump-macro-150626-01-1781549445.jpg" />
       <enclosure url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026June/SM/trump-macro-150626-01-1781549445.jpg" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>যুক্তরাষ্ট্র-ইরান শান্তিচুক্তি নেতানিয়াহুর জন্য ‘রাজনৈতিক দুঃস্বপ্ন’ হয়ে এসেছে</title>
+      <link>https://www.prothomalo.com/world/middle-east/lhdu7b6e5l</link>
+      <guid isPermaLink="false">c85fa335-a674-41d7-8454-d041c5b221cb</guid>
+      <description>নেতানিয়াহুর সামনে যেসব পথ খোলা রয়েছে, সেগুলো তাঁর জন্য সুখকর নয়। হয় তাঁকে ইসরায়েলের সর্বশ্রেষ্ঠ মিত্রের (যুক্তরাষ্ট্র) সঙ্গে সরাসরি বিরোধে যেতে হবে, না হলে নতমস্তকে সব মেনে নিতে হবে।</description>
+      <pubDate>Tue, 16 Jun 2026 10:26:56 +0600</pubDate>
+      <media:thumbnail url="https://media.prothomalo.com/prothomalo-bangla/2026-06-01/18fg7o75/netammkk.jpg?w=280" />
+      <enclosure url="https://media.prothomalo.com/prothomalo-bangla/2026-06-01/18fg7o75/netammkk.jpg?w=280" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>ট্যাক্স ফাইলে উত্তরাধিকার সূত্রে পাওয়া সম্পদের মূল্য উল্লেখ করা বাধ্যতামূলক হচ্ছে</title>
+      <link>https://www.tbsnews.net/bangla/Economy/news-details-502826</link>
+      <guid isPermaLink="true">https://www.tbsnews.net/bangla/Economy/news-details-502826</guid>
+      <description />
+      <pubDate>Tue, 16 Jun 2026 10:26:56 +0600</pubDate>
+      <media:thumbnail url="https://www.tbsnews.net/bangla/sites/default/files/styles/medium_2/public/images/2025/10/30/nbr_1.jpg" />
+      <enclosure url="https://www.tbsnews.net/bangla/sites/default/files/styles/medium_2/public/images/2025/10/30/nbr_1.jpg" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
