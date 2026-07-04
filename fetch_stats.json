@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 78,
-      "passed_age": 71,
-      "capped": 71
+      "fetched": 70,
+      "passed_age": 66,
+      "capped": 66
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 24,
-      "capped": 24
+      "passed_age": 26,
+      "capped": 26
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 32,
-      "capped": 32
+      "passed_age": 30,
+      "capped": 30
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 51,
-      "passed_age": 51,
-      "capped": 51
+      "fetched": 49,
+      "passed_age": 49,
+      "capped": 49
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
       "fetched": 500,
-      "passed_age": 90,
-      "capped": 90
+      "passed_age": 97,
+      "capped": 97
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 45,
-      "capped": 45
+      "passed_age": 85,
+      "capped": 85
     },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 68,
-      "capped": 68
+      "passed_age": 58,
+      "capped": 58
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,17 +48,17 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2679
+    "DIRECT": 2669
   },
-  "total_fetched": 2679,
-  "total_passed_age": 431,
-  "total_new": 197,
-  "total_signal": 16,
+  "total_fetched": 2669,
+  "total_passed_age": 461,
+  "total_new": 106,
+  "total_signal": 9,
   "total_longread": 0,
-  "total_signal_deduped": 15,
+  "total_signal_deduped": 9,
   "total_longread_deduped": 0,
-  "timestamp": "2026-07-04T13:38:32.985874",
+  "timestamp": "2026-07-04T15:07:33.317232",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 16,
+  "total_signal_mistral": 9,
   "total_after_dedup": 0
 }
