@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 45,
-      "passed_age": 44,
-      "capped": 44
+      "fetched": 24,
+      "passed_age": 21,
+      "capped": 21
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 20,
-      "capped": 20
+      "passed_age": 15,
+      "capped": 15
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 25,
-      "capped": 25
+      "passed_age": 21,
+      "capped": 21
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 51,
-      "passed_age": 51,
-      "capped": 51
+      "fetched": 49,
+      "passed_age": 49,
+      "capped": 49
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
       "fetched": 500,
-      "passed_age": 102,
-      "capped": 100
+      "passed_age": 97,
+      "capped": 97
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 92,
-      "capped": 92
+      "passed_age": 84,
+      "capped": 84
     },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 67,
-      "capped": 67
+      "passed_age": 66,
+      "capped": 66
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,17 +48,17 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2646
+    "DIRECT": 2623
   },
-  "total_fetched": 2646,
-  "total_passed_age": 451,
-  "total_new": 94,
-  "total_signal": 9,
+  "total_fetched": 2623,
+  "total_passed_age": 403,
+  "total_new": 49,
+  "total_signal": 3,
   "total_longread": 0,
-  "total_signal_deduped": 9,
+  "total_signal_deduped": 3,
   "total_longread_deduped": 0,
-  "timestamp": "2026-07-04T19:17:40.187118",
+  "timestamp": "2026-07-04T21:00:25.180605",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 9,
+  "total_signal_mistral": 3,
   "total_after_dedup": 0
 }
