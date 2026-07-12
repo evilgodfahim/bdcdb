@@ -91133,5 +91133,45 @@
     "description": "দেশের দক্ষিণ-পূর্বাঞ্চল, উত্তর-পূর্বাঞ্চল এবং উত্তরাঞ্চলের নদ-নদীর পানি বৃদ্ধি পাওয়ায় আগামী ২৪ থেকে ৭২ ঘণ্টার মধ্যে নতুন করে ১০ জেলা বন্যার ঝুঁকিতে আছে।",
     "published": "Sun, 12 Jul 2026 08:57:27 +0600",
     "source": "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml"
+  },
+  {
+    "id": "eb4ef74e-3777-4ce6-821f-3195f244e21d",
+    "title": "জর্ডান, কাতার, কুয়েত ও বাহরাইনে বিমানঘাঁটিসহ বিভিন্ন স্থাপনায় পাল্টা হামলার দাবি ইরানের",
+    "link": "https://www.prothomalo.com/world/middle-east/u4siyu7br4",
+    "description": "আইআরজিসি পৃথক বিবৃতিতে বলেছে, জর্ডান ও কাতারের বিমানঘাঁটিতে হামলা চালিয়ে সেখানকার কমান্ড অ্যান্ড কন্ট্রোল সেন্টার ধ্বংস করা হয়েছে।",
+    "published": "Sun, 12 Jul 2026 12:35:01 +0600",
+    "source": "https://www.prothomalo.com/feed/",
+    "thumbnail": "https://media.prothomalo.com/prothomalo-bangla/2026-07-12/eo9bjh4z/Jordan.jpg?w=280",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "e42c4821-7101-4769-8e64-6c47d809b998",
+    "title": "অতিবৃষ্টি ও পাহাড়ি ঢলে বন্যা ৭ জেলায়, মৃত্যু ৪৪ জনের",
+    "link": "https://www.prothomalo.com/bangladesh/district/7hdrp65y85",
+    "description": "চট্টগ্রামে পরিস্থিতি অবনতির আশঙ্কা কম। তবে ফেনী, সিলেট ও উত্তরাঞ্চলে সাময়িক বন্যা পরিস্থিতি সৃষ্টির আশঙ্কা।",
+    "published": "Sun, 12 Jul 2026 12:35:01 +0600",
+    "source": "https://www.prothomalo.com/feed/",
+    "thumbnail": "https://media.prothomalo.com/prothomalo-bangla/2026-07-11/1ex1halo/6.JPG?w=280",
+    "thumbnail_type": "image/jpeg"
+  },
+  {
+    "id": "https://www.tbsnews.net/bangla/Economy/news-details-513156",
+    "title": "চীনের রপ্তানি হ্রাস ও সোর্সিং পরিবর্তনে যুক্তরাষ্ট্রে পোশাক রপ্তানিতে দ্বিতীয় স্থান ধরে রেখেছে বাংলাদেশ",
+    "link": "https://www.tbsnews.net/bangla/Economy/news-details-513156",
+    "description": "",
+    "published": "Sun, 12 Jul 2026 12:35:01 +0600",
+    "source": "https://evilgodfahim.github.io/tbs/bangla.xml",
+    "thumbnail": "https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2025/09/18/rmg_tram_group_nidle_3_0.png",
+    "thumbnail_type": "image/png"
+  },
+  {
+    "id": "https://www.tbsnews.net/bangla/bangladesh/news-details-513171",
+    "title": "ভারী বৃষ্টি ও উত্তাল সাগরে চট্টগ্রাম বন্দরের কার্যক্রম ব্যাহত, দেশজুড়ে সরবরাহে বিঘ্নের আশঙ্কা",
+    "link": "https://www.tbsnews.net/bangla/bangladesh/news-details-513171",
+    "description": "",
+    "published": "Sun, 12 Jul 2026 12:35:01 +0600",
+    "source": "https://evilgodfahim.github.io/tbs/bangla.xml",
+    "thumbnail": "https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/07/05/ctg_port_6-ezgif.com-webp-to-jpg-converter.jpg",
+    "thumbnail_type": "image/jpeg"
   }
 ]
