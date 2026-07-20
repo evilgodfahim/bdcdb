@@ -4,16 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Mon, 20 Jul 2026 21:14:23 +0000</lastBuildDate>
-    <item>
-      <title>মার্কিন হামলায় কেঁপে উঠল ইরানের মাহশহর ও আবাদান</title>
-      <link>https://www.jugantor.com/international/1126847</link>
-      <guid isPermaLink="true">https://www.jugantor.com/international/1126847</guid>
-      <description>চলমান তীব্র সংঘাতের মধ্যে ইরানের ইরাক ও কুয়েত সীমান্ত সংলগ্ন পশ্চিমাঞ্চলীয় এলাকায় নতুন করে বিমান হামলা চালিয়েছে যুক্তরাষ্ট্র।</description>
-      <pubDate>Tue, 14 Jul 2026 21:25:00 +0600</pubDate>
-      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/07/14/Abadan-6a562b821b315.jpg" />
-      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/07/14/Abadan-6a562b821b315.jpg" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Mon, 20 Jul 2026 23:03:06 +0000</lastBuildDate>
     <item>
       <title>জড়িত কাউকে ধরতে পারেনি পুলিশ, ইন্টারনেট–সেবা বন্ধের হুঁশিয়ারি</title>
       <link>https://www.prothomalo.com/bangladesh/district/4tlf7i1gdy</link>
@@ -5167,6 +5158,15 @@
       <pubDate>Tue, 21 Jul 2026 03:14:01 +0600</pubDate>
       <media:thumbnail url="https://cdn.banglatribune.net/contents/cache/images/300x300x1/uploads/media/2026/07/20/d1d0ca97fcd1d85987316ecd26ec5482-6a5e57c74627e.jpg?jadewits_media_id=1034482" />
       <enclosure url="https://cdn.banglatribune.net/contents/cache/images/300x300x1/uploads/media/2026/07/20/d1d0ca97fcd1d85987316ecd26ec5482-6a5e57c74627e.jpg?jadewits_media_id=1034482" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>কমল জিডিপির গতি, শিল্প খাতে ঋণাত্মক প্রবৃদ্ধি</title>
+      <link>https://www.jugantor.com/economics/1129553</link>
+      <guid isPermaLink="true">https://www.jugantor.com/economics/1129553</guid>
+      <description>দেশের অর্থনীতির প্রধান চালিকাশক্তি শিল্প খাতের চাকা যেন থমকে গেছে। উৎপাদনমুখী এই খাত প্রথমবার ঋণাত্মক প্রবৃদ্ধিতে পড়ায় এর সরাসরি প্রভাব পড়েছে সামগ্রিক</description>
+      <pubDate>Tue, 21 Jul 2026 05:02:51 +0600</pubDate>
+      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/07/20/GDP-69d3cdfc77907-6a5e4b93eec8f.jpg" />
+      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/07/20/GDP-69d3cdfc77907-6a5e4b93eec8f.jpg" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
