@@ -6,59 +6,59 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 57,
-      "passed_age": 55,
-      "capped": 55
+      "fetched": 81,
+      "passed_age": 76,
+      "capped": 76
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 18,
-      "capped": 18
+      "passed_age": 12,
+      "capped": 12
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 10,
-      "capped": 10
+      "passed_age": 19,
+      "capped": 19
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 54,
-      "passed_age": 52,
-      "capped": 52
+      "fetched": 55,
+      "passed_age": 55,
+      "capped": 55
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
       "fetched": 500,
-      "passed_age": 77,
-      "capped": 77
+      "passed_age": 87,
+      "capped": 87
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 54,
-      "capped": 54
+      "passed_age": 59,
+      "capped": 59
     },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 36,
-      "capped": 36
+      "passed_age": 82,
+      "capped": 82
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
-      "fetched": 20,
-      "passed_age": 20,
-      "capped": 20
+      "fetched": 1,
+      "passed_age": 1,
+      "capped": 1
     }
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2661
+    "DIRECT": 2667
   },
-  "total_fetched": 2661,
-  "total_passed_age": 352,
-  "total_new": 156,
-  "total_signal": 17,
+  "total_fetched": 2667,
+  "total_passed_age": 421,
+  "total_new": 187,
+  "total_signal": 13,
   "total_longread": 0,
-  "total_signal_deduped": 12,
+  "total_signal_deduped": 13,
   "total_longread_deduped": 0,
-  "timestamp": "2026-07-21T06:30:53.568610",
+  "timestamp": "2026-07-21T10:28:39.436334",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 17,
+  "total_signal_mistral": 13,
   "total_after_dedup": 0
 }
