@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 69,
-      "passed_age": 66,
-      "capped": 66
+      "fetched": 81,
+      "passed_age": 76,
+      "capped": 76
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 63,
-      "capped": 63
+      "passed_age": 19,
+      "capped": 19
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 6,
-      "capped": 6
+      "passed_age": 27,
+      "capped": 27
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 51,
-      "passed_age": 49,
-      "capped": 49
-    },
-    "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
-      "fetched": 500,
-      "passed_age": 77,
-      "capped": 77
-    },
-    "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
-      "fetched": 500,
+      "fetched": 48,
       "passed_age": 48,
       "capped": 48
     },
+    "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
+      "fetched": 500,
+      "passed_age": 87,
+      "capped": 87
+    },
+    "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
+      "fetched": 500,
+      "passed_age": 43,
+      "capped": 43
+    },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 53,
-      "capped": 53
+      "passed_age": 77,
+      "capped": 77
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,17 +48,17 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2670
+    "DIRECT": 2679
   },
-  "total_fetched": 2670,
-  "total_passed_age": 412,
-  "total_new": 161,
-  "total_signal": 21,
+  "total_fetched": 2679,
+  "total_passed_age": 427,
+  "total_new": 195,
+  "total_signal": 20,
   "total_longread": 0,
-  "total_signal_deduped": 15,
+  "total_signal_deduped": 14,
   "total_longread_deduped": 0,
-  "timestamp": "2026-07-30T06:31:16.234702",
+  "timestamp": "2026-07-30T10:27:32.874818",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 21,
+  "total_signal_mistral": 20,
   "total_after_dedup": 0
 }
