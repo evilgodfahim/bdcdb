@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 69,
-      "passed_age": 64,
-      "capped": 64
+      "fetched": 79,
+      "passed_age": 77,
+      "capped": 77
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 20,
-      "capped": 20
+      "passed_age": 31,
+      "capped": 31
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 23,
-      "capped": 23
+      "passed_age": 26,
+      "capped": 26
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 65,
-      "passed_age": 65,
-      "capped": 65
+      "fetched": 68,
+      "passed_age": 68,
+      "capped": 68
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
       "fetched": 500,
-      "passed_age": 101,
+      "passed_age": 110,
       "capped": 100
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 72,
-      "capped": 72
+      "passed_age": 81,
+      "capped": 81
     },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 73,
-      "capped": 73
+      "passed_age": 92,
+      "capped": 92
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,17 +48,17 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2684
+    "DIRECT": 2697
   },
-  "total_fetched": 2684,
-  "total_passed_age": 468,
-  "total_new": 125,
-  "total_signal": 15,
+  "total_fetched": 2697,
+  "total_passed_age": 535,
+  "total_new": 121,
+  "total_signal": 13,
   "total_longread": 0,
-  "total_signal_deduped": 13,
+  "total_signal_deduped": 10,
   "total_longread_deduped": 0,
-  "timestamp": "2026-08-10T09:26:46.630024",
+  "timestamp": "2026-08-10T11:12:57.246184",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 15,
+  "total_signal_mistral": 13,
   "total_after_dedup": 0
 }
