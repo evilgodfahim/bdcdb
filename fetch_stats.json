@@ -6,59 +6,59 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 84,
-      "passed_age": 77,
-      "capped": 77
+      "fetched": 80,
+      "passed_age": 74,
+      "capped": 74
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 38,
-      "capped": 38
+      "passed_age": 46,
+      "capped": 46
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 29,
-      "capped": 29
+      "passed_age": 34,
+      "capped": 34
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 63,
-      "passed_age": 63,
-      "capped": 63
+      "fetched": 66,
+      "passed_age": 66,
+      "capped": 66
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
       "fetched": 500,
-      "passed_age": 108,
+      "passed_age": 109,
       "capped": 100
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 102,
+      "passed_age": 119,
       "capped": 100
     },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 108,
+      "passed_age": 103,
       "capped": 100
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
-      "fetched": 20,
-      "passed_age": 20,
-      "capped": 20
+      "fetched": 1,
+      "passed_age": 1,
+      "capped": 1
     }
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2697
+    "DIRECT": 2677
   },
-  "total_fetched": 2697,
-  "total_passed_age": 575,
+  "total_fetched": 2677,
+  "total_passed_age": 582,
   "total_new": 142,
-  "total_signal": 7,
+  "total_signal": 21,
   "total_longread": 0,
-  "total_signal_deduped": 7,
+  "total_signal_deduped": 18,
   "total_longread_deduped": 0,
-  "timestamp": "2026-08-11T13:12:13.552079",
+  "timestamp": "2026-08-11T15:03:24.935087",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 7,
+  "total_signal_mistral": 21,
   "total_after_dedup": 0
 }
