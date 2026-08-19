@@ -4,25 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Wed, 19 Aug 2026 18:38:58 +0000</lastBuildDate>
-    <item>
-      <title>মধ্যপ্রাচ্যে আকাশ ও সমুদ্রে হামলা চালাতে যুক্তরাষ্ট্রের নতুন ড্রোন টাস্কফোর্স ‘ফ্যালকন স্ট্রাইক’</title>
-      <link>https://www.jugantor.com/international/1140456</link>
-      <guid isPermaLink="true">https://www.jugantor.com/international/1140456</guid>
-      <description>মধ্যপ্রাচ্যের একাধিক ক্ষেত্রে (ডোমেইনে) আক্রমণাত্মক ড্রোন (অ্যাটাক ড্রোন) পরিচালনার জন্য একটি বহুজাতিক টাস্কফোর্স গঠন করেছে যুক্তরাষ্ট্রের সামরিক বাহিনী।</description>
-      <pubDate>Fri, 14 Aug 2026 20:57:24 +0600</pubDate>
-      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/08/14/falcon-6a7ee450dac8e.jpg" />
-      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/08/14/falcon-6a7ee450dac8e.jpg" type="image/jpeg" length="0" />
-    </item>
-    <item>
-      <title>ইরানকে নজিরবিহীন অর্থনৈতিক বিচ্ছিন্নতার হুমকি যুক্তরাষ্ট্রের</title>
-      <link>https://www.jugantor.com/international/1140454</link>
-      <guid isPermaLink="true">https://www.jugantor.com/international/1140454</guid>
-      <description>মার্কিন অর্থমন্ত্রী স্কট বেসেন্ট বৃহস্পতিবার ইরানকে ‘বিশ্ব আগে কখনো দেখেনি—এমন অর্থনৈতিক বিচ্ছিন্নতা’র মুখে ফেলার হুমকি দিয়েছেন। তিনি জানান, আগামী সপ্তাহে ইরান</description>
-      <pubDate>Fri, 14 Aug 2026 20:57:24 +0600</pubDate>
-      <media:thumbnail url="https://cdn.jugantor.com/assets/news_photos/2026/08/14/us-iran-6a7ee3ca96b78.jpg" />
-      <enclosure url="https://cdn.jugantor.com/assets/news_photos/2026/08/14/us-iran-6a7ee3ca96b78.jpg" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Wed, 19 Aug 2026 20:31:22 +0000</lastBuildDate>
     <item>
       <title>মক্কা চুক্তি কি মধ্যপ্রাচ্যে নতুন শক্তির ভারসাম্য আনবে</title>
       <link>https://www.prothomalo.com/opinion/column/0rypet3xzq</link>
@@ -5297,6 +5279,24 @@
       <pubDate>Thu, 20 Aug 2026 00:38:47 +0600</pubDate>
       <media:thumbnail url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026August/SM/hind-rajab-190826-01-1787159256.jpg" />
       <enclosure url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026August/SM/hind-rajab-190826-01-1787159256.jpg" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>খোলা বাজারে ডলার এখন ১২৮ টাকা, উল্টো চিত্র ব্যাংকে</title>
+      <link>https://bangla.bdnews24.com/business/6c387ac14c3e</link>
+      <guid isPermaLink="true">https://bangla.bdnews24.com/business/6c387ac14c3e</guid>
+      <description>[বাণিজ্য] খোলা বাজারে ডলার এখন ১২৮ টাকা, উল্টো চিত্র ব্যাংকে</description>
+      <pubDate>Thu, 20 Aug 2026 02:31:15 +0600</pubDate>
+      <media:thumbnail url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026August/SM/english-89-1787168758.jpg" />
+      <enclosure url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026August/SM/english-89-1787168758.jpg" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>ইরানের হামলায় ক্ষতি, পশ্চিম এশিয়ায় সামরিক উপস্থিতি কমাতে পারে যুক্তরাষ্ট্র</title>
+      <link>https://bangla.bdnews24.com/world/645973a4a546</link>
+      <guid isPermaLink="true">https://bangla.bdnews24.com/world/645973a4a546</guid>
+      <description>[বিশ্ব] ইরানের হামলায় ক্ষতি, পশ্চিম এশিয়ায় সামরিক উপস্থিতি কমাতে পারে যুক্তরাষ্ট্র</description>
+      <pubDate>Thu, 20 Aug 2026 02:31:15 +0600</pubDate>
+      <media:thumbnail url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026August/SM/us-troop-west-asia-190826-01-1787165164.jpg" />
+      <enclosure url="https://media-stg.assettype.com/bdnews/import/bangla/imgAll/2026August/SM/us-troop-west-asia-190826-01-1787165164.jpg" type="image/jpeg" length="0" />
     </item>
   </channel>
 </rss>
