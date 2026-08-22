@@ -6,39 +6,39 @@
       "capped": 30
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 66,
-      "passed_age": 60,
-      "capped": 60
+      "fetched": 75,
+      "passed_age": 72,
+      "capped": 72
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 30,
-      "capped": 30
+      "passed_age": 40,
+      "capped": 40
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 22,
-      "capped": 22
+      "passed_age": 29,
+      "capped": 29
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 79,
-      "passed_age": 79,
-      "capped": 79
+      "fetched": 81,
+      "passed_age": 81,
+      "capped": 81
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
       "fetched": 500,
-      "passed_age": 93,
-      "capped": 93
+      "passed_age": 99,
+      "capped": 99
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 91,
-      "capped": 91
+      "passed_age": 101,
+      "capped": 100
     },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 85,
-      "capped": 85
+      "passed_age": 96,
+      "capped": 96
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 20,
@@ -48,17 +48,17 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2695
+    "DIRECT": 2706
   },
-  "total_fetched": 2695,
-  "total_passed_age": 510,
-  "total_new": 128,
-  "total_signal": 13,
+  "total_fetched": 2706,
+  "total_passed_age": 568,
+  "total_new": 167,
+  "total_signal": 21,
   "total_longread": 0,
-  "total_signal_deduped": 11,
+  "total_signal_deduped": 18,
   "total_longread_deduped": 0,
-  "timestamp": "2026-08-22T10:26:31.290241",
+  "timestamp": "2026-08-22T12:42:50.757058",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 13,
+  "total_signal_mistral": 21,
   "total_after_dedup": 0
 }
