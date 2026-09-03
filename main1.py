@@ -39,8 +39,7 @@ FEED_URLS = [
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml",
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml",
     "https://evilgodfahim.github.io/bt/banglatribune.xml",
-
-"https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml"
+    "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml"
 ]
 
 EXISTING_API_FEEDS = set(FEED_URLS)
@@ -63,74 +62,76 @@ MAX_FEED_ITEMS        = 500
 
 # -- PROMPT --------------------------------------------------------------------
 
-PROMPT = """You are a strict news classification engine. Input: numbered article titles from Bangladeshi Bangla-language news outlets. Titles are written in Bengali (Bangla script). Classify each as SIGNAL or NOISE. Return only SIGNAL indices. The bar is SUPER HIGH; (LOWEST < LOWER < LOW < AVERAGE < HIGH < SUPER HIGH < ULTRA HIGH < EXTREME).
+PROMPT = """You are a strict news classification engine for Bangla-language headlines from Bangladeshi news outlets.
+Your task: Classify each headline as SIGNAL or NOISE based on national or international significance.
+The bar is SUPER HIGH; only headlines with proven, large-scale impact qualify as SIGNAL.
 
-STEP 1 — INSTANT NOISE. Mark as NOISE immediately if the title is any of:
-  - Sports, entertainment, celebrity, lifestyle, human interest
-  - Tribute, commemorative, or anniversary pieces
-  - Praise or criticism of a person, party, or institution
-  - Any isolated or discrete incident: one arrest, one clash, one crime, one accident, one fire, one death, one protest at one location — no matter how dramatic the title sounds
-  - Anything affecting only one district, one institution, one community, or one individual
+GUIDELINES:
+- Default to NOISE when uncertain.
+- SIGNAL must affect the entire nation, a significant portion of it, or have verified cross-border consequences.
+- Local, individual, or institutional stories are NOISE unless they have explicit national or international implications.
+
+STEP 1 — INSTANT NOISE. Classify as NOISE if the headline matches any of these:
+  - Sports, entertainment, celebrity, lifestyle, human interest, or cultural events
+  - Tribute, commemorative, anniversary, or opinion pieces (e.g., editorials, analyses, or "Why X matters")
+  - Praise, criticism, or personal attacks on individuals, parties, or institutions
+  - Isolated incidents: single arrests, clashes, crimes, accidents, fires, deaths, or protests in one location
+  - Stories limited to one district, institution, community, or individual
+  - Local development, infrastructure, or service issues (e.g., one road, hospital, or factory)
+  - Religious or social events without national impact
 
 STEP 2 — SCOPE CHECK.
 
-  BANGLADESH: SIGNAL only if the event or decision affects the entire country or a nationally significant portion of it:
-  - Economic data or official decisions: central bank actions, national budget, trade figures, remittance data, fuel/utility price changes, foreign reserve status, currency moves, stock market circuit breakers, IMF/World Bank actions on BD
-  - Government or institutional actions at the national level: cabinet decisions, parliament acts, nationwide policy rollouts, supreme court rulings, election commission decisions
-  - Infrastructure or public systems at national scale: nationwide power outages, countrywide internet disruption, collapse of a national system (not one hospital, one road, one factory)
-  - Natural disasters or health emergencies declared at national or divisional scale (not one district)
-  - Foreign affairs: official bilateral talks, international sanctions or pressure on BD, cross-border agreements or disputes (Teesta, Rohingya, trade), BD at UN/IMF/WTO, foreign loans or aid formally approved
-  - Anything sub-national, sub-institutional, or about a single individual → NOISE
+  BANGLADESH: SIGNAL only if the headline describes an event or decision with national impact:
+  - National economic data or official decisions: central bank policies, national budget, trade/remittance data, fuel/utility price changes, foreign reserves, currency movements, stock market disruptions, IMF/World Bank actions on Bangladesh
+  - National government or institutional actions: cabinet decisions, parliamentary acts, nationwide policy rollouts, Supreme Court rulings, Election Commission decisions
+  - Nationwide infrastructure or system failures: countrywide power/internet outages, collapse of national systems (e.g., banking, healthcare)
+  - National-scale natural disasters or health emergencies (e.g., cyclones, floods, or pandemics affecting multiple divisions)
+  - Foreign affairs: official bilateral talks, international sanctions/pressure on Bangladesh, cross-border agreements/disputes (Teesta, Rohingya, trade), Bangladesh's participation in UN/IMF/WTO, formal foreign loans/aid approvals
 
   INTERNATIONAL: SIGNAL only for concrete events with verified cross-border consequences:
-  - Active armed conflicts between states, or formal declarations of war or ceasefire
+  - Active armed conflicts between states, or formal declarations of war/ceasefire
   - Multinational body decisions: UN Security Council resolutions, IMF/World Bank program approvals, WTO rulings, NATO formal decisions, IAEA findings, ICC/ICJ verdicts
   - Formal multilateral treaties signed or collapsed
-  - A single country's decision only if it moves something the world depends on immediately: global energy supply disruption, collapse of a major financial system, verified nuclear weapons development milestone, formal treaty withdrawal with immediate effect
-  - Internal politics, elections, leadership changes, and domestic policy of any single foreign country → NOISE unless the direct cross-border consequence is stated in the title itself
+  - Global disruptions: energy supply disruptions, collapse of major financial systems, verified nuclear weapons milestones, formal treaty withdrawals with immediate global effect
+  - Internal politics of foreign countries are NOISE unless the headline explicitly states a direct cross-border consequence
 
-WHEN IN DOUBT → NOISE.
+STEP 3 — DEDUPLICATION. Group headlines covering the same story. For each group, keep only the lowest index (earliest). Distinct topics must all be retained.
 
-STEP 3 — DEDUPLICATION. Identify groups of titles covering the same story. For each group keep only the lowest index, discard the rest. Distinct topics must all be kept.
+Output only: {"signal": [0-based indices]}. Valid JSON, no markdown, no explanation.
 
-Output only: {{"signal": [0-based indices]}}. Valid JSON, no markdown, no explanation.
-
-EXAMPLES (logic shown in English; apply identically to Bangla titles):
+EXAMPLES (logic applies identically to Bangla titles):
 
 Input:
-0. US and China sign landmark trade agreement
-1. Premier League club sacks manager
-2. Bangladesh central bank raises interest rates amid inflation crisis
-3. UK Conservative Party elects new leader
-4. UN Security Council votes to deploy peacekeepers to Sudan
-5. The Promise of a New Bangladesh
-6. We Must Fix Bangladesh's Broken Irrigation System
-7. Bangladesh slashes fuel subsidies nationwide
-8. India arrests opposition leader
-9. Bangladesh foreign minister holds talks with India over Teesta water sharing
-10. US warns Bangladesh over labour rights ahead of GSP review
-11. China pledges $3bn infrastructure loan to Bangladesh, deal signed
-12. NATO formally approves expansion of eastern flank forces
-13. Student clash reported in Dhaka university campus
-14. Why Bangladesh's Economy Is at a Crossroads
-Output: {{"signal": [0, 2, 4, 7, 9, 10, 11, 12]}}
+0. বাংলাদেশ ব্যাংক সুদহার বৃদ্ধি করল
+1. ইংল্যান্ডের নতুন ম্যানেজার নিয়োগ
+2. দেশব্যাপী বিদ্যুৎ বিঘ্ন
+3. ভারত-বাংলাদেশ টেস্ট সিরিজের ফলাফল
+4. জাতিসংঘ নিরাপত্তা পরিষদের নতুন প্রস্তাব
+5. বাংলাদেশের অর্থনীতির নতুন দিগন্ত
+6. সিলেটে একজনের মৃত্যু
+7. বাংলাদেশের রিজার্ভ ২০ বিলিয়ন ডলারের নিচে
+8. ভারত-বাংলাদেশ পানিবণ্টন চুক্তি
+9. আমেরিকা বাংলাদেশের শ্রম অধিকারের বিষয়ে সতর্ক করল
+10. চীনের সাথে বাংলাদেশের ৩ বিলিয়ন ডলারের ঋণ চুক্তি
+Output: {"signal": [0, 2, 4, 7, 8, 9, 10]}
 
 Input:
-0. Pakistan and India exchange fire across Line of Control, casualties confirmed
-1. Dhaka garment workers strike shuts down hundreds of factories nationwide
-2. Australia holds federal election
-3. IMF formally approves $4.7bn loan for Bangladesh
-4. BNP's Path Forward After the Election
-5. How Microfinance Is Changing Lives in Sylhet
-6. The Geopolitics of the Indo-Pacific and What It Means for the World
-7. IAEA confirms Iran has enriched uranium to 84 percent purity
-8. Man arrested in Chattogram over murder
-9. Bangladesh foreign reserves fall below $20bn, taka hits record low
-10. Garment exports decline 12% in Q1, Bangladesh Bank reports
-11. ICC issues arrest warrant for sitting head of state
-12. Fire breaks out at Tejgaon factory, 3 killed
-13. Bangladesh parliament passes new cybersecurity law
-Output: {{"signal": [0, 1, 3, 7, 9, 10, 11, 13]}}
+0. ভারত-পাকিস্তান সীমান্তে গুলিবিনিময়, নিহতের খবর
+1. দেশব্যাপী পোশাক শ্রমিকদের ধর্মঘট
+2. অস্ট্রেলিয়ায় ফেডারেল নির্বাচন
+3. আইএমএফ বাংলাদেশকে ৪.৭ বিলিয়ন ডলার ঋণ অনুমোদন
+4. নির্বাচনের পর বিএনপির ভবিষ্যৎ পথ
+5. সিলেটে মাইক্রোফাইন্যান্সের প্রভাব
+6. ভারত-প্রশান্ত মহাসাগরীয় ভূ-রাজনীতির প্রভাব
+7. ইরান ইউরেনিয়াম সমৃদ্ধকরণ ৮৪% এ নিয়েছে
+8. চট্টগ্রামে খুনে গ্রেপ্তার
+9. বাংলাদেশের রিজার্ভ ২০ বিলিয়ন ডলারের নিচে, টাকা ঐতিহাসিক সর্বনিম্ন
+10. প্রথম প্রান্তিকে পোশাক রপ্তানি ১২% কমেছে
+11. আইসিসি একটি রাষ্ট্রপ্রধানের বিরুদ্ধে গ্রেপ্তারি পরোয়ানা জারি
+12. তেজগাঁও কারখানায় আগুন, নিহত ৩
+13. বাংলাদেশে সাইবার নিরাপত্তা আইন পাস
+Output: {"signal": [0, 1, 3, 7, 9, 10, 11, 13]}
 
 Article titles:
 {titles}
@@ -172,14 +173,12 @@ def load_processed_articles():
             pass
     return {"article_ids": [], "article_links": [], "last_updated": None}
 
-
 def save_processed_articles(data):
     data["article_ids"]   = list(dict.fromkeys(data.get("article_ids", [])))
     data["article_links"] = list(dict.fromkeys(data.get("article_links", [])))
     data["last_updated"]  = datetime.utcnow().isoformat()
     with open(PROCESSED_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-
 
 def save_selected_articles(articles):
     existing = []
@@ -193,7 +192,6 @@ def save_selected_articles(articles):
     merged = existing + [a for a in articles if a.get("link") not in existing_links]
     with open(SELECTED_FILE, "w", encoding="utf-8") as f:
         json.dump(merged, f, indent=2, ensure_ascii=False)
-
 
 def save_stats():
     STATS["timestamp"] = datetime.utcnow().isoformat()
@@ -222,7 +220,6 @@ def normalize_link(link, base=None):
     link = re.sub(r"([?&])fbclid=[^&]+",    r"\1", link)
     link = re.sub(r"[?&]$", "", link)
     return link.split("#")[0]
-
 
 def parse_date(entry):
     for key in ("published_parsed", "updated_parsed", "created_parsed", "issued_parsed"):
@@ -254,9 +251,7 @@ def parse_date(entry):
         return datetime.now(timezone.utc), True
     return None, False
 
-
 IMG_SRC_RE = re.compile(r'<img[^>]+src=["\']([^"\']+)["\']', re.I)
-
 
 def find_image_in_html(html, base=None):
     if not html:
@@ -265,7 +260,6 @@ def find_image_in_html(html, base=None):
     if not m:
         return None
     return normalize_link(m.group(1).strip(), base=base)
-
 
 def get_mime_for_url(url):
     if not url:
@@ -276,7 +270,6 @@ def get_mime_for_url(url):
     if path.endswith(".webp"): return "image/webp"
     if path.endswith(".svg"):  return "image/svg+xml"
     return "image/jpeg"
-
 
 def extract_image_url(entry, base_link=None):
     mt = entry.get("media_thumbnail")
@@ -353,7 +346,6 @@ def fetch_via_kl(kl_endpoint, target_feed_url, timeout=20):
         pass
     return None
 
-
 def fetch_feed(url):
     url_norm    = url.strip()
     method_used = "DIRECT"
@@ -378,7 +370,6 @@ def fetch_feed(url):
     STATS["total_fetched"]            += entries_count
 
     return feed
-
 
 def fetch_all_feeds():
     now          = datetime.now(timezone.utc)
@@ -439,7 +430,6 @@ def fetch_all_feeds():
 
     return all_articles
 
-
 def get_new_articles(all_articles, processed_data):
     processed_ids   = set(processed_data.get("article_ids", []))
     processed_links = set(processed_data.get("article_links", []))
@@ -473,7 +463,6 @@ def extract_signal_indices(text):
             pass
     return []
 
-
 def send_to_mistral(articles):
     """Single Mistral call. Returns deduplicated SIGNAL indices via prompt instructions."""
     api_key = os.environ.get("MS")
@@ -497,7 +486,6 @@ def send_to_mistral(articles):
         print(f"Mistral classification error: {e}")
         return []
 
-
 # -- XML -----------------------------------------------------------------------
 
 def _fresh_channel(root, feed_title, feed_description):
@@ -506,7 +494,6 @@ def _fresh_channel(root, feed_title, feed_description):
     ET.SubElement(channel, "link").text        = "https://yourusername.github.io/yourrepo/"
     ET.SubElement(channel, "description").text = feed_description
     return channel
-
 
 def _load_or_create(output_file, feed_title, feed_description):
     ET.register_namespace("media", MEDIA_NS)
@@ -525,7 +512,6 @@ def _load_or_create(output_file, feed_title, feed_description):
     tree    = ET.ElementTree(root)
     channel = _fresh_channel(root, feed_title, feed_description)
     return tree, root, channel
-
 
 def generate_xml_feed(articles, output_file, feed_title=None, feed_description=None):
     feed_title       = feed_title       or "Curated News"
@@ -658,7 +644,6 @@ def main():
     STATS["timestamp"] = datetime.utcnow().isoformat()
     save_stats()
     print_stats()
-
 
 if __name__ == "__main__":
     main()
