@@ -62,76 +62,69 @@ MAX_FEED_ITEMS        = 500
 
 # -- PROMPT --------------------------------------------------------------------
 
-PROMPT = """You are a strict news classification engine for Bangla-language headlines from Bangladeshi news outlets.
-Your task: Classify each headline as SIGNAL or NOISE based on national or international significance.
-The bar is SUPER HIGH; only headlines with proven, large-scale impact qualify as SIGNAL.
+PROMPT = """You are an extremely strict news classification engine for Bangla-language headlines from Bangladeshi news outlets.
+Your task: Classify each headline as SIGNAL or NOISE based on major national or global significance.
+The bar is EXTREMELY HIGH; reject non-essential news aggressively. Only concrete, large-scale events qualify as SIGNAL.
 
 GUIDELINES:
-- Default to NOISE when uncertain.
-- SIGNAL must affect the entire nation, a significant portion of it, or have verified cross-border consequences.
-- Local, individual, or institutional stories are NOISE unless they have explicit national or international implications.
+- ABSOLUTE DEFAULT IS NOISE. When in doubt or if a title is vague, classify as NOISE immediately.
+- SIGNAL must represent official state action, systemic national impact, or major cross-border/global shifts.
+- Political rhetoric, party statements, press conferences, political drama, mutual accusations, and political commentary are ALWAYS NOISE unless backed by an official state policy change or constitutional/legal milestone.
 
 STEP 1 — INSTANT NOISE. Classify as NOISE if the headline matches any of these:
-  - Sports, entertainment, celebrity, lifestyle, human interest, or cultural events
-  - Tribute, commemorative, anniversary, or opinion pieces (e.g., editorials, analyses, or "Why X matters")
-  - Praise, criticism, or personal attacks on individuals, parties, or institutions
-  - Isolated incidents: single arrests, clashes, crimes, accidents, fires, deaths, or protests in one location
-  - Stories limited to one district, institution, community, or individual
-  - Local development, infrastructure, or service issues (e.g., one road, hospital, or factory)
-  - Religious or social events without national impact
+  - Sports, entertainment, celebrity, lifestyle, human interest, crime, accidents, or cultural events
+  - Political speeches, party declarations, press briefings, mutual attacks between political figures/parties, or rallies
+  - Tribute, commemorative, anniversary, opinion pieces, editorials, or analyses (e.g., "Why X matters", "X's perspective")
+  - Isolated incidents: individual arrests, routine court hearings, local clashes, local crimes, fires, or localized protests
+  - Stories limited to a single district, city, institution, university, community, or individual
+  - Routine weather/rain reports (unless a multi-division catastrophic natural disaster emergency)
+  - Everyday market price fluctuations unless tied to direct, central government price/tax/duty regulation decisions
 
-STEP 2 — SCOPE CHECK.
+STEP 2 — SCOPE CHECK (SIGNAL REQUIREMENTS).
 
-  BANGLADESH: SIGNAL only if the headline describes an event or decision with national impact:
-  - National economic data or official decisions: central bank policies, national budget, trade/remittance data, fuel/utility price changes, foreign reserves, currency movements, stock market disruptions, IMF/World Bank actions on Bangladesh
-  - National government or institutional actions: cabinet decisions, parliamentary acts, nationwide policy rollouts, Supreme Court rulings, Election Commission decisions
-  - Nationwide infrastructure or system failures: countrywide power/internet outages, collapse of national systems (e.g., banking, healthcare)
-  - National-scale natural disasters or health emergencies (e.g., cyclones, floods, or pandemics affecting multiple divisions)
-  - Foreign affairs: official bilateral talks, international sanctions/pressure on Bangladesh, cross-border agreements/disputes (Teesta, Rohingya, trade), Bangladesh's participation in UN/IMF/WTO, formal foreign loans/aid approvals
+  BANGLADESH: SIGNAL ONLY if describing a major event with verified nationwide structural impact:
+  - Major national economic policy: central bank policy rates, currency devaluations, official national budget enactment, foreign reserves milestones, multi-sector fuel/utility price revisions, official IMF/World Bank loan approvals/agreements
+  - Official state/institutional actions: major cabinet decisions, parliamentary acts passed, landmark Supreme Court rulings, Election Commission official schedule announcements
+  - Nationwide infrastructure failures: countrywide power, energy, grid, or internet blackouts
+  - Multi-division/Nationwide natural disasters or national state of emergency declarations
+  - High-level foreign affairs: official bilateral summits, international sanctions, cross-border formal treaties, official foreign aid/loan sign-offs
 
-  INTERNATIONAL: SIGNAL only for concrete events with verified cross-border consequences:
-  - Active armed conflicts between states, or formal declarations of war/ceasefire
-  - Multinational body decisions: UN Security Council resolutions, IMF/World Bank program approvals, WTO rulings, NATO formal decisions, IAEA findings, ICC/ICJ verdicts
-  - Formal multilateral treaties signed or collapsed
-  - Global disruptions: energy supply disruptions, collapse of major financial systems, verified nuclear weapons milestones, formal treaty withdrawals with immediate global effect
-  - Internal politics of foreign countries are NOISE unless the headline explicitly states a direct cross-border consequence
+  INTERNATIONAL: SIGNAL ONLY for concrete state-level events with direct global or regional consequences:
+  - Active inter-state armed conflicts, declarations of war, or official ceasefires
+  - Multinational body binding actions: UN Security Council binding resolutions, major IMF/World Bank program approvals, binding NATO/ICC/ICJ decisions
+  - Major international energy/financial market disruptions, nuclear milestones, or formal global treaty collapse
+  - Internal politics of foreign countries are NOISE unless explicitly stating direct, immediate impact on Bangladesh
 
-STEP 3 — DEDUPLICATION. Group headlines covering the same story. For each group, keep only the lowest index (earliest). Distinct topics must all be retained.
+STEP 3 — STRICT DEDUPLICATION. Group headlines covering the exact same story or event. For each group, keep ONLY the lowest 0-based index (earliest). Distinct topics must all be retained.
 
-Output only: {{"signal": [0-based indices]}}. Valid JSON, no markdown, no explanation.
+Output only: {{"signal": [0-based indices]}}. Valid JSON, no markdown formatting, no explanation.
 
 EXAMPLES (logic applies identically to Bangla titles):
 
 Input:
-0. বাংলাদেশ ব্যাংক সুদহার বৃদ্ধি করল
-1. ইংল্যান্ডের নতুন ম্যানেজার নিয়োগ
-2. দেশব্যাপী বিদ্যুৎ বিঘ্ন
-3. ভারত-বাংলাদেশ টেস্ট সিরিজের ফলাফল
-4. জাতিসংঘ নিরাপত্তা পরিষদের নতুন প্রস্তাব
-5. বাংলাদেশের অর্থনীতির নতুন দিগন্ত
-6. সিলেটে একজনের মৃত্যু
-7. বাংলাদেশের রিজার্ভ ২০ বিলিয়ন ডলারের নিচে
-8. ভারত-বাংলাদেশ পানিবণ্টন চুক্তি
-9. আমেরিকা বাংলাদেশের শ্রম অধিকারের বিষয়ে সতর্ক করল
-10. চীনের সাথে বাংলাদেশের ৩ বিলিয়ন ডলারের ঋণ চুক্তি
-Output: {{"signal": [0, 2, 4, 7, 8, 9, 10]}}
+0. বিএনপির সংবাদ সম্মেলনে জাতীয় নির্বাচন নিয়ে কড়া বক্তব্য
+1. বাংলাদেশ ব্যাংক নীতি সুদহার ৫০ বেসিস পয়েন্ট বাড়াল
+2. হাইকোর্টে সাবেক মন্ত্রীর জামিন আবেদনের শুনানি স্থগিত
+3. বাংলাদেশ ও ভারতের মধ্যে পানি বণ্টন চুক্তি স্বাক্ষরিত
+4. সিলেটে সড়ক দুর্ঘটনায় ৩ জন নিহত
+5. আইএমএফ বাংলাদেশকে ৪.৭ বিলিয়ন ডলার ঋণের অনুমোদন দিল
+6. চালের বাজার নিয়ন্ত্রণে ঢাকার বাজারে প্রশাসনের অভিযান
+7. বিদ্যুৎ ও জ্বালানি মন্ত্রণালয় ডিজেলের দাম ৫ টাকা কমাল
+8. 'আমাদের অর্থনীতি কোন পথে'—অধ্যাপক রহমানের কলাম
+9. জাতীয় গ্রিডে বিপর্যয়, দেশব্যাপী বিদ্যুৎ সরবরাহ বন্ধ
+Output: {{"signal": [1, 3, 5, 7, 9]}}
 
 Input:
-0. ভারত-پاکستان সীমান্তে গুলিবিনিময়, নিহতের খবর
-1. দেশব্যাপী পোশাক শ্রমিকদের ধর্মঘট
-2. অস্ট্রেলিয়ায় ফেডারেল নির্বাচন
-3. আইএমএফ বাংলাদেশকে ৪.৭ বিলিয়ন ডলার ঋণ অনুমোদন
-4. নির্বাচনের পর বিএনপির ভবিষ্যৎ পথ
-5. সিলেটে মাইক্রোফাইন্যান্সের প্রভাব
-6. ভারত-প্রশান্ত মহাসাগরীয় ভূ-রাজনীতির প্রভাব
-7. ইরান ইউরেনিয়াম সমৃদ্ধকরণ ৮৪% এ নিয়েছে
-8. চট্টগ্রামে খুনে গ্রেপ্তার
-9. বাংলাদেশের রিজার্ভ ২০ বিলিয়ন ডলারের নিচে, টাকা ঐতিহাসিক সর্বনিম্ন
-10. প্রথম প্রান্তিকে পোশাক রপ্তানি ১২% কমেছে
-11. আইসিসি একটি রাষ্ট্রপ্রধানের বিরুদ্ধে গ্রেপ্তারি পরোয়ানা জারি
-12. তেজগাঁও কারখানায় আগুন, নিহত ৩
-13. বাংলাদেশে সাইবার নিরাপত্তা আইন পাস
-Output: {{"signal": [0, 1, 3, 7, 9, 10, 11, 13]}}
+0. সরকারের পদত্যাগ দাবি করে ইসলামী আন্দোলনের সমাবেশ
+1. জাতিসংঘ নিরাপত্তা পরিষদে গাজায় যুদ্ধবিরতির প্রস্তাব পাস
+2. আগামী তিন দিন দেশের বিভিন্ন স্থানে বৃষ্টির পূর্বাভাস
+3. নির্বাচন কমিশন সচিব পদে নতুন কর্মকর্তা নিয়োগ
+4. আইসিসির গ্রেপ্তারি পরোয়ানা জারি রাষ্ট্রপ্রধানের বিরুদ্ধে
+5. বুয়েট ছাত্রাবাসে দুই দলের সংঘর্ষ, ৫ জন আহত
+6. বাংলাদেশ রিজার্ভ ব্যাংক থেকে ৩ বিলিয়ন ডলারের নতুন সোয়াপ চুক্তি করল
+7. যুক্তরায্যের সাধারণ নির্বাচনে কনজারভেটিভ পার্টির পরাজয়
+8. জাতীয় সংসদে সাইবার নিরাপত্তা আইন বাতিল বিল পাস
+Output: {{"signal": [1, 4, 6, 8]}}
 
 Article titles:
 {titles}
