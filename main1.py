@@ -62,64 +62,26 @@ MAX_FEED_ITEMS        = 500
 
 # -- PROMPT --------------------------------------------------------------------
 
-SYSTEM_PROMPT = """You are a strict news classification engine for Bangla-language headlines from Bangladeshi outlets.
+SYSTEM_PROMPT = """You classify Bangla news headlines as SIGNAL or NOISE. Default: NOISE.
 
-DEFAULT: NOISE. Classify as SIGNAL only for concrete, large-scale events with verifiable nationwide or global structural impact. When uncertain: NOISE.
+NOISE: sports, entertainment, crime, accidents, weather, market prices, political speeches/rallies/accusations/statements, opinion, analysis, tributes, routine court hearings, individual arrests, anything local or single-institution scope.
 
-INSTANT NOISE — any match → NOISE:
-- Sports, entertainment, celebrity, lifestyle, human interest, crime, accidents
-- Political speeches, party statements, rallies, press conferences, accusations, commentary
-- Opinion, editorial, analysis, tribute, anniversary content
-- Routine court hearings, individual arrests, isolated local incidents
-- Single district / city / institution / individual scope
-- Routine weather or market price updates without government policy action
+SIGNAL — Bangladesh (nationwide structural impact only): central bank rate/FX/reserve decisions, IMF/World Bank approvals, enacted legislation or landmark Supreme Court rulings, Election Commission official schedule, nationwide grid or internet failure, multi-division disaster, national emergency, bilateral treaties.
 
-SIGNAL — Bangladesh (nationwide structural impact only):
-- Central bank policy rate or currency decisions; official budget enactment
-- Foreign reserve milestones; IMF/World Bank loan approvals or agreements
-- Major cabinet decisions; parliamentary acts passed; landmark Supreme Court rulings
-- Election Commission official schedule announcements
-- Nationwide infrastructure failures (power grid, internet)
-- Multi-division natural disasters; national emergency declarations
-- Official bilateral summits, international sanctions, formal cross-border treaties
+SIGNAL — International (state-level, direct global consequence only): active inter-state war or ceasefire, UNSC binding resolutions, ICC/ICJ/NATO binding decisions, IMF/World Bank program approvals, nuclear milestones, major treaty collapse. Foreign domestic politics → NOISE unless headline explicitly states Bangladesh impact.
 
-SIGNAL — International (state-level, direct global/regional consequence):
-- Active inter-state armed conflict, declarations of war, official ceasefires
-- UN Security Council binding resolutions; binding ICC / ICJ / NATO decisions
-- Major IMF/World Bank program approvals
-- Global energy/financial disruptions, nuclear milestones, formal treaty collapse
-- Foreign internal politics → NOISE unless headline explicitly states direct Bangladesh impact
+Dedup: identical story → keep lowest index only.
+Output: {"signal": [indices]}"""
 
-DEDUPLICATION: For headlines covering the exact same story, keep only the lowest 0-based index. All distinct topics must be retained.
-
-OUTPUT: Respond with only valid JSON — {"signal": [0-based indices]} — no markdown, no explanation."""
-
-PROMPT = """Examples:
-
-Input:
-0. বিএনপির সংবাদ সম্মেলনে জাতীয় নির্বাচন নিয়ে কড়া বক্তব্য
+PROMPT = """Example:
+0. বিএনপির সংবাদ সম্মেলনে নির্বাচন নিয়ে কড়া বক্তব্য
 1. বাংলাদেশ ব্যাংক নীতি সুদহার ৫০ বেসিস পয়েন্ট বাড়াল
-2. হাইকোর্টে সাবেক মন্ত্রীর জামিন আবেদনের শুনানি স্থগিত
-3. বাংলাদেশ ও ভারতের মধ্যে পানি বণ্টন চুক্তি স্বাক্ষরিত
-4. সিলেটে সড়ক দুর্ঘটনায় ৩ জন নিহত
-5. আইএমএফ বাংলাদেশকে ৪.৭ বিলিয়ন ডলার ঋণের অনুমোদন দিল
-6. চালের বাজার নিয়ন্ত্রণে ঢাকার বাজারে প্রশাসনের অভিযান
-7. বিদ্যুৎ ও জ্বালানি মন্ত্রণালয় ডিজেলের দাম ৫ টাকা কমাল
-8. 'আমাদের অর্থনীতি কোন পথে'—অধ্যাপক রহমানের কলাম
-9. জাতীয় গ্রিডে বিপর্যয়, দেশব্যাপী বিদ্যুৎ সরবরাহ বন্ধ
-Output: {{"signal": [1, 3, 5, 7, 9]}}
-
-Input:
-0. সরকারের পদত্যাগ দাবি করে ইসলামী আন্দোলনের সমাবেশ
-1. জাতিসংঘ নিরাপত্তা পরিষদে গাজায় যুদ্ধবিরতির প্রস্তাব পাস
-2. আগামী তিন দিন দেশের বিভিন্ন স্থানে বৃষ্টির পূর্বাভাস
-3. নির্বাচন কমিশন সচিব পদে নতুন কর্মকর্তা নিয়োগ
-4. আইসিসির গ্রেপ্তারি পরোয়ানা জারি রাষ্ট্রপ্রধানের বিরুদ্ধে
-5. বুয়েট ছাত্রাবাসে দুই দলের সংঘর্ষ, ৫ জন আহত
-6. বাংলাদেশ রিজার্ভ ব্যাংক থেকে ৩ বিলিয়ন ডলারের নতুন সোয়াপ চুক্তি করল
-7. যুক্তরায্যের সাধারণ নির্বাচনে কনজারভেটিভ পার্টির পরাজয়
-8. জাতীয় সংসদে সাইবার নিরাপত্তা আইন বাতিল বিল পাস
-Output: {{"signal": [1, 4, 6, 8]}}
+2. সিলেটে সড়ক দুর্ঘটনায় ৩ নিহত
+3. আইএমএফ বাংলাদেশকে ৪.৭ বিলিয়ন ডলার ঋণের অনুমোদন দিল
+4. জাতিসংঘ নিরাপত্তা পরিষদে যুদ্ধবিরতির প্রস্তাব পাস
+5. চালের বাজারে দাম বৃদ্ধি, ক্রেতাদের হাহাকার
+6. জাতীয় গ্রিডে বিপর্যয়, দেশব্যাপী বিদ্যুৎ সরবরাহ বন্ধ
+→ {"signal": [1, 3, 4, 6]}
 
 Classify:
 {titles}"""
@@ -160,36 +122,50 @@ def load_processed_articles():
             pass
     return {"article_ids": [], "article_links": [], "last_updated": None}
 
+
 def save_processed_articles(data):
     data["article_ids"]   = list(dict.fromkeys(data.get("article_ids", [])))
     data["article_links"] = list(dict.fromkeys(data.get("article_links", [])))
     data["last_updated"]  = datetime.utcnow().isoformat()
+
     with open(PROCESSED_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+
 def save_selected_articles(articles):
     existing = []
+
     if Path(SELECTED_FILE).exists():
         try:
             with open(SELECTED_FILE, "r", encoding="utf-8") as f:
                 existing = json.load(f)
         except Exception:
             pass
+
     existing_links = {a.get("link") for a in existing}
-    merged = existing + [a for a in articles if a.get("link") not in existing_links]
+    merged = existing + [
+        a for a in articles
+        if a.get("link") not in existing_links
+    ]
+
     with open(SELECTED_FILE, "w", encoding="utf-8") as f:
         json.dump(merged, f, indent=2, ensure_ascii=False)
 
+
 def save_stats():
     STATS["timestamp"] = datetime.utcnow().isoformat()
+
     existing = {}
+
     if Path(STATS_FILE).exists():
         try:
             with open(STATS_FILE, "r", encoding="utf-8") as f:
                 existing = json.load(f)
         except Exception:
             pass
+
     existing.update(STATS)
+
     with open(STATS_FILE, "w", encoding="utf-8") as f:
         json.dump(existing, f, indent=2, ensure_ascii=False)
 
@@ -198,118 +174,233 @@ def save_stats():
 def normalize_link(link, base=None):
     if not link:
         return ""
+
     link = link.strip()
+
     if link.startswith("//"):
         link = "https:" + link
+
     if base and not urlparse(link).netloc:
         link = urljoin(base, link)
+
     link = re.sub(r"([?&])utm_[^=]+=[^&]+", r"\1", link)
-    link = re.sub(r"([?&])fbclid=[^&]+",    r"\1", link)
+    link = re.sub(r"([?&])fbclid=[^&]+", r"\1", link)
     link = re.sub(r"[?&]$", "", link)
+
     return link.split("#")[0]
 
+
 def parse_date(entry):
-    for key in ("published_parsed", "updated_parsed", "created_parsed", "issued_parsed"):
+    for key in (
+        "published_parsed",
+        "updated_parsed",
+        "created_parsed",
+        "issued_parsed"
+    ):
         st = entry.get(key)
+
         if st:
             try:
-                return datetime.fromtimestamp(time.mktime(st), tz=timezone.utc), False
+                return datetime.fromtimestamp(
+                    time.mktime(st),
+                    tz=timezone.utc
+                ), False
             except Exception:
                 pass
-    for key in ("published", "updated", "created", "dc_date", "issued"):
+
+    for key in (
+        "published",
+        "updated",
+        "created",
+        "dc_date",
+        "issued"
+    ):
         val = entry.get(key)
+
         if isinstance(val, str) and val.strip():
             try:
                 dt = parsedate_to_datetime(val)
+
                 if dt.tzinfo is None:
                     dt = dt.replace(tzinfo=timezone.utc)
+
                 return dt.astimezone(timezone.utc), False
+
             except Exception:
                 pass
+
             if dateutil_parser:
                 try:
                     dt = dateutil_parser.parse(val)
+
                     if dt.tzinfo is None:
                         dt = dt.replace(tzinfo=timezone.utc)
+
                     return dt.astimezone(timezone.utc), False
+
                 except Exception:
                     pass
+
     if ALLOW_MISSING_DATES:
         return datetime.now(timezone.utc), True
+
     return None, False
 
-IMG_SRC_RE = re.compile(r'<img[^>]+src=["\']([^"\']+)["\']', re.I)
+
+IMG_SRC_RE = re.compile(
+    r'<img[^>]+src=["\']([^"\']+)["\']',
+    re.I
+)
+
 
 def find_image_in_html(html, base=None):
     if not html:
         return None
+
     m = IMG_SRC_RE.search(html)
+
     if not m:
         return None
-    return normalize_link(m.group(1).strip(), base=base)
+
+    return normalize_link(
+        m.group(1).strip(),
+        base=base
+    )
+
 
 def get_mime_for_url(url):
     if not url:
         return "image/jpeg"
+
     path = urlparse(url).path.lower()
-    if path.endswith(".png"):  return "image/png"
-    if path.endswith(".gif"):  return "image/gif"
-    if path.endswith(".webp"): return "image/webp"
-    if path.endswith(".svg"):  return "image/svg+xml"
+
+    if path.endswith(".png"):
+        return "image/png"
+
+    if path.endswith(".gif"):
+        return "image/gif"
+
+    if path.endswith(".webp"):
+        return "image/webp"
+
+    if path.endswith(".svg"):
+        return "image/svg+xml"
+
     return "image/jpeg"
+
 
 def extract_image_url(entry, base_link=None):
     mt = entry.get("media_thumbnail")
+
     if mt:
         if isinstance(mt, list) and mt[0].get("url"):
-            return normalize_link(mt[0]["url"], base=base_link)
+            return normalize_link(
+                mt[0]["url"],
+                base=base_link
+            )
+
         if isinstance(mt, dict) and mt.get("url"):
-            return normalize_link(mt["url"], base=base_link)
+            return normalize_link(
+                mt["url"],
+                base=base_link
+            )
 
     mc = entry.get("media_content")
+
     if mc:
         if isinstance(mc, list) and mc[0].get("url"):
-            return normalize_link(mc[0]["url"], base=base_link)
+            return normalize_link(
+                mc[0]["url"],
+                base=base_link
+            )
+
         if isinstance(mc, dict) and mc.get("url"):
-            return normalize_link(mc["url"], base=base_link)
+            return normalize_link(
+                mc["url"],
+                base=base_link
+            )
 
     enc = entry.get("enclosures")
+
     if enc and isinstance(enc, list):
         for e in enc:
-            href = e.get("href") or e.get("url") or e.get("link")
-            typ  = e.get("type", "")
-            if href and (typ.startswith("image/") or re.search(r'\.(jpg|jpeg|png|gif|webp|svg)$', href, re.I)):
-                return normalize_link(href, base=base_link)
+            href = (
+                e.get("href")
+                or e.get("url")
+                or e.get("link")
+            )
+
+            typ = e.get("type", "")
+
+            if href and (
+                typ.startswith("image/")
+                or re.search(
+                    r'\.(jpg|jpeg|png|gif|webp|svg)$',
+                    href,
+                    re.I
+                )
+            ):
+                return normalize_link(
+                    href,
+                    base=base_link
+                )
 
     links = entry.get("links")
+
     if links and isinstance(links, list):
         for l in links:
             if l.get("rel") == "enclosure":
                 href = l.get("href")
+
                 if href:
-                    return normalize_link(href, base=base_link)
+                    return normalize_link(
+                        href,
+                        base=base_link
+                    )
 
     content = entry.get("content")
+
     if content:
         if isinstance(content, list):
             for c in content:
                 if isinstance(c, dict) and c.get("value"):
-                    found = find_image_in_html(c.get("value"), base=base_link)
+                    found = find_image_in_html(
+                        c.get("value"),
+                        base=base_link
+                    )
+
                     if found:
                         return found
+
         elif isinstance(content, str):
-            found = find_image_in_html(content, base=base_link)
+            found = find_image_in_html(
+                content,
+                base=base_link
+            )
+
             if found:
                 return found
 
-    for key in ("summary", "description", "summary_detail", "description_detail"):
+    for key in (
+        "summary",
+        "description",
+        "summary_detail",
+        "description_detail"
+    ):
         val = entry.get(key)
+
         if isinstance(val, dict):
             val = val.get("value")
+
         if isinstance(val, str) and val:
-            found = find_image_in_html(val, base=base_link)
+            found = find_image_in_html(
+                val,
+                base=base_link
+            )
+
             if found:
                 return found
+
     return None
 
 # -- FETCHING ------------------------------------------------------------------
@@ -317,252 +408,605 @@ def extract_image_url(entry, base_link=None):
 def fetch_via_kl(kl_endpoint, target_feed_url, timeout=20):
     if not kl_endpoint:
         return None
-    headers = {"Content-Type": "application/json", "Accept": "application/xml, text/xml, */*"}
-    payload = {"url": target_feed_url}
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/xml, text/xml, */*"
+    }
+
+    payload = {
+        "url": target_feed_url
+    }
+
     try:
-        resp = requests.post(kl_endpoint, json=payload, headers=headers, timeout=timeout)
+        resp = requests.post(
+            kl_endpoint,
+            json=payload,
+            headers=headers,
+            timeout=timeout
+        )
+
         if resp.status_code == 200 and resp.text:
             return feedparser.parse(resp.text)
+
     except Exception:
         pass
+
     try:
-        resp = requests.get(kl_endpoint, params={"url": target_feed_url}, headers=headers, timeout=timeout)
+        resp = requests.get(
+            kl_endpoint,
+            params={"url": target_feed_url},
+            headers=headers,
+            timeout=timeout
+        )
+
         if resp.status_code == 200 and resp.text:
             return feedparser.parse(resp.text)
+
     except Exception:
         pass
+
     return None
 
+
 def fetch_feed(url):
-    url_norm    = url.strip()
+    url_norm = url.strip()
     method_used = "DIRECT"
 
     if url_norm in KL_API_FEEDS:
         kl_endpoint = os.environ.get("KL")
-        feed        = None
+        feed = None
+
         if kl_endpoint:
-            feed = fetch_via_kl(kl_endpoint, url_norm)
+            feed = fetch_via_kl(
+                kl_endpoint,
+                url_norm
+            )
+
             if feed:
                 method_used = "KL"
+
         if not feed:
             feed = feedparser.parse(url_norm)
+
     else:
         feed = feedparser.parse(url_norm)
 
-    entries_count = len(getattr(feed, "entries", []))
-    STATS["per_feed"].setdefault(url_norm, {"fetched": 0, "passed_age": 0, "capped": 0})
+    entries_count = len(
+        getattr(feed, "entries", [])
+    )
+
+    STATS["per_feed"].setdefault(
+        url_norm,
+        {
+            "fetched": 0,
+            "passed_age": 0,
+            "capped": 0
+        }
+    )
+
     STATS["per_feed"][url_norm]["fetched"] += entries_count
-    STATS["per_method"].setdefault(method_used, 0)
+
+    STATS["per_method"].setdefault(
+        method_used,
+        0
+    )
+
     STATS["per_method"][method_used] += entries_count
-    STATS["total_fetched"]            += entries_count
+    STATS["total_fetched"] += entries_count
 
     return feed
 
+
 def fetch_all_feeds():
-    now          = datetime.now(timezone.utc)
-    cutoff       = now - timedelta(hours=MAX_AGE_HOURS)
-    bd_now       = datetime.now(BD_TZ)
-    bd_now_str   = bd_now.strftime("%a, %d %b %Y %H:%M:%S +0600")
+    now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(hours=MAX_AGE_HOURS)
+
+    bd_now = datetime.now(BD_TZ)
+
+    bd_now_str = bd_now.strftime(
+        "%a, %d %b %Y %H:%M:%S +0600"
+    )
+
     all_articles = []
 
     for url in FEED_URLS:
-        feed       = fetch_feed(url)
+        feed = fetch_feed(url)
         feed_items = []
 
         for e in feed.entries:
             dt, inferred = parse_date(e)
+
             if not dt:
                 continue
+
             if (not ALLOW_OLDER) and dt < cutoff:
                 continue
 
             desc = ""
+
             if e.get("summary"):
                 desc = e.get("summary")
+
             elif e.get("description"):
                 desc = e.get("description")
-            elif e.get("content") and isinstance(e.get("content"), list):
-                desc = "\n".join([c.get("value", "") for c in e.get("content") if isinstance(c, dict)])
-            else:
-                det = e.get("summary_detail") or e.get("description_detail")
-                if isinstance(det, dict):
-                    desc = det.get("value", "") or ""
 
-            link       = normalize_link(e.get("link") or "")
-            article_id = e.get("id") or link or ""
-            image_url  = extract_image_url(e, base_link=link)
+            elif (
+                e.get("content")
+                and isinstance(e.get("content"), list)
+            ):
+                desc = "\n".join([
+                    c.get("value", "")
+                    for c in e.get("content")
+                    if isinstance(c, dict)
+                ])
+
+            else:
+                det = (
+                    e.get("summary_detail")
+                    or e.get("description_detail")
+                )
+
+                if isinstance(det, dict):
+                    desc = det.get(
+                        "value",
+                        ""
+                    ) or ""
+
+            link = normalize_link(
+                e.get("link") or ""
+            )
+
+            article_id = (
+                e.get("id")
+                or link
+                or ""
+            )
+
+            image_url = extract_image_url(
+                e,
+                base_link=link
+            )
 
             article = {
-                "id":          str(article_id),
-                "title":       e.get("title", "") or "",
-                "link":        link,
+                "id": str(article_id),
+                "title": e.get("title", "") or "",
+                "link": link,
                 "description": desc or "",
-                "published":   bd_now_str,
-                "source":      url,
+                "published": bd_now_str,
+                "source": url,
             }
+
             if inferred:
                 article["published_inferred"] = True
+
             if image_url:
-                article["thumbnail"]      = image_url
-                article["thumbnail_type"] = get_mime_for_url(image_url)
+                article["thumbnail"] = image_url
+                article["thumbnail_type"] = (
+                    get_mime_for_url(image_url)
+                )
 
             feed_items.append(article)
 
         passed = len(feed_items)
-        capped = min(passed, MAX_ARTICLES_PER_FEED)
+        capped = min(
+            passed,
+            MAX_ARTICLES_PER_FEED
+        )
+
         STATS["per_feed"][url]["passed_age"] = passed
-        STATS["per_feed"][url]["capped"]     = capped
-        STATS["total_passed_age"]           += passed
-        all_articles.extend(feed_items[:MAX_ARTICLES_PER_FEED])
+        STATS["per_feed"][url]["capped"] = capped
+        STATS["total_passed_age"] += passed
+
+        all_articles.extend(
+            feed_items[:MAX_ARTICLES_PER_FEED]
+        )
 
     return all_articles
 
+
 def get_new_articles(all_articles, processed_data):
-    processed_ids   = set(processed_data.get("article_ids", []))
-    processed_links = set(processed_data.get("article_links", []))
+    processed_ids = set(
+        processed_data.get(
+            "article_ids",
+            []
+        )
+    )
+
+    processed_links = set(
+        processed_data.get(
+            "article_links",
+            []
+        )
+    )
+
     new = []
+
     for a in all_articles:
-        aid   = a.get("id")
+        aid = a.get("id")
         alink = a.get("link")
-        if (aid and aid not in processed_ids) and (alink and alink not in processed_links):
+
+        if (
+            aid
+            and aid not in processed_ids
+            and alink
+            and alink not in processed_links
+        ):
             new.append(a)
-        elif alink and alink not in processed_links and aid not in processed_ids:
+
+        elif (
+            alink
+            and alink not in processed_links
+            and aid not in processed_ids
+        ):
             new.append(a)
+
     return new
 
 # -- CLASSIFICATION ------------------------------------------------------------
 
 def extract_signal_indices(text):
-    text = text.replace("```json", "").replace("```", "").strip()
-    match = re.search(r"\{.*\}", text, flags=re.DOTALL)
+    text = (
+        text
+        .replace("```json", "")
+        .replace("```", "")
+        .strip()
+    )
+
+    match = re.search(
+        r"\{.*\}",
+        text,
+        flags=re.DOTALL
+    )
+
     if match:
         try:
-            obj = json.loads(match.group(0))
+            obj = json.loads(
+                match.group(0)
+            )
+
             if isinstance(obj, dict):
-                return [i for i in obj.get("signal", []) if isinstance(i, int)]
+                return [
+                    i
+                    for i in obj.get(
+                        "signal",
+                        []
+                    )
+                    if isinstance(i, int)
+                ]
+
         except Exception:
             pass
-    m = re.search(r'"signal"\s*:\s*(\[.*?\])', text, flags=re.DOTALL)
+
+    m = re.search(
+        r'"signal"\s*:\s*(\[.*?\])',
+        text,
+        flags=re.DOTALL
+    )
+
     if m:
         try:
-            return [i for i in json.loads(m.group(1)) if isinstance(i, int)]
+            return [
+                i
+                for i in json.loads(
+                    m.group(1)
+                )
+                if isinstance(i, int)
+            ]
+
         except Exception:
             pass
+
     return []
+
 
 def send_to_mistral(articles):
     """Single Mistral call. Returns deduplicated SIGNAL indices via prompt instructions."""
+
     api_key = os.environ.get("MS")
+
     if not api_key or not articles:
         return []
 
     try:
-        client      = Mistral(api_key=api_key)
-        titles_text = "\n".join([f"{i}. {a.get('title', '')}" for i, a in enumerate(articles)])
+        client = Mistral(
+            api_key=api_key
+        )
+
+        titles_text = "\n".join([
+            f"{i}. {a.get('title', '')}"
+            for i, a in enumerate(articles)
+        ])
 
         response = client.chat.complete(
             model=MISTRAL_MODEL,
             messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": PROMPT.format(titles=titles_text)},
+                {
+                    "role": "system",
+                    "content": SYSTEM_PROMPT
+                },
+                {
+                    "role": "user",
+                    "content": PROMPT.format(
+                        titles=titles_text
+                    )
+                },
             ],
-            response_format={"type": "json_object"},
+            response_format={
+                "type": "json_object"
+            },
         )
 
-        text = response.choices[0].message.content or ""
+        text = (
+            response.choices[0]
+            .message.content
+            or ""
+        )
+
         return extract_signal_indices(text)
 
     except Exception as e:
-        print(f"Mistral classification error: {e}")
+        print(
+            f"Mistral classification error: {e}"
+        )
         return []
 
 # -- XML -----------------------------------------------------------------------
 
-def _fresh_channel(root, feed_title, feed_description):
-    channel = ET.SubElement(root, "channel")
-    ET.SubElement(channel, "title").text       = feed_title
-    ET.SubElement(channel, "link").text        = "https://yourusername.github.io/yourrepo/"
-    ET.SubElement(channel, "description").text = feed_description
+def _fresh_channel(
+    root,
+    feed_title,
+    feed_description
+):
+    channel = ET.SubElement(
+        root,
+        "channel"
+    )
+
+    ET.SubElement(
+        channel,
+        "title"
+    ).text = feed_title
+
+    ET.SubElement(
+        channel,
+        "link"
+    ).text = (
+        "https://yourusername.github.io/yourrepo/"
+    )
+
+    ET.SubElement(
+        channel,
+        "description"
+    ).text = feed_description
+
     return channel
 
-def _load_or_create(output_file, feed_title, feed_description):
-    ET.register_namespace("media", MEDIA_NS)
+
+def _load_or_create(
+    output_file,
+    feed_title,
+    feed_description
+):
+    ET.register_namespace(
+        "media",
+        MEDIA_NS
+    )
+
     if Path(output_file).exists():
         try:
-            tree    = ET.parse(output_file)
-            root    = tree.getroot()
+            tree = ET.parse(output_file)
+            root = tree.getroot()
             channel = root.find("channel")
+
             if channel is not None:
                 return tree, root, channel
-            channel = _fresh_channel(root, feed_title, feed_description)
+
+            channel = _fresh_channel(
+                root,
+                feed_title,
+                feed_description
+            )
+
             return tree, root, channel
+
         except ET.ParseError:
             pass
-    root    = ET.Element("rss", {"version": "2.0"})
-    tree    = ET.ElementTree(root)
-    channel = _fresh_channel(root, feed_title, feed_description)
+
+    root = ET.Element(
+        "rss",
+        {"version": "2.0"}
+    )
+
+    tree = ET.ElementTree(root)
+
+    channel = _fresh_channel(
+        root,
+        feed_title,
+        feed_description
+    )
+
     return tree, root, channel
 
-def generate_xml_feed(articles, output_file, feed_title=None, feed_description=None):
-    feed_title       = feed_title       or "Curated News"
-    feed_description = feed_description or "AI-curated news feed"
 
-    tree, root, channel = _load_or_create(output_file, feed_title, feed_description)
+def generate_xml_feed(
+    articles,
+    output_file,
+    feed_title=None,
+    feed_description=None
+):
+    feed_title = (
+        feed_title
+        or "Curated News"
+    )
+
+    feed_description = (
+        feed_description
+        or "AI-curated news feed"
+    )
+
+    tree, root, channel = _load_or_create(
+        output_file,
+        feed_title,
+        feed_description
+    )
 
     existing_links: set[str] = set()
+
     for item in channel.findall("item"):
         link_el = item.find("link")
-        if link_el is not None and link_el.text:
-            existing_links.add(link_el.text.strip())
+
+        if (
+            link_el is not None
+            and link_el.text
+        ):
+            existing_links.add(
+                link_el.text.strip()
+            )
 
     added = 0
+
     for a in articles:
-        link = (a.get("link") or "").strip()
+        link = (
+            a.get("link")
+            or ""
+        ).strip()
+
         if not link or link in existing_links:
             continue
 
-        item         = ET.SubElement(channel, "item")
-        ET.SubElement(item, "title").text       = a.get("title", "") or ""
-        ET.SubElement(item, "link").text        = link
-        guid_val     = a.get("id") or link
-        is_permalink = "true" if guid_val.startswith("http") else "false"
-        ET.SubElement(item, "guid", {"isPermaLink": is_permalink}).text = guid_val
-        ET.SubElement(item, "description").text = a.get("description", "") or ""
+        item = ET.SubElement(
+            channel,
+            "item"
+        )
+
+        ET.SubElement(
+            item,
+            "title"
+        ).text = (
+            a.get("title", "")
+            or ""
+        )
+
+        ET.SubElement(
+            item,
+            "link"
+        ).text = link
+
+        guid_val = (
+            a.get("id")
+            or link
+        )
+
+        is_permalink = (
+            "true"
+            if guid_val.startswith("http")
+            else "false"
+        )
+
+        ET.SubElement(
+            item,
+            "guid",
+            {
+                "isPermaLink": is_permalink
+            }
+        ).text = guid_val
+
+        ET.SubElement(
+            item,
+            "description"
+        ).text = (
+            a.get("description", "")
+            or ""
+        )
+
         if a.get("published"):
-            ET.SubElement(item, "pubDate").text = a["published"]
+            ET.SubElement(
+                item,
+                "pubDate"
+            ).text = a["published"]
 
         thumb = a.get("thumbnail")
+
         if thumb:
-            ET.SubElement(item, MEDIA_TAG + "thumbnail", {"url": thumb})
-            mime = a.get("thumbnail_type") or get_mime_for_url(thumb)
-            ET.SubElement(item, "enclosure", {"url": thumb, "type": mime, "length": "0"})
+            ET.SubElement(
+                item,
+                MEDIA_TAG + "thumbnail",
+                {"url": thumb}
+            )
+
+            mime = (
+                a.get("thumbnail_type")
+                or get_mime_for_url(thumb)
+            )
+
+            ET.SubElement(
+                item,
+                "enclosure",
+                {
+                    "url": thumb,
+                    "type": mime,
+                    "length": "0"
+                }
+            )
 
         existing_links.add(link)
         added += 1
 
     all_items = channel.findall("item")
-    overflow  = len(all_items) - MAX_FEED_ITEMS
+
+    overflow = (
+        len(all_items)
+        - MAX_FEED_ITEMS
+    )
+
     if overflow > 0:
         for old_item in all_items[:overflow]:
             channel.remove(old_item)
 
-    now_text   = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
-    last_build = channel.find("lastBuildDate")
+    now_text = datetime.utcnow().strftime(
+        "%a, %d %b %Y %H:%M:%S +0000"
+    )
+
+    last_build = channel.find(
+        "lastBuildDate"
+    )
+
     if last_build is None:
-        ET.SubElement(channel, "lastBuildDate").text = now_text
+        ET.SubElement(
+            channel,
+            "lastBuildDate"
+        ).text = now_text
     else:
         last_build.text = now_text
 
     try:
-        ET.indent(tree, space="  ")
+        ET.indent(
+            tree,
+            space="  "
+        )
     except AttributeError:
         pass
 
-    tree.write(output_file, encoding="unicode", xml_declaration=False)
-    with open(output_file, "r+", encoding="utf-8") as fh:
+    tree.write(
+        output_file,
+        encoding="unicode",
+        xml_declaration=False
+    )
+
+    with open(
+        output_file,
+        "r+",
+        encoding="utf-8"
+    ) as fh:
         body = fh.read()
         fh.seek(0)
-        fh.write('<?xml version="1.0" encoding="UTF-8"?>\n' + body)
+
+        fh.write(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            + body
+        )
+
         fh.truncate()
 
     return added
@@ -571,69 +1015,166 @@ def generate_xml_feed(articles, output_file, feed_title=None, feed_description=N
 
 def print_stats():
     print("\nFetch statistics:")
-    print(f"  Timestamp:            {STATS.get('timestamp')}")
-    print(f"  Total fetched:        {STATS['total_fetched']}")
-    print(f"  Passed age cut:       {STATS['total_passed_age']}  (within {MAX_AGE_HOURS}h)")
-    print(f"  New (unseen):         {STATS['total_new']}")
-    print(f"  Signal (Mistral):     {STATS['total_signal_mistral']}")
-    print(f"  Signal (after dedup): {STATS['total_signal_deduped']}  -> {OUTPUT_XML}")
+    print(
+        f"  Timestamp:            {STATS.get('timestamp')}"
+    )
+    print(
+        f"  Total fetched:        {STATS['total_fetched']}"
+    )
+    print(
+        f"  Passed age cut:       {STATS['total_passed_age']}  "
+        f"(within {MAX_AGE_HOURS}h)"
+    )
+    print(
+        f"  New (unseen):         {STATS['total_new']}"
+    )
+    print(
+        f"  Signal (Mistral):     {STATS['total_signal_mistral']}"
+    )
+    print(
+        f"  Signal (after dedup): {STATS['total_signal_deduped']}  "
+        f"-> {OUTPUT_XML}"
+    )
+
     print("  Per-method:")
-    for method, cnt in STATS["per_method"].items():
-        print(f"    {method}: {cnt}")
+
+    for method, cnt in STATS[
+        "per_method"
+    ].items():
+        print(
+            f"    {method}: {cnt}"
+        )
+
     print("  Per-feed:")
-    for feed, d in STATS["per_feed"].items():
+
+    for feed, d in STATS[
+        "per_feed"
+    ].items():
         print(f"    {feed}")
-        print(f"      fetched={d.get('fetched',0)}  passed_age={d.get('passed_age',0)}  capped={d.get('capped',0)}")
+        print(
+            f"      fetched={d.get('fetched',0)}  "
+            f"passed_age={d.get('passed_age',0)}  "
+            f"capped={d.get('capped',0)}"
+        )
+
     print("")
 
 # -- MAIN ----------------------------------------------------------------------
 
 def main():
-    processed_data = load_processed_articles()
-    all_articles   = fetch_all_feeds()
-    new_articles   = get_new_articles(all_articles, processed_data)
+    processed_data = (
+        load_processed_articles()
+    )
 
-    STATS["total_new"] = len(new_articles)
+    all_articles = fetch_all_feeds()
 
-    mistral_indices = send_to_mistral(new_articles)
-    mistral_indices = [i for i in mistral_indices if 0 <= i < len(new_articles)]
+    new_articles = get_new_articles(
+        all_articles,
+        processed_data
+    )
 
-    STATS["total_signal_mistral"] = len(mistral_indices)
-    STATS["total_signal"]         = len(mistral_indices)
+    STATS["total_new"] = len(
+        new_articles
+    )
+
+    mistral_indices = send_to_mistral(
+        new_articles
+    )
+
+    mistral_indices = [
+        i
+        for i in mistral_indices
+        if 0 <= i < len(new_articles)
+    ]
+
+    STATS["total_signal_mistral"] = len(
+        mistral_indices
+    )
+
+    STATS["total_signal"] = len(
+        mistral_indices
+    )
 
     if not mistral_indices:
-        print("Mistral returned no signal indices. Skipping all file writes.")
+        print(
+            "Mistral returned no signal indices. "
+            "Skipping all file writes."
+        )
+
         print_stats()
         return
 
-    signal_articles   = [new_articles[i] for i in mistral_indices]
-    excluded_articles = [new_articles[i] for i in range(len(new_articles)) if i not in set(mistral_indices)]
+    signal_articles = [
+        new_articles[i]
+        for i in mistral_indices
+    ]
 
-    STATS["total_signal_deduped"] = len(signal_articles)
+    signal_index_set = set(
+        mistral_indices
+    )
+
+    excluded_articles = [
+        new_articles[i]
+        for i in range(len(new_articles))
+        if i not in signal_index_set
+    ]
+
+    STATS["total_signal_deduped"] = len(
+        signal_articles
+    )
 
     generate_xml_feed(
         signal_articles,
         output_file=OUTPUT_XML,
         feed_title="Curated News",
-        feed_description="AI-curated signal: Bangladesh affairs and international hard news",
+        feed_description=(
+            "AI-curated signal: "
+            "Bangladesh affairs and international hard news"
+        ),
     )
 
     generate_xml_feed(
         excluded_articles,
         output_file=EXCLUDED_XML,
         feed_title="Excluded News",
-        feed_description="Articles excluded after Mistral classification",
+        feed_description=(
+            "Articles excluded after Mistral classification"
+        ),
     )
 
-    save_selected_articles(signal_articles)
+    save_selected_articles(
+        signal_articles
+    )
 
-    processed_data.setdefault("article_ids",   []).extend([a["id"]   for a in new_articles if a.get("id")])
-    processed_data.setdefault("article_links", []).extend([a["link"] for a in new_articles if a.get("link")])
-    save_processed_articles(processed_data)
+    processed_data.setdefault(
+        "article_ids",
+        []
+    ).extend([
+        a["id"]
+        for a in new_articles
+        if a.get("id")
+    ])
 
-    STATS["timestamp"] = datetime.utcnow().isoformat()
+    processed_data.setdefault(
+        "article_links",
+        []
+    ).extend([
+        a["link"]
+        for a in new_articles
+        if a.get("link")
+    ])
+
+    save_processed_articles(
+        processed_data
+    )
+
+    STATS["timestamp"] = (
+        datetime.utcnow().isoformat()
+    )
+
     save_stats()
     print_stats()
+
 
 if __name__ == "__main__":
     main()
