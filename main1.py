@@ -62,44 +62,39 @@ MAX_FEED_ITEMS        = 500
 
 # -- PROMPT --------------------------------------------------------------------
 
-PROMPT = """You are an extremely strict news classification engine for Bangla-language headlines from Bangladeshi news outlets.
-Your task: Classify each headline as SIGNAL or NOISE based on major national or global significance.
-The bar is EXTREMELY HIGH; reject non-essential news aggressively. Only concrete, large-scale events qualify as SIGNAL.
+SYSTEM_PROMPT = """You are a strict news classification engine for Bangla-language headlines from Bangladeshi outlets.
 
-GUIDELINES:
-- ABSOLUTE DEFAULT IS NOISE. When in doubt or if a title is vague, classify as NOISE immediately.
-- SIGNAL must represent official state action, systemic national impact, or major cross-border/global shifts.
-- Political rhetoric, party statements, press conferences, political drama, mutual accusations, and political commentary are ALWAYS NOISE unless backed by an official state policy change or constitutional/legal milestone.
+DEFAULT: NOISE. Classify as SIGNAL only for concrete, large-scale events with verifiable nationwide or global structural impact. When uncertain: NOISE.
 
-STEP 1 — INSTANT NOISE. Classify as NOISE if the headline matches any of these:
-  - Sports, entertainment, celebrity, lifestyle, human interest, crime, accidents, or cultural events
-  - Political speeches, party declarations, press briefings, mutual attacks between political figures/parties, or rallies
-  - Tribute, commemorative, anniversary, opinion pieces, editorials, or analyses (e.g., "Why X matters", "X's perspective")
-  - Isolated incidents: individual arrests, routine court hearings, local clashes, local crimes, fires, or localized protests
-  - Stories limited to a single district, city, institution, university, community, or individual
-  - Routine weather/rain reports (unless a multi-division catastrophic natural disaster emergency)
-  - Everyday market price fluctuations unless tied to direct, central government price/tax/duty regulation decisions
+INSTANT NOISE — any match → NOISE:
+- Sports, entertainment, celebrity, lifestyle, human interest, crime, accidents
+- Political speeches, party statements, rallies, press conferences, accusations, commentary
+- Opinion, editorial, analysis, tribute, anniversary content
+- Routine court hearings, individual arrests, isolated local incidents
+- Single district / city / institution / individual scope
+- Routine weather or market price updates without government policy action
 
-STEP 2 — SCOPE CHECK (SIGNAL REQUIREMENTS).
+SIGNAL — Bangladesh (nationwide structural impact only):
+- Central bank policy rate or currency decisions; official budget enactment
+- Foreign reserve milestones; IMF/World Bank loan approvals or agreements
+- Major cabinet decisions; parliamentary acts passed; landmark Supreme Court rulings
+- Election Commission official schedule announcements
+- Nationwide infrastructure failures (power grid, internet)
+- Multi-division natural disasters; national emergency declarations
+- Official bilateral summits, international sanctions, formal cross-border treaties
 
-  BANGLADESH: SIGNAL ONLY if describing a major event with verified nationwide structural impact:
-  - Major national economic policy: central bank policy rates, currency devaluations, official national budget enactment, foreign reserves milestones, multi-sector fuel/utility price revisions, official IMF/World Bank loan approvals/agreements
-  - Official state/institutional actions: major cabinet decisions, parliamentary acts passed, landmark Supreme Court rulings, Election Commission official schedule announcements
-  - Nationwide infrastructure failures: countrywide power, energy, grid, or internet blackouts
-  - Multi-division/Nationwide natural disasters or national state of emergency declarations
-  - High-level foreign affairs: official bilateral summits, international sanctions, cross-border formal treaties, official foreign aid/loan sign-offs
+SIGNAL — International (state-level, direct global/regional consequence):
+- Active inter-state armed conflict, declarations of war, official ceasefires
+- UN Security Council binding resolutions; binding ICC / ICJ / NATO decisions
+- Major IMF/World Bank program approvals
+- Global energy/financial disruptions, nuclear milestones, formal treaty collapse
+- Foreign internal politics → NOISE unless headline explicitly states direct Bangladesh impact
 
-  INTERNATIONAL: SIGNAL ONLY for concrete state-level events with direct global or regional consequences:
-  - Active inter-state armed conflicts, declarations of war, or official ceasefires
-  - Multinational body binding actions: UN Security Council binding resolutions, major IMF/World Bank program approvals, binding NATO/ICC/ICJ decisions
-  - Major international energy/financial market disruptions, nuclear milestones, or formal global treaty collapse
-  - Internal politics of foreign countries are NOISE unless explicitly stating direct, immediate impact on Bangladesh
+DEDUPLICATION: For headlines covering the exact same story, keep only the lowest 0-based index. All distinct topics must be retained.
 
-STEP 3 — STRICT DEDUPLICATION. Group headlines covering the exact same story or event. For each group, keep ONLY the lowest 0-based index (earliest). Distinct topics must all be retained.
+OUTPUT: Respond with only valid JSON — {"signal": [0-based indices]} — no markdown, no explanation."""
 
-Output only: {{"signal": [0-based indices]}}. Valid JSON, no markdown formatting, no explanation.
-
-EXAMPLES (logic applies identically to Bangla titles):
+PROMPT = """Examples:
 
 Input:
 0. বিএনপির সংবাদ সম্মেলনে জাতীয় নির্বাচন নিয়ে কড়া বক্তব্য
@@ -126,9 +121,8 @@ Input:
 8. জাতীয় সংসদে সাইবার নিরাপত্তা আইন বাতিল বিল পাস
 Output: {{"signal": [1, 4, 6, 8]}}
 
-Article titles:
-{titles}
-"""
+Classify:
+{titles}"""
 
 # -- CONSTANTS -----------------------------------------------------------------
 
@@ -468,7 +462,10 @@ def send_to_mistral(articles):
 
         response = client.chat.complete(
             model=MISTRAL_MODEL,
-            messages=[{"role": "user", "content": PROMPT.format(titles=titles_text)}],
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": PROMPT.format(titles=titles_text)},
+            ],
             response_format={"type": "json_object"},
         )
 
