@@ -859,8 +859,7 @@ def send_to_mistral(articles):
         print(
             f"Gemini classification error: {e}"
         )
-
-        return []
+        sys.exit(1)
 
 
 def deduplicate_articles(articles):
@@ -979,7 +978,6 @@ def deduplicate_articles(articles):
         print(
             f"Gemini dedup error: {e}"
         )
-
         return articles
 
 # -- XML -----------------------------------------------------------------------
@@ -1317,18 +1315,14 @@ def print_stats():
 
     print("  Per-method:")
 
-    for method, cnt in STATS[
-        "per_method"
-    ].items():
+    for method, cnt in STATS["per_method"].items():
         print(
             f"    {method}: {cnt}"
         )
 
     print("  Per-feed:")
 
-    for feed, d in STATS[
-        "per_feed"
-    ].items():
+    for feed, d in STATS["per_feed"].items():
         print(f"    {feed}")
 
         print(
