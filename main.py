@@ -71,7 +71,7 @@ Your task has TWO steps internally:
 1. Classify each title as SIGNAL or NOISE.
 2. Among SIGNAL titles, identify near-identical titles covering the same story. For each group of near-identical SIGNAL titles, keep only the LOWEST index and discard the other duplicates.
 
-GOAL: Retain significant national and international news while filtering out localized, minor, or routine noise. Also remove near-identical duplicate coverage of the same story.
+GOAL: Retain significant national and international news while filtering out localized, minor, or routine noise. Also remove near-identical duplicate coverage of the same story. The bar of selection is Super High [Extreme Low < Super Low < Low < Normal < High < Super High < Ultimate High].
 
 CLASSIFICATION RULES:
 
