@@ -4,28 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Sat, 03 Oct 2026 22:22:09 +0000</lastBuildDate>
-    <item>
-      <title>ভারতের উত্তর প্রদেশে বন্যায় নিহত বেড়ে ৮১</title>
-      <link>https://bangla.thedailystar.net/international/news-3965621</link>
-      <guid isPermaLink="true">https://bangla.thedailystar.net/international/news-3965621</guid>
-      <description>এতে ২ হাজার ২০০টির বেশি ঘরবাড়ি ও ৮১ হেক্টর কৃষিজমিও ক্ষতিগ্রস্ত হয়েছে।</description>
-      <pubDate>Tue, 29 Sep 2026 03:53:17 +0600</pubDate>
-    </item>
-    <item>
-      <title>কক্সবাজারে গবেষণা-নীতি সংলাপে রোহিঙ্গা গণহত্যা সেল গঠনের প্রস্তাব</title>
-      <link>https://bangla.thedailystar.net/news/bangladesh/news-3965401</link>
-      <guid isPermaLink="true">https://bangla.thedailystar.net/news/bangladesh/news-3965401</guid>
-      <description />
-      <pubDate>Tue, 29 Sep 2026 03:53:17 +0600</pubDate>
-    </item>
-    <item>
-      <title>দেশে ফেরার পথে ব্যাংককে আটকে ২০ বাংলাদেশি অ্যাথলেট</title>
-      <link>https://bangla.thedailystar.net/sports/other-sports/news-3965486</link>
-      <guid isPermaLink="true">https://bangla.thedailystar.net/sports/other-sports/news-3965486</guid>
-      <description />
-      <pubDate>Tue, 29 Sep 2026 03:53:17 +0600</pubDate>
-    </item>
+    <lastBuildDate>Sun, 04 Oct 2026 01:53:17 +0000</lastBuildDate>
     <item>
       <title>থাইল্যান্ডে বন্যায় মৃত ৮, ব্যাংকককে ‘দুর্যোগকবলিত’ ঘোষণা</title>
       <link>https://bangla.thedailystar.net/international/news-3965496</link>
@@ -5685,6 +5664,29 @@
       <pubDate>Sun, 04 Oct 2026 04:22:05 +0600</pubDate>
       <media:thumbnail url="https://media.assettype.com/bdnews24/2026-10-03/1xwdabii/fakir-mahbub-anam-031026-01.jpg?w=300" />
       <enclosure url="https://media.assettype.com/bdnews24/2026-10-03/1xwdabii/fakir-mahbub-anam-031026-01.jpg?w=300" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>নামের মিলে ১০ মাস ধরে কারাগারে, তদন্তের নির্দেশ হাইকোর্টের</title>
+      <link>https://www.prothomalo.com/bangladesh/crime/3n3746gxyp</link>
+      <guid isPermaLink="false">83ec487d-4e35-4f61-9bb5-2fb3dce9527f</guid>
+      <description>রিটের সঙ্গে ২০১৮ সালের ২২ ফেব্রুয়ারি ২ নম্বর কুসুমহাটি ইউনিয়ন পরিষদের তৎকালীন চেয়ারম্যানের একটি প্রত্যয়নপত্র যুক্ত করা হয়েছে।</description>
+      <pubDate>Sun, 04 Oct 2026 07:53:14 +0600</pubDate>
+      <media:thumbnail url="https://media.prothomalo.com/prothomalo-bangla/2026-06-10/dwsp9qvr/Untitled-1.jpg?w=280" />
+      <enclosure url="https://media.prothomalo.com/prothomalo-bangla/2026-06-10/dwsp9qvr/Untitled-1.jpg?w=280" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>জুলাই-সেপ্টেম্বর প্রান্তিকে টেসলার বিক্রি কমেছে ২ শতাংশ</title>
+      <link>https://bonikbarta.com/economy/ojgnG8jVdxvsEQHZ/</link>
+      <guid isPermaLink="false">8206f9de59e83af24cd5bc4abc4ae033</guid>
+      <description>জুলাই-সেপ্টেম্বর প্রান্তিকে মোট ৪ লাখ ৮৬ হাজার ৫৩২টি গাড়ি বিক্রি করেছে টেসলা।</description>
+      <pubDate>Sun, 04 Oct 2026 07:53:14 +0600</pubDate>
+    </item>
+    <item>
+      <title>বিনিয়োগ ও কর্মসংস্থান বাড়ানোই সরকারের অগ্রাধিকার</title>
+      <link>https://bonikbarta.com/economy/xXBSqL3rESqudPFf/</link>
+      <guid isPermaLink="false">f772fd88aa9d86a16e9965db98d92168</guid>
+      <description>শিক্ষার্থীদের উদ্দেশে তিনি বলেন, ‘চাপের মুখে মানিয়ে নেয়া ও যুক্তি দিয়ে অবস্থান রক্ষা করাই একজন আসল নীতিনির্ধারকের দক্ষতা। যেকোনো নীতি কাগজের সৌন্দর্যে নয়, বরং তথ্যপ্রমাণের ভিত্তিতে বাস্তবায়নযোগ্য হতে হবে।</description>
+      <pubDate>Sun, 04 Oct 2026 07:53:14 +0600</pubDate>
     </item>
   </channel>
 </rss>
