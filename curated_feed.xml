@@ -4,16 +4,7 @@
     <title>Curated News</title>
     <link>https://yourusername.github.io/yourrepo/</link>
     <description>AI-curated signal: Bangladesh affairs and international hard news</description>
-    <lastBuildDate>Sun, 18 Oct 2026 19:41:38 +0000</lastBuildDate>
-    <item>
-      <title>ঢাকা বিমানবন্দর সম্প্রসারণ: নির্মাণ ও পরামর্শক সেবায় আরও ৭৬৫ কোটি টাকা ব্যয়ের অনুমোদন</title>
-      <link>https://www.tbsnews.net/bangla/bangladesh/news-details-552156</link>
-      <guid isPermaLink="true">https://www.tbsnews.net/bangla/bangladesh/news-details-552156</guid>
-      <description />
-      <pubDate>Wed, 14 Oct 2026 16:21:03 +0600</pubDate>
-      <media:thumbnail url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/09/20/dhaka_airport.jpg" />
-      <enclosure url="https://www.tbsnews.net/bangla/sites/default/files/styles/big_2/public/images/2026/09/20/dhaka_airport.jpg" type="image/jpeg" length="0" />
-    </item>
+    <lastBuildDate>Sun, 18 Oct 2026 21:55:06 +0000</lastBuildDate>
     <item>
       <title>বিদ্যুৎ ও সার উৎপাদনে গ্যাস সরবরাহ নিশ্চিতে সরাসরি ক্রয় পদ্ধতিতে ৩ প্রতিষ্ঠান থেকে এলএনজি কেনার প্রস্তাব অনুমোদন</title>
       <link>https://www.tbsnews.net/bangla/bangladesh/news-details-552141</link>
@@ -5621,6 +5612,15 @@
       <pubDate>Mon, 19 Oct 2026 01:41:34 +0600</pubDate>
       <media:thumbnail url="https://media.assettype.com/bdnews24/2026-10-18/l58xjxlz/cabinet-meeting-181026-01.jpg?w=300" />
       <enclosure url="https://media.assettype.com/bdnews24/2026-10-18/l58xjxlz/cabinet-meeting-181026-01.jpg?w=300" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>সায়মা ওয়াজেদের বিরুদ্ধে অভিযোগপত্র অনুমোদন দুদকের</title>
+      <link>https://www.prothomalo.com/bangladesh/215vwz0u23</link>
+      <guid isPermaLink="false">58197083-28e3-4821-8cc4-17627e43141b</guid>
+      <description>দুদক সচিব মো. সাইদুর রহমান খান রোববার এক ব্রিফিংয়ে সায়মা ওয়াজেদের বিরুদ্ধে চার্জশিট অনুমোদন দেওয়ার তথ্য জানান।</description>
+      <pubDate>Mon, 19 Oct 2026 03:55:03 +0600</pubDate>
+      <media:thumbnail url="https://media.prothomalo.com/prothomalo-bangla/2024-08-08/w1w5is3t/sayma.webp?w=280" />
+      <enclosure url="https://media.prothomalo.com/prothomalo-bangla/2024-08-08/w1w5is3t/sayma.webp?w=280" type="image/webp" length="0" />
     </item>
   </channel>
 </rss>
