@@ -6,39 +6,39 @@
       "capped": 0
     },
     "https://www.prothomalo.com/feed/": {
-      "fetched": 86,
-      "passed_age": 85,
-      "capped": 85
+      "fetched": 16,
+      "passed_age": 16,
+      "capped": 16
     },
     "https://evilgodfahim.github.io/bb-rss/feed.xml": {
       "fetched": 500,
-      "passed_age": 103,
+      "passed_age": 111,
       "capped": 100
     },
     "https://evilgodfahim.github.io/tbs/bangla.xml": {
       "fetched": 500,
-      "passed_age": 30,
-      "capped": 30
+      "passed_age": 35,
+      "capped": 35
     },
     "https://evilgodfahim.github.io/dt/bangla.xml": {
-      "fetched": 88,
-      "passed_age": 88,
-      "capped": 88
+      "fetched": 81,
+      "passed_age": 81,
+      "capped": 81
     },
     "https://evilgodfahim.github.io/dstar/feeds/bangla_feed.xml": {
       "fetched": 500,
-      "passed_age": 90,
-      "capped": 90
+      "passed_age": 100,
+      "capped": 100
     },
     "https://evilgodfahim.github.io/skaln/feeds/feed.xml": {
       "fetched": 500,
-      "passed_age": 70,
-      "capped": 70
+      "passed_age": 89,
+      "capped": 89
     },
     "https://evilgodfahim.github.io/bt/banglatribune.xml": {
       "fetched": 500,
-      "passed_age": 91,
-      "capped": 91
+      "passed_age": 188,
+      "capped": 100
     },
     "https://evilgodfahim.github.io/bd24ar/feeds/feed-bangla.xml": {
       "fetched": 12,
@@ -48,17 +48,17 @@
   },
   "per_method": {
     "KL": 0,
-    "DIRECT": 2716
+    "DIRECT": 2639
   },
-  "total_fetched": 2716,
-  "total_passed_age": 569,
-  "total_new": 204,
-  "total_signal": 62,
+  "total_fetched": 2639,
+  "total_passed_age": 632,
+  "total_new": 264,
+  "total_signal": 41,
   "total_longread": 0,
-  "total_signal_deduped": 62,
+  "total_signal_deduped": 41,
   "total_longread_deduped": 0,
-  "timestamp": "2026-11-22T16:17:18.866080",
+  "timestamp": "2026-11-22T21:56:12.383235",
   "total_signal_gemini": 231,
-  "total_signal_mistral": 62,
+  "total_signal_mistral": 41,
   "total_after_dedup": 0
 }
